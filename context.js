@@ -3,6 +3,7 @@ TODO:
 1. Add link between matches and something interesting
 */
 
+var articleDiv;
 var articleText;
 var keywords;
 
@@ -13,7 +14,20 @@ window.document.onload = function(e)
     getArticleText();
     getDicts();
     findMatches();
+    addLinks();
 };
+
+
+
+function addLinks()
+{
+    for (var keyword in keywords)
+    {
+        var search = "https://www.google.dk/search?q=" + keyword;
+        var href = "<a href=\"" + search + "\">" + keyword + "</a>";
+        articleDiv.innerHTML = articleDiv.innerHTML.replace(keyword, href);
+    }
+}
 
 
 function findMatches()
@@ -43,9 +57,7 @@ function findMatches()
             {
                 var lastCharAt = keywordBuffer.length - 1;
                 keywordBuffer = keywordBuffer.substr(0, lastCharAt);
-                if (!keywords[keywordBuffer])
-                {
-                    keywords[keywordBuffer] = {};
+                keywords[keywordBuffer] = {};
                 ++keywordCount;
                 keywordBuffer = false;
             }
@@ -65,7 +77,7 @@ function findMatches()
 
 function getArticleText()
 {
-    var articleDiv = document.getElementById("article-body-blocks");
+    articleDiv = document.getElementById("article-body-blocks");
     articleText = articleDiv.textContent || articleDiv.innerText;
     articleText = articleText.trim();
 }

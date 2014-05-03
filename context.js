@@ -20,7 +20,7 @@ function findMatches()
 {
     var splitText = articleText.split(" ");
     keywords = {};
-    var addToPrev = false;
+    var keywordBuffer = false;
     var keywordCount = 0;
     for (var i=0; i<splitText.length; ++i)
     {
@@ -30,35 +30,34 @@ function findMatches()
         var lastChar = splitText[i][splitText[i].length - 1];
         if (firstChar.match(/[A-Z]/))
         {
-            if (addToPrev)
+            if (keywordBuffer)
             {
-                keywords[keywordCount] += " " + splitText[i];
+                keywordBuffer += " " + splitText[i];
             }
             else
             {
-                keywords[keywordCount] = splitText[i];
+                keywordBuffer = splitText[i];
             }
 
-            if (lastChar.match(/[a-zA-Z0-9]/))
+            if (!lastChar.match(/[a-zA-Z0-9]/))
             {
-                addToPrev = true;
-            }
-            else
-            {
-                var thisKeyword = keywords[keywordCount];
-                var lastCharAt = thisKeyword.length - 1;
-                keywords[keywordCount] = thisKeyword.substr(0, lastCharAt);
+                var lastCharAt = keywordBuffer.length - 1;
+                keywordBuffer = keywordBuffer.substr(0, lastCharAt);
+                if (!keywords[keywordBuffer])
+                {
+                    keywords[keywordBuffer] = {};
                 ++keywordCount;
-                addToPrev = false;
+                keywordBuffer = false;
             }
         }
         else
         {
-            if (addToPrev)
+            if (keywordBuffer)
             {
+                keywords[keywordBuffer] = {};
                 ++keywordCount;
             }
-            addToPrev = false;
+            keywordBuffer = false;
         }
     }
 }

@@ -8,6 +8,18 @@ var dictsCombined;
 
 function addLinks()
 {
+    hoverDiv = document.createElement("div");
+    articleDiv.appendChild(hoverDiv);
+    hoverDiv.style.display = "none";
+    hoverDiv.style.padding = "6px";
+    hoverDiv.style.position = "absolute";
+    hoverDiv.style.backgroundColor = "#ffffff";
+    hoverDiv.style.boxShadow = "-2px 5px 16px -5px #000000";
+    hoverDiv.style.zIndex = "100";
+    hoverDiv.style.width = "300px";
+    hoverDiv.borderRadius = "10px";
+    hoverDiv.id = "hoverDiv";
+
     var links = articleDiv.getElementsByTagName("a");
     for (var i=0; i<links.length; ++i)
     {
@@ -35,7 +47,10 @@ function addLinks()
                     console.log("found" + keyword);
                     var search = "https://www.google.dk/search?q=";
                     var href = search + encodeURIComponent(keyword);
-                    var link = "<a href=\"" + href + "\">" + keyword + "</a>";
+                    var link = "<a href=\"" + href + "\""
+                        + " onmouseover=\"hover(this);\""
+                        + " onmouseout=\"unhover(this);\""
+                        + ">" + keyword + "</a>";
                     articleDiv.innerHTML = articleDiv.innerHTML.replace(keyword, link);
                 }
             }
@@ -1532,6 +1547,31 @@ function getDicts()
     dictsCombined = companies
         + Object.keys(countries)
         + Object.keys(terms);
+}
+
+
+function hover(link)
+{
+    var hoverDiv = document.getElementById("hoverDiv");
+    var keyword = link.textContent || link.innerText;
+    hoverDiv.style.display = "block";
+    hoverDiv.style.top = link.offsetTop - 70 + "px";
+    hoverDiv.style.left = link.offsetLeft + 70 + "px";
+
+    for (var i=0; i<dicts.length; ++i)
+    {
+        if (dicts[i][keyword])
+        {
+            hoverDiv.innerHTML = JSON.stringify(dicts[i][keyword]);
+            break;
+        }
+    }
+}
+
+
+function unhover(link)
+{
+    document.getElementById("hoverDiv").style.display = "none";
 }
 
 

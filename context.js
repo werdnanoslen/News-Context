@@ -1,31 +1,31 @@
-/*
-TODO:
-1. Add link between matches and something interesting
-*/
-
 var articleDiv;
 var articleText;
 var keywords;
 
 
 
-window.document.onload = function(e)
-{
-    getArticleText();
-    getDicts();
-    findMatches();
-    addLinks();
-};
-
-
-
 function addLinks()
 {
+    var links = articleDiv.getElementsByTagName("a");
+    for (var i=0; i<links.length; ++i)
+    {
+        link[i].title = "";
+    }
     for (var keyword in keywords)
     {
-        var search = "https://www.google.dk/search?q=" + keyword;
-        var href = "<a href=\"" + search + "\">" + keyword + "</a>";
-        articleDiv.innerHTML = articleDiv.innerHTML.replace(keyword, href);
+        var prevChar = articleDiv.innerHTML.indexOf(keyword) - 1;
+        if (">" == articleDiv.innerHTML.charAt(prevChar))
+        {
+            console.log("Keyword \"" + keyword + "\" already linked.");
+            continue;
+        }
+        else
+        {
+            var search = "https://www.google.dk/search?q=" + keyword;
+            var href = "<a href=\"" + search + "\">" + keyword + "</a>";
+            var linkified = articleDiv.innerHTML.replace(keyword, href);
+            articleDiv.innerHTML = linkified;
+        }
     }
 }
 
@@ -92,3 +92,13 @@ function getDicts()
 {
     /* Waiting on my journalist friends to tell me what to put here */
 }
+
+
+
+window.document.onload = function(e)
+{
+    getArticleText();
+    getDicts();
+    findMatches();
+    addLinks();
+};

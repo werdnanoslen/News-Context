@@ -1549,7 +1549,6 @@ function getDicts()
         + Object.keys(terms);
 }
 
-
 function hover(link)
 {
     var hoverDiv = document.getElementById("hoverDiv");
@@ -1560,9 +1559,25 @@ function hover(link)
 
     for (var i=0; i<dicts.length; ++i)
     {
-        if (dicts[i][keyword])
+        var concept = dicts[i][keyword];
+        if (concept)
         {
-            hoverDiv.innerHTML = JSON.stringify(dicts[i][keyword]);
+            var term = document.createElement("h1");
+            var desc = document.createElement("p");
+            var img = document.createElement("img");
+
+            hoverDiv.appendChild(term);
+            hoverDiv.appendChild(desc);
+            hoverDiv.appendChild(img);
+
+            term.innerHTML = concept["Term"];
+            desc.innerHTML = concept["Description"];
+            if (concept["Image"].length > 0)
+            {
+                img.src = concept["Image"];
+            }
+            img.style.width = "100%";
+
             break;
         }
     }
@@ -1571,7 +1586,9 @@ function hover(link)
 
 function unhover(link)
 {
-    document.getElementById("hoverDiv").style.display = "none";
+    var hoverDiv = document.getElementById("hoverDiv");
+    hoverDiv.style.display = "none";
+    hoverDiv.innerHTML = "";
 }
 
 

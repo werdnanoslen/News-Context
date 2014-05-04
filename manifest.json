@@ -7,7 +7,7 @@
     "activeTab"
   ],
   "background": {
-    "scripts": ["launcher.js", "context.js"],
+    "scripts": ["jquery.min.js", "launcher.js", "context.js"],
     "persistent": false
   },
   "browser_action": {

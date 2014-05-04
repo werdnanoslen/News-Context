@@ -45,17 +45,29 @@ function addLinks()
             {
                 if (dicts[i][keyword])
                 {
-                    console.log("found" + keyword);
                     var search = "https://www.google.dk/search?q=";
                     var href = search + encodeURIComponent(keyword);
                     var link = "<a href=\"" + href + "\""
-                        + " onmouseover=\"hover(this);\""
-                        + " onmouseout=\"unhover(this);\""
+                        + " class=\"context-link\""
                         + ">" + keyword + "</a>";
                     articleDiv.innerHTML = articleDiv.innerHTML.replace(keyword, link);
                 }
             }
         }
+    }
+
+    var links = articleDiv.getElementsByClassName("context-link");
+    for (var i=0; i<links.length; ++i)
+    {
+        links[i].addEventListener("mouseover", function(e){
+            e.preventDefault();
+            hover(this);
+        });
+
+        links[i].addEventListener("mouseout", function(e){
+            e.preventDefault();
+            unhover(this);
+        });
     }
 }
 
@@ -122,988 +134,1494 @@ function getArticleText()
 */
 function getDicts()
 {
-    var companies = ["ARM Holdings", "Aberdeen Asset Management", "Admiral Group", "Aggreko", "Anglo American", "Antofagasta", "Ashtead Group", "Associated British Foods", "AstraZeneca", "Aviva", "BAE Systems", "BG Group", "BHP Billiton", "BP", "BT Group", "Babcock International Group", "Barclays", "Barratt Developments", "British American Tobacco", "British Land Co", "British Sky Broadcasting Group", "Bunzl", "Burberry Group", "CRH", "Capita", "Carnival", "Centrica", "Coca-Cola HBC AG", "Compass Group", "Diageo", "Easyjet", "Experian", "Fresnillo", "G4S", "GKN", "GlaxoSmithKline", "Glencore Xstrata", "HSBC Hldgs", "Hammerson", "Hargreaves Lansdown", "IMI", "ITV", "Imperial Tobacco Group", "InterContinental Hotels Group", "International Consolidated Airlines Group", "Intertek Group", "Johnson Matthey", "Kingfisher", "Land Securities Group", "Legal & General Group", "Lloyds Banking Group", "London Stock Exchange Group", "Marks & Spencer Group", "Meggitt", "Melrose Industries", "Mondi", "Morrison (Wm) Supermarkets", "National Grid", "Next", "Old Mutual", "Pearson", "Persimmon", "Petrofac", "Prudential", "RSA Insurance Group", "Randgold Resources", "Reckitt Benckiser Group", "Reed Elsevier", "Resolution", "Rexam", "Rio Tinto", "Rolls-Royce Holdings", "Royal Bank Of Scotland Group", "Royal Dutch Shell A", "Royal Dutch Shell B", "Royal Mail", "SABMiller", "SSE", "Sage Group", "Sainsbury (J)", "Schroders", "Severn Trent", "Shire", "Smith & Nephew", "Smiths Group", "Sports Direct International", "St.James Place", "Standard Chartered", "Standard Life", "TUI Travel", "Tesco", "Travis Perkins", "Tullow Oil", "Unilever", "United Utilities Group", "Vodafone Group", "WPP", "Weir Group", "Whitbread", "William Hill", "Wolseley"];
+    var companies = {
+        "ARM Holdings": {
+            "Term": "ARM Holdings",
+            "Description": "ARM.L  Stockprice:\u00a3886,00  0,00         Industry: Semiconductors  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= ARM Holdings",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/6\/60\/ARM_logo.svg"
+        },
+        "Aberdeen Asset Management": {
+            "Term": "Aberdeen Asset Management",
+            "Description": "ADN.L  Stockprice:\u00a3445,90  + 2,50         Industry: Investment Management  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Aberdeen Asset Management",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/2\/20\/Aberdeen_Asset_Management_new_logo.png"
+        },
+        "Admiral Group": {
+            "Term": "Admiral Group",
+            "Description": "ADM.L  Stockprice:\u00a31.391,00  -12,00         Industry: Insurance  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Admiral Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/e\/ee\/Admiral_Group.svg"
+        },
+        "Aggreko": {
+            "Term": "Aggreko",
+            "Description": "AGK.L  Stockprice:\u00a31.651,72  + 6,72         Industry: Generator hire  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Aggreko",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/2\/27\/Aggreko_logo.png"
+        },
+        "Anglo American": {
+            "Term": "Anglo American",
+            "Description": "AAL.L  Stockprice:\u00a31.570,11  + 5,61         Industry: Metals and Mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Anglo American plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/71\/AngloAmerican_logo.jpg"
+        },
+        "Antofagasta": {
+            "Term": "Antofagasta",
+            "Description": "ANTO.L  Stockprice:\u00a3790,50  + 14,50         Industry: Mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Antofagasta PLC",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/78\/Antofagasta.svg"
+        },
+        "Ashtead Group": {
+            "Term": "Ashtead Group",
+            "Description": "ASHM.L  Stockprice:\u00a3350,27  + 0,37         Industry: Plant hire  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Ashtead Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/eb\/AshteadLogo.PNG"
+        },
+        "Associated British Foods": {
+            "Term": "Associated British Foods",
+            "Description": "ABF.L  Stockprice:\u00a32.900,00  -97,00         Industry: Food processing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Associated British Foods",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/16\/Associated_British_Foods_Logo.svg"
+        },
+        "AstraZeneca": {
+            "Term": "AstraZeneca",
+            "Description": "AZN.L  Stockprice:\u00a34.808,00  -7,00         Industry: Pharmaceutical and biotechnology  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= AstraZeneca",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/4f\/AstraZeneca.svg"
+        },
+        "Aviva": {
+            "Term": "Aviva",
+            "Description": "AV.L  Stockprice:\u00a3522,89  -2,11           Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Aviva",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/07\/Aviva.svg"
+        },
+        "BAE Systems": {
+            "Term": "BAE Systems",
+            "Description": "BA.L          Stockprice:\u00a3401,10  -0,10         Industry: Aerospace, Defence and Information security  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= BAE Systems",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/2\/20\/BAE_SYSTEMS.svg"
+        },
+        "BG Group": {
+            "Term": "BG Group",
+            "Description": "BG.L  Stockprice:\u00a31.246,05  + 8,55         Industry: Oil and gas  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= BG Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/6\/6a\/BG_Group.svg"
+        },
+        "BHP Billiton": {
+            "Term": "BHP Billiton",
+            "Description": "BLT.L  Stockprice:\u00a31.931,19  + 35,19         Industry: Metals and Mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= BHP Billiton",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/c\/cb\/BHP_Billiton.svg"
+        },
+        "BP": {
+            "Term": "BP",
+            "Description": "BP.L  Stockprice:\u00a3501,88  + 3,83         Industry: Oil and gas  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= BP",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/e\/e7\/BP_Logo.svg"
+        },
+        "BT Group": {
+            "Term": "BT Group",
+            "Description": "BT-A.L  Stockprice:\u00a3377,50  + 0,40         Industry: Telecommunications  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= BT Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/d6\/BT_logo.svg"
+        },
+        "Babcock International Group": {
+            "Term": "Babcock International Group",
+            "Description": "   Industry: Support services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Babcock International Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/3\/36\/Babcockintlogo.png"
+        },
+        "Barclays": {
+            "Term": "Barclays",
+            "Description": "BARC.L  Stockprice:\u00a3258,50  + 2,35               Industry: Banking and Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Barclays",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/7e\/Barclays_logo.svg"
+        },
+        "Barratt Developments": {
+            "Term": "Barratt Developments",
+            "Description": "   Industry: Housebuilding  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Barratt Developments",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/4e\/Barrattlogo.png"
+        },
+        "British American Tobacco": {
+            "Term": "British American Tobacco",
+            "Description": "BATS.L  Stockprice:\u00a33.396,50  -52,50         Industry: Tobacco  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= British American Tobacco",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/05\/British_American_Tobacco_logo.svg"
+        },
+        "British Land Co": {
+            "Term": "British Land Co",
+            "Description": "BLND.L  Stockprice:\u00a3686,50  -3,50         Industry: Real estate  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= British Land Co",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f4\/British_Land.svg"
+        },
+        "British Sky Broadcasting Group": {
+            "Term": "British Sky Broadcasting Group",
+            "Description": "BSY.L  Stockprice:\u00a3889,00  -11,50         Industry: Mass media  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= British Sky Broadcasting Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/c\/cf\/Sky_logo.svg"
+        },
+        "Bunzl": {
+            "Term": "Bunzl",
+            "Description": "BNZL.L  Stockprice:\u00a31.652,00  -13,00         Industry: Distribution and outsourcing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Bunzl",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/33\/Bunzl-Logo.svg"
+        },
+        "Burberry Group": {
+            "Term": "Burberry Group",
+            "Description": "BRBY.L  Stockprice:\u00a31.492,00  -3,00         Industry: Fashion  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Burberry Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/03\/Burberry_logo.png"
+        },
+        "CRH": {
+            "Term": "CRH",
+            "Description": "CRH.L  Stockprice:\u00a31.726,00  -3,00         Industry: Building materials  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= CRH PLC",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f0\/Crh_logo.png"
+        },
+        "Capita": {
+            "Term": "Capita",
+            "Description": "CPI.L  Stockprice:\u00a31.094,00  + 8,00         Industry: Business process outsourcing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Capita",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/4\/4f\/Capita_logo.svg"
+        },
+        "Carnival": {
+            "Term": "Carnival",
+            "Description": "CCL.L  Stockprice:\u00a32.377,24  + 20,24         Industry: Hospitality and tourism  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Carnival PLC",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/58\/Carnival.svg"
+        },
+        "Centrica": {
+            "Term": "Centrica",
+            "Description": "CNA.L  Stockprice:\u00a3328,80  -1,20         Industry: Utilities  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Centrica",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/c\/c1\/Centrica_logo_2008.svg"
+        },
+        "Coca-Cola HBC AG": {
+            "Term": "Coca-Cola HBC AG",
+            "Description": "   Industry: Beverages  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Coca-Cola HBC AG",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/07\/Coca-Cola_HBC_AG_Official_Logo.jpg"
+        },
+        "Compass Group": {
+            "Term": "Compass Group",
+            "Description": "CPG.L  Stockprice:\u00a3945,50  + 4,00         Industry: Support services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Compass Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/49\/Compass_Group.svg"
+        },
+        "Diageo": {
+            "Term": "Diageo",
+            "Description": "DGE.L  Stockprice:\u00a31.825,68  + 0,68         Industry: Beverages  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Diageo",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/7d\/Diageo.svg"
+        },
+        "Easyjet": {
+            "Term": "Easyjet",
+            "Description": "   Industry: Airline  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Easyjet",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/1\/1b\/EasyJet_logo.svg"
+        },
+        "Experian": {
+            "Term": "Experian",
+            "Description": "EXPN.L  Stockprice:\u00a31.124,00  -11,00         Industry: Business services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Experian",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f8\/Experian.svg"
+        },
+        "Fresnillo": {
+            "Term": "Fresnillo",
+            "Description": "FRES.L  Stockprice:\u00a3832,00  + 2,00         Industry: Mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Fresnillo PLC",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/3\/37\/Fresnillo.svg"
+        },
+        "G4S": {
+            "Term": "G4S",
+            "Description": "GFS.L  Stockprice:\u00a3238,00  + 0,90         Industry: Security  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= G4S",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/b1\/G4S.svg"
+        },
+        "GKN": {
+            "Term": "GKN",
+            "Description": "GKN.L  Stockprice:\u00a3382,90  -4,10 Industry: Automotive and aerospace  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= GKN",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/0e\/GKN.svg"
+        },
+        "GlaxoSmithKline": {
+            "Term": "GlaxoSmithKline",
+            "Description": "GSK.L  Stockprice:\u00a31.627,50  -10,00         Industry: Pharmaceutical and biotechnology  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= GlaxoSmithKline",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/5c\/GlaxoSmithKline_logo.svg"
+        },
+        "Glencore Xstrata": {
+            "Term": "Glencore Xstrata",
+            "Description": "GLEN.L  Stockprice:\u00a3317,37  + 1,32         Industry: Commodities, metals and mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Glencore Xstrata",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/5d\/Glencore_Xstrata_logo.png"
+        },
+        "HSBC Hldgs": {
+            "Term": "HSBC Hldgs",
+            "Description": "HSBA.L  Stockprice:\u00a3605,70  -1,70         Industry: Banking and financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= HSBC Hldgs",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/5\/54\/HSBC.svg"
+        },
+        "Hammerson": {
+            "Term": "Hammerson",
+            "Description": "HMSO.L  Stockprice:\u00a3572,00  -5,00         Industry: Property  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Hammerson",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/a4\/Hammerson.svg"
+        },
+        "Hargreaves Lansdown": {
+            "Term": "Hargreaves Lansdown",
+            "Description": "HL.L  Stockprice:\u00a31.193,00  -22,00         Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Hargreaves Lansdown",
+            "Image": "http:\/\/en.wikipedia.org\/wiki\/Hargreaves_Lansdown"
+        },
+        "IMI": {
+            "Term": "IMI",
+            "Description": "IMI.L  Stockprice:\u00a31.507,00  -1,00         Industry: Engineering  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= IMI PLC",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/41\/Imiplclogo.PNG"
+        },
+        "ITV": {
+            "Term": "ITV",
+            "Description": "ITV.L  Stockprice:\u00a3184,50  -2,10         Industry: Media  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= ITV PLC",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/9\/92\/ITV_logo_2013.svg"
+        },
+        "Imperial Tobacco Group": {
+            "Term": "Imperial Tobacco Group",
+            "Description": "   Industry: Tobacco  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Imperial Tobacco Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/bb\/Imperialtobaccologo.svg"
+        },
+        "InterContinental Hotels Group": {
+            "Term": "InterContinental Hotels Group",
+            "Description": "IAG.L  Stockprice:\u00a32.193,54  + 169,54         Industry: Hotels  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= InterContinental Hotels Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/4c\/InterContinental_Hotels_Group.svg"
+        },
+        "International Consolidated Airlines Group": {
+            "Term": "International Consolidated Airlines Group",
+            "Description": "   Industry: Passenger air transport and air freight services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= International Consolidated Airlines Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/8a\/International_Airlines_Group_logo.png"
+        },
+        "Intertek Group": {
+            "Term": "Intertek Group",
+            "Description": "ITRK.L  Stockprice:\u00a32.928,00  -17,00         Industry: Testing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Intertek Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f1\/Interteklogo.PNG"
+        },
+        "Johnson Matthey": {
+            "Term": "Johnson Matthey",
+            "Description": "JMAT.L  Stockprice:\u00a33.308,00  -51,00         Industry: Chemicals and precious metals  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Johnson Matthey",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/2\/2c\/Johnson_Matthey.svg"
+        },
+        "Kingfisher": {
+            "Term": "Kingfisher",
+            "Description": "KGF.L  Stockprice:\u00a3426,40  + 8,40         Industry: Retail  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Kingfisher plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/81\/Kingfisher_plc.png"
+        },
+        "Land Securities Group": {
+            "Term": "Land Securities Group",
+            "Description": "LAND.L  Stockprice:\u00a31.059,00  -1,00         Industry: Property  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Land Securities Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/be\/Land_Securities.svg"
+        },
+        "Legal & General Group": {
+            "Term": "Legal & General Group",
+            "Description": "LGEN.L  Stockprice:\u00a3214,30  + 2,50 Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Legal & General Group plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/1c\/LegalAndGeneral_Logo.png"
+        },
+        "Lloyds Banking Group": {
+            "Term": "Lloyds Banking Group",
+            "Description": "LLOY.L  Stockprice:\u00a379,63  + 0,13         Industry: Banking and financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Lloyds Banking Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/2\/2e\/Lloyds_banking_group.svg"
+        },
+        "London Stock Exchange Group": {
+            "Term": "London Stock Exchange Group",
+            "Description": "   Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= London Stock Exchange Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/ee\/London_Stock_Exchange_Group.svg"
+        },
+        "Marks & Spencer Group": {
+            "Term": "Marks & Spencer Group",
+            "Description": "MKS.L  Stockprice:\u00a3440,80  -3,20         Industry: Retail  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Marks & Spencer plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/37\/MARKS_%26_Spencer_logo.svg"
+        },
+        "Meggitt": {
+            "Term": "Meggitt",
+            "Description": "MGGT.L  Stockprice:\u00a3476,90  + 0,20         Industry: Aerospace and defence  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Meggitt",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/57\/Meggittlogo.PNG"
+        },
+        "Melrose Industries": {
+            "Term": "Melrose Industries",
+            "Description": "   Industry: Finance  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Melrose PLC",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/be\/Melrose_plc_logo.png"
+        },
+        "Mondi": {
+            "Term": "Mondi",
+            "Description": "   Industry: Packaging and paper  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Mondi",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/e8\/Mondi.svg"
+        },
+        "Morrison (Wm) Supermarkets": {
+            "Term": "Morrison (Wm) Supermarkets",
+            "Description": "MRW.L  Stockprice:\u00a3196,20   -1,30         Industry: Retailing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Morrison (Wm) Supermarkets",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/1b\/Morrisons_Logo.svg"
+        },
+        "National Grid": {
+            "Term": "National Grid",
+            "Description": "NG.L  Stockprice:\u00a3838,58  + 2,08         Industry: Utilities  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= National Grid PLC",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/a\/aa\/National_Grid.svg"
+        },
+        "Next": {
+            "Term": "Next",
+            "Description": "NXT.L  Stockprice:\u00a36.610,00  -40,00         Industry: Retail  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Next plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/54\/Next_2007-_logo.svg"
+        },
+        "Old Mutual": {
+            "Term": "Old Mutual",
+            "Description": "OML.L  Stockprice:\u00a3202,60  + 2,10         Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Old Mutual",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/5c\/Old_Mutual.svg"
+        },
+        "Pearson": {
+            "Term": "Pearson",
+            "Description": "PSON.L  Stockprice:\u00a31.094,00  -8,00         Industry: Media  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Pearson plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/d\/d2\/Pearson_Without_Strapline_Blue_RGB_HiRes.png"
+        },
+        "Persimmon": {
+            "Term": "Persimmon",
+            "Description": "   Industry: Housebuilding  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Persimmon plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/3\/30\/Persimmon.svg"
+        },
+        "Petrofac": {
+            "Term": "Petrofac",
+            "Description": "PFC.L  Stockprice:\u00a31.463,00  + 9,00         Industry: Engineering, procurement & construction and oil & gas  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Petrofac",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/8f\/Petrofac.svg"
+        },
+        "Prudential": {
+            "Term": "Prudential",
+            "Description": "PRU.L  Stockprice:\u00a31.368,50  -4,50         Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Prudential",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/9\/97\/Prudential_plc_logo.svg"
+        },
+        "RSA Insurance Group": {
+            "Term": "RSA Insurance Group",
+            "Description": "RSA.L  Stockprice:\u00a397,69  + 0,19         Industry: Insurance  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= RSA Insurance Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/8c\/RSA_Insurance_Group_%28emblem%29.svg"
+        },
+        "Randgold Resources": {
+            "Term": "Randgold Resources",
+            "Description": "RRS.L  Stockprice:\u00a34.739,00  + 61,00         Industry: Mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Randgold Resources",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/c\/c5\/Randgoldlogo.PNG"
+        },
+        "Reckitt Benckiser Group": {
+            "Term": "Reckitt Benckiser Group",
+            "Description": "RB.L  Stockprice:\u00a34.840,00  -43,00         Industry: Consumer goods  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Reckitt Benckiser Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/fb\/Reckitt_Benckiser_logo.png"
+        },
+        "Reed Elsevier": {
+            "Term": "Reed Elsevier",
+            "Description": "REL.L  Stockprice:\u00a3876,50  -7,50         Industry: Media  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Reed Elsevier",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/fb\/Reed_Elsevier.svg"
+        },
+        "Resolution": {
+            "Term": "Resolution",
+            "Description": "RSL.L  Stockprice:\u00a3301,00  + 3,40               Industry: Insurance, pensions and life assurance  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Resolution",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/8c\/Resolution_plc.jpg"
+        },
+        "Rexam": {
+            "Term": "Rexam",
+            "Description": "REX.L  Stockprice:\u00a3504,00  -6,00         Industry: Packaging  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Rexam",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/d5\/Rexam.svg"
+        },
+        "Rio Tinto": {
+            "Term": "Rio Tinto",
+            "Description": "RIO.L  Stockprice:\u00a33.247,00  + 47,00   Industry: Metals and mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Rio Tinto",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/78\/Rio_Tinto.svg"
+        },
+        "Rolls-Royce Holdings": {
+            "Term": "Rolls-Royce Holdings",
+            "Description": "RR.L  Stockprice:\u00a31.026,00  -14,00         Industry: Aerospace and defence  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Rolls-Royce Holdings",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/ae\/Rolls-Royce_logo.svg"
+        },
+        "Royal Bank Of Scotland Group": {
+            "Term": "Royal Bank Of Scotland Group",
+            "Description": "RBS.L  Stockprice:\u00a3335,84  + 29,24         Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Royal Bank Of Scotland Group",
+            "Image": "http:\/\/en.wikipedia.org\/wiki\/Royal_Bank_Of_Scotland_Group"
+        },
+        "Royal Dutch Shell A": {
+            "Term": "Royal Dutch Shell A",
+            "Description": "   Industry: Oil and gas  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Royal Dutch Shell A",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/5\/5a\/Shell-logo.svg"
+        },
+        "Royal Dutch Shell B": {
+            "Term": "Royal Dutch Shell B",
+            "Description": "RDSB.L  Stockprice:\u00a32.533,00  + 28,50         Industry: Oil and gas  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Royal Dutch Shell B",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/5\/5a\/Shell-logo.svg"
+        },
+        "Royal Mail": {
+            "Term": "Royal Mail",
+            "Description": "   Industry: Postal services and courier  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Royal Mail",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/ee\/Royal_Mail.svg"
+        },
+        "SABMiller": {
+            "Term": "SABMiller",
+            "Description": "SAB.L  Stockprice:\u00a33.252,33  + 42,83         Industry: Brewing and beverage  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= SABMiller",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/a3\/SABMiller.svg"
+        },
+        "SSE": {
+            "Term": "SSE",
+            "Description": "SSE.L  Stockprice:\u00a31.530,24  + 1,24         Industry: Electric utility  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= SSE plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/6\/6e\/Scottish_and_Southern_Energy.svg"
+        },
+        "Sage Group": {
+            "Term": "Sage Group",
+            "Description": "SGE.L  Stockprice:\u00a3421,47  + 0,67         Industry: Software  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Sage Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/6\/62\/Sage.svg"
+        },
+        "Sainsbury (J)": {
+            "Term": "Sainsbury (J)",
+            "Description": "SBRY.L  Stockprice:\u00a3323,91  -1,19         Industry: Retailing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Sainsbury (J)",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/d\/d2\/JSainsburys_Logo.svg"
+        },
+        "Schroders": {
+            "Term": "Schroders",
+            "Description": "SDRC.L  Stockprice:\u00a32.613,00  + 4,00 Industry: Investment management  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Schroders",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/d5\/Schroders.svg"
+        },
+        "Severn Trent": {
+            "Term": "Severn Trent",
+            "Description": "SVT.L  Stockprice:\u00a31.833,00   -15,00         Industry: Water industry  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Severn Trent",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/54\/Severn_Trent_PLC_Logo.png"
+        },
+        "Shire": {
+            "Term": "Shire",
+            "Description": "SHP.L  Stockprice:\u00a33.467,00  + 17,00         Industry: Pharmaceuticals  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Shire plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/1d\/Shire_blue_logo.gif"
+        },
+        "Smith & Nephew": {
+            "Term": "Smith & Nephew",
+            "Description": "SN.L  Stockprice:\u00a3914,48  + 9,48         Industry: Medical equipment  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Smith & Nephew plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/d1\/Smith_%26_Nephew.svg"
+        },
+        "Smiths Group": {
+            "Term": "Smiths Group",
+            "Description": "SMIN.L  Stockprice:\u00a31.321,00  -20,00         Industry: Engineering  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Smiths Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/ed\/Smiths_Group.svg"
+        },
+        "Sports Direct International": {
+            "Term": "Sports Direct International",
+            "Description": "   Industry: Retailing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Sports Direct International",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/a5\/Sports_Direct.svg"
+        },
+        "St.James Place": {
+            "Term": "St.James Place",
+            "Description": "   Industry: Finance  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= St.James Place plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/1e\/SJP_Wealth_Managemen_logo.jpg"
+        },
+        "Standard Chartered": {
+            "Term": "Standard Chartered",
+            "Description": "STAN.L  Stockprice:\u00a31.287,50  -1,50         Industry: Banking and financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Standard Chartered",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/ae\/Standard_Chartered.svg"
+        },
+        "Standard Life": {
+            "Term": "Standard Life",
+            "Description": "SL.L  Stockprice:\u00a3384,50  -0,80 Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Standard Life",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/6\/62\/Standard_Life_logo.gif"
+        },
+        "TUI Travel": {
+            "Term": "TUI Travel",
+            "Description": "   Industry: Transport  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= TUI Travel",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f8\/TUI_Travel.svg"
+        },
+        "Tesco": {
+            "Term": "Tesco",
+            "Description": "TSCO.L  Stockprice:\u00a3285,50  -1,05 Industry: Retailing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Tesco",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/b0\/Tesco_Logo.svg"
+        },
+        "Travis Perkins": {
+            "Term": "Travis Perkins",
+            "Description": "   Industry: Business-to-business and retail  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Travis Perkins",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/df\/Travis_Perkins.svg"
+        },
+        "Tullow Oil": {
+            "Term": "Tullow Oil",
+            "Description": "TLW.L  Stockprice:\u00a3883,50        + 3,00         Industry: Oil and gas exploration  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Tullow Oil",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/bc\/Tullow_Oil.svg"
+        },
+        "Unilever": {
+            "Term": "Unilever",
+            "Description": "ULVR.L  Stockprice:\u00a32.606,00        -15,00 Industry: Consumer goods  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Unilever",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/e4\/Unilever.svg"
+        },
+        "United Utilities Group": {
+            "Term": "United Utilities Group",
+            "Description": "UU.L  Stockprice:\u00a3794,00        0,00         Industry: Utility \u2013 water, wastewater  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= United Utilities Group plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/bd\/UnitedUtilities.png"
+        },
+        "Vodafone Group": {
+            "Term": "Vodafone Group",
+            "Description": "VOD.L  Stockprice:\u00a3222,90       + 2,25         Industry: Telecommunications  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Vodafone Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/57\/Vodafone_logo.svg"
+        },
+        "WPP": {
+            "Term": "WPP",
+            "Description": "WPP.L  Stockprice:\u00a31.286,00        0,00         Industry: Advertising and public relations  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= WPP plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/2\/2d\/WPP_Group.svg"
+        },
+        "Weir Group": {
+            "Term": "Weir Group",
+            "Description": "WEIR.L  Stockprice:\u00a32.654,00  + 20,00         Industry: Engineering  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Weir Group",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/9\/91\/WeirGroupLogo.png"
+        },
+        "Whitbread": {
+            "Term": "Whitbread",
+            "Description": "WTB.L  Stockprice:\u00a34.070,00  + 1,00         Industry: Leisure and hospitality  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Whitbread",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f0\/Whitbread_logo.png"
+        },
+        "William Hill": {
+            "Term": "William Hill",
+            "Description": "   Industry: Gambling  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= William Hill plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/c\/cf\/William_Hill.svg"
+        },
+        "Wolseley": {
+            "Term": "Wolseley",
+            "Description": "WOS.L  Stockprice:\u00a33.475,00  + 24,00         Industry: Building materials  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Wolseley plc",
+            "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/7a\/Wolseley.svg"
+        }
+    };
 
     var countries = {
         "Afghanistan": {
             "Term": "Afghanistan",
             "Description": "Capital city: Kabul<br \/>GDP per capita: 1083<br \/>Population: 29,824,536",
-            "Image": "img\/flag_0.bmp"
+            "Image": "img\/1"
         },
         "Albania": {
             "Term": "Albania",
             "Description": "Capital city: Tirana<br \/>GDP per capita: 7861<br \/>Population: 3,162,083",
-            "Image": "img\/flag_1.bmp"
+            "Image": "img\/2"
         },
         "Algeria": {
             "Term": "Algeria",
             "Description": "Capital city: Algiers<br \/>GDP per capita: 7643<br \/>Population: 38,481,705",
-            "Image": "img\/flag_2.bmp"
+            "Image": "img\/3"
         },
         "Andorra": {
             "Term": "Andorra",
             "Description": "Capital city: Andorra la Vella<br \/>GDP per capita: ..<br \/>Population: 78,36",
-            "Image": "img\/flag_3.bmp"
+            "Image": "img\/4"
         },
         "Angola": {
             "Term": "Angola",
             "Description": "Capital city: Luanda<br \/>GDP per capita: 5201<br \/>Population: 20,820,525",
-            "Image": "img\/flag_4.bmp"
+            "Image": "img\/5"
         },
         "Antigua": {
             "Term": "Antigua",
             "Description": "Capital city: St. Johns<br \/>GDP per capita: 14139<br \/>Population: 89,069",
-            "Image": "img\/flag_5.bmp"
+            "Image": "img\/6"
         },
         "Argentina": {
             "Term": "Argentina",
             "Description": "Capital city: Buenos Aires<br \/>GDP per capita: 15501<br \/>Population: 41,086,927",
-            "Image": "img\/flag_6.bmp"
+            "Image": "img\/7"
         },
         "Armenia": {
             "Term": "Armenia",
             "Description": "Capital city: Yerevan<br \/>GDP per capita: 5112<br \/>Population: 2,969,081",
-            "Image": "img\/flag_7.bmp"
+            "Image": "img\/8"
         },
         "Australia": {
             "Term": "Australia",
             "Description": "Capital city: Canberra<br \/>GDP per capita: 34548<br \/>Population: 22,722,000",
-            "Image": "img\/flag_8.bmp"
+            "Image": "img\/9"
         },
         "Austria": {
             "Term": "Austria",
             "Description": "Capital city: Vienna<br \/>GDP per capita: 36353<br \/>Population: 8,429,991",
-            "Image": "img\/flag_9.bmp"
+            "Image": "img\/10"
         },
         "Azerbaijan": {
             "Term": "Azerbaijan",
             "Description": "Capital city: Baku<br \/>GDP per capita: 8890<br \/>Population: 9,295,784",
-            "Image": "img\/flag_10.bmp"
+            "Image": "img\/11"
         },
         "The Bahamas": {
             "Term": "The Bahamas",
             "Description": "Capital city: Nassau<br \/>GDP per capita: 28239<br \/>Population: 371,96",
-            "Image": "img\/flag_11.bmp"
+            "Image": "img\/12"
         },
         "Bahrain": {
             "Term": "Bahrain",
             "Description": "Capital city: Bahrain<br \/>GDP per capita: 21345<br \/>Population: 1,317,827",
-            "Image": "img\/flag_12.bmp"
+            "Image": "img\/13"
         },
         "Bangladesh": {
             "Term": "Bangladesh",
             "Description": "Capital city: Dhaka<br \/>GDP per capita: 1568<br \/>Population: 154,695,368",
-            "Image": "img\/flag_13.bmp"
+            "Image": "img\/14"
         },
         "Barbados": {
             "Term": "Barbados",
             "Description": "Capital city: Bridgetown<br \/>GDP per capita: 17564<br \/>Population: 283,221",
-            "Image": "img\/flag_14.bmp"
+            "Image": "img\/15"
         },
         "Belarus": {
             "Term": "Belarus",
             "Description": "Capital city: Minsk<br \/>GDP per capita: 13191<br \/>Population: 9,464,000",
-            "Image": "img\/flag_15.bmp"
+            "Image": "img\/16"
         },
         "Belgium": {
             "Term": "Belgium",
             "Description": "Capital city: Brussels<br \/>GDP per capita: 33127<br \/>Population: 11,128,246",
-            "Image": "img\/flag_16.bmp"
+            "Image": "img\/17"
         },
         "Belize": {
             "Term": "Belize",
             "Description": "Capital city: Belmopan<br \/>GDP per capita: 5896<br \/>Population: 324,06",
-            "Image": "img\/flag_17.bmp"
+            "Image": "img\/18"
         },
         "Benin": {
             "Term": "Benin",
             "Description": "Capital city: Benin<br \/>GDP per capita: 1428<br \/>Population: 10,050,702",
-            "Image": "img\/flag_18.bmp"
+            "Image": "img\/19"
         },
         "Bhutan": {
             "Term": "Bhutan",
             "Description": "Capital city: Thimphu<br \/>GDP per capita: 5096<br \/>Population: 741,822",
-            "Image": "img\/flag_19.bmp"
+            "Image": "img\/20"
         },
         "Boli": {
             "Term": "Boli",
             "Description": "Capital city: Sucre<br \/>GDP per capita: 4499<br \/>Population: 10,496,285",
-            "Image": "img\/flag_20.bmp"
+            "Image": "img\/21"
         },
         "Bosnia and Herzegovina": {
             "Term": "Bosnia and Herzegovina",
             "Description": "Capital city: Sarajevo<br \/>GDP per capita: 7607<br \/>Population: 3,833,916",
-            "Image": "img\/flag_21.bmp"
+            "Image": "img\/22"
         },
         "Botswana": {
             "Term": "Botswana",
             "Description": "Capital city: Gaborone<br \/>GDP per capita: 12939<br \/>Population: 2,003,910",
-            "Image": "img\/flag_22.bmp"
+            "Image": "img\/23"
         },
         "Brazil": {
             "Term": "Brazil",
             "Description": "Capital city: Bras\ufffdlia<br \/>GDP per capita: 10278<br \/>Population: 198,656,019",
-            "Image": "img\/flag_23.bmp"
+            "Image": "img\/24"
         },
         "Brunei": {
             "Term": "Brunei",
             "Description": "Capital city: Bandar Seri Begawan<br \/>GDP per capita: 45507<br \/>Population: 412,238",
-            "Image": "img\/flag_24.bmp"
+            "Image": "img\/25"
         },
         "Bulgaria": {
             "Term": "Bulgaria",
             "Description": "Capital city: Sofia<br \/>GDP per capita: 11799<br \/>Population: 7,305,888",
-            "Image": "img\/flag_25.bmp"
+            "Image": "img\/26"
         },
         "Burkina": {
             "Term": "Burkina",
             "Description": "Capital city: Ouagadougou<br \/>GDP per capita: 1149<br \/>Population: 16,460,141",
-            "Image": "img\/flag_26.bmp"
+            "Image": "img\/27"
         },
         "Burundi": {
             "Term": "Burundi",
             "Description": "Capital city: Bujumbura<br \/>GDP per capita: 533<br \/>Population: 9,849,569",
-            "Image": "img\/flag_27.bmp"
+            "Image": "img\/28"
         },
         "Cambodia": {
             "Term": "Cambodia",
             "Description": "Capital city: Phnom Penh<br \/>GDP per capita: 2080<br \/>Population: 14,864,646",
-            "Image": "img\/flag_28.bmp"
+            "Image": "img\/29"
         },
         "Cameroon": {
             "Term": "Cameroon",
             "Description": "Capital city: Yaound\ufffd<br \/>GDP per capita: 2090<br \/>Population: 21,699,631",
-            "Image": "img\/flag_29.bmp"
+            "Image": "img\/30"
         },
         "Canada": {
             "Term": "Canada",
             "Description": "Capital city: Ottawa<br \/>GDP per capita: 35716<br \/>Population: 34,754,312",
-            "Image": "img\/flag_30.bmp"
+            "Image": "img\/31"
         },
         "Cape Verde": {
             "Term": "Cape Verde",
             "Description": "Capital city: Praia<br \/>GDP per capita: 3616<br \/>Population: 494,401",
-            "Image": "img\/flag_31.bmp"
+            "Image": "img\/32"
         },
         "The Central African Republic": {
             "Term": "The Central African Republic",
             "Description": "Capital city: Bangui<br \/>GDP per capita: 716<br \/>Population: 4,525,209",
-            "Image": "img\/flag_32.bmp"
+            "Image": "img\/33"
         },
         "Chad": {
             "Term": "Chad",
             "Description": "Capital city: N'Djamena<br \/>GDP per capita: 1343<br \/>Population: 12,448,175",
-            "Image": "img\/flag_33.bmp"
+            "Image": "img\/34"
         },
         "Chile": {
             "Term": "Chile",
             "Description": "Capital city: Santiago<br \/>GDP per capita: 15272<br \/>Population: 17,464,814",
-            "Image": "img\/flag_34.bmp"
+            "Image": "img\/35"
         },
         "Colombia": {
             "Term": "Colombia",
             "Description": "Capital city: Bogot\ufffd<br \/>GDP per capita: 8861<br \/>Population: 47,704,427",
-            "Image": "img\/flag_35.bmp"
+            "Image": "img\/36"
         },
         "The Comoros": {
             "Term": "The Comoros",
             "Description": "Capital city: Moroni<br \/>GDP per capita: 980<br \/>Population: 717,503",
-            "Image": "img\/flag_36.bmp"
+            "Image": "img\/37"
         },
         "Costa Rica": {
             "Term": "Costa Rica",
             "Description": "Capital city: San Jos\ufffd<br \/>GDP per capita: 10732<br \/>Population: 4,805,295",
-            "Image": "img\/flag_37.bmp"
+            "Image": "img\/38"
         },
         "Cote d'Ivoire": {
             "Term": "Cote d'Ivoire",
             "Description": "Capital city: Yamoussoukro<br \/>GDP per capita: 1581<br \/>Population: 19,839,750",
-            "Image": "img\/flag_38.bmp"
+            "Image": "img\/39"
         },
         "Croatia": {
             "Term": "Croatia",
             "Description": "Capital city: Zagreb<br \/>GDP per capita: 16162<br \/>Population: 4,267,600",
-            "Image": "img\/flag_39.bmp"
+            "Image": "img\/40"
         },
         "Cuba": {
             "Term": "Cuba",
             "Description": "Capital city: Havana<br \/>GDP per capita: ..<br \/>Population: 11,270,957",
-            "Image": "img\/flag_40.bmp"
+            "Image": "img\/41"
         },
         "Cyprus": {
             "Term": "Cyprus",
             "Description": "Capital city: Nicosia<br \/>GDP per capita: 26045<br \/>Population: 1,128,994",
-            "Image": "img\/flag_41.bmp"
+            "Image": "img\/42"
         },
         "The Czech Republic": {
             "Term": "The Czech Republic",
             "Description": "Capital city: Prague<br \/>GDP per capita: 23967<br \/>Population: 10,510,785",
-            "Image": "img\/flag_42.bmp"
+            "Image": "img\/43"
         },
         "The Democratic Republic of the Congo": {
             "Term": "The Democratic Republic of the Congo",
             "Description": "Capital city: Kinshasa<br \/>GDP per capita: 3885<br \/>Population: 65,705,093",
-            "Image": "img\/flag_43.bmp"
+            "Image": "img\/44"
         },
         "Denmark": {
             "Term": "Denmark",
             "Description": "Capital city: Copenhagen<br \/>GDP per capita: 32399<br \/>Population: 5,591,572",
-            "Image": "img\/flag_44.bmp"
+            "Image": "img\/45"
         },
         "Djibouti": {
             "Term": "Djibouti",
             "Description": "Capital city: Djibouti<br \/>GDP per capita: 2087<br \/>Population: 859,652",
-            "Image": "img\/flag_45.bmp"
+            "Image": "img\/46"
         },
         "Dominica": {
             "Term": "Dominica",
             "Description": "Capital city: Roseau<br \/>GDP per capita: 11120<br \/>Population: 71,684",
-            "Image": "img\/flag_46.bmp"
+            "Image": "img\/47"
         },
         "The Dominican Republic": {
             "Term": "The Dominican Republic",
             "Description": "Capital city: Santo Domingo<br \/>GDP per capita: 8651<br \/>Population: 10,276,621",
-            "Image": "img\/flag_47.bmp"
+            "Image": "img\/48"
         },
         "East Timor": {
             "Term": "East Timor",
             "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
-            "Image": "img\/flag_48.bmp"
+            "Image": "img\/49"
         },
         "Ecuador": {
             "Term": "Ecuador",
             "Description": "Capital city: Quito<br \/>GDP per capita: 7443<br \/>Population: 15,492,264",
-            "Image": "img\/flag_49.bmp"
+            "Image": "img\/50"
         },
         "Egypt": {
             "Term": "Egypt",
             "Description": "Capital city: Cairo<br \/>GDP per capita: 5547<br \/>Population: 80,721,874",
-            "Image": "img\/flag_50.bmp"
+            "Image": "img\/51"
         },
         "El Salvador": {
             "Term": "El Salvador",
             "Description": "Capital city: San Salvador<br \/>GDP per capita: 6032<br \/>Population: 6,297,394",
-            "Image": "img\/flag_51.bmp"
+            "Image": "img\/52"
         },
         "Equatorial Guinea": {
             "Term": "Equatorial Guinea",
             "Description": "Capital city: Malabo<br \/>GDP per capita: 32026<br \/>Population: 736,296",
-            "Image": "img\/flag_52.bmp"
+            "Image": "img\/53"
         },
         "Eritrea": {
             "Term": "Eritrea",
             "Description": "Capital city: Asmara<br \/>GDP per capita: 516<br \/>Population: 6,130,922",
-            "Image": "img\/flag_53.bmp"
+            "Image": "img\/54"
         },
         "Estonia": {
             "Term": "Estonia",
             "Description": "Capital city: Tallinn<br \/>GDP per capita: 17885<br \/>Population: 1,329,301",
-            "Image": "img\/flag_54.bmp"
+            "Image": "img\/55"
         },
         "Ethiopia": {
             "Term": "Ethiopia",
             "Description": "Capital city: Addis Ababa<br \/>GDP per capita: 979<br \/>Population: 91,728,849",
-            "Image": "img\/flag_55.bmp"
+            "Image": "img\/56"
         },
         "Fiji": {
             "Term": "Fiji",
             "Description": "Capital city: Suva<br \/>GDP per capita: 4199<br \/>Population: 874,742",
-            "Image": "img\/flag_56.bmp"
+            "Image": "img\/57"
         },
         "Finland": {
             "Term": "Finland",
             "Description": "Capital city: Helsinki<br \/>GDP per capita: 32254<br \/>Population: 5,413,971",
-            "Image": "img\/flag_57.bmp"
+            "Image": "img\/58"
         },
         "France": {
             "Term": "France",
             "Description": "Capital city: Paris<br \/>GDP per capita: 29819<br \/>Population: 65,696,689",
-            "Image": "img\/flag_58.bmp"
+            "Image": "img\/59"
         },
         "Gabon": {
             "Term": "Gabon",
             "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
-            "Image": "img\/flag_59.bmp"
+            "Image": "img\/60"
         },
         "The Gambia": {
             "Term": "The Gambia",
             "Description": "Capital city: Banjul <br \/>GDP per capita: 1873<br \/>Population: 1,791,225",
-            "Image": "img\/flag_60.bmp"
+            "Image": "img\/61"
         },
         "Georgia": {
             "Term": "Georgia",
             "Description": "Capital city: Tbilisi<br \/>GDP per capita: 4826<br \/>Population: 4,490,700",
-            "Image": "img\/flag_61.bmp"
+            "Image": "img\/62"
         },
         "Germany": {
             "Term": "Germany",
             "Description": "Capital city: Berlin<br \/>GDP per capita: 34437<br \/>Population: 80,425,823",
-            "Image": "img\/flag_62.bmp"
+            "Image": "img\/63"
         },
         "Ghana": {
             "Term": "Ghana",
             "Description": "Capital city: Accra<br \/>GDP per capita: 1652<br \/>Population: 25,366,462",
-            "Image": "img\/flag_63.bmp"
+            "Image": "img\/64"
         },
         "Greece": {
             "Term": "Greece",
             "Description": "Capital city: Athens<br \/>GDP per capita: 22558<br \/>Population: 11,092,771",
-            "Image": "img\/flag_64.bmp"
+            "Image": "img\/65"
         },
         "Grenada": {
             "Term": "Grenada",
             "Description": "Capital city: St. George's<br \/>GDP per capita: 9806<br \/>Population: 105,483",
-            "Image": "img\/flag_65.bmp"
+            "Image": "img\/66"
         },
         "Guatemala": {
             "Term": "Guatemala",
             "Description": "Capital city: Guatemala City<br \/>GDP per capita: 4351<br \/>Population: 15,082,831",
-            "Image": "img\/flag_66.bmp"
+            "Image": "img\/67"
         },
         "Guinea": {
             "Term": "Guinea",
             "Description": "Capital city: Conakry<br \/>GDP per capita: 990<br \/>Population: 11,451,273",
-            "Image": "img\/flag_67.bmp"
+            "Image": "img\/68"
         },
         "Guinea-Bissau": {
             "Term": "Guinea-Bissau",
             "Description": "Capital city: Bissau<br \/>GDP per capita: 1097<br \/>Population: 1,663,558",
-            "Image": "img\/flag_68.bmp"
+            "Image": "img\/69"
         },
         "Guyana": {
             "Term": "Guyana",
             "Description": "Capital city: Georgetown<br \/>GDP per capita: 3104<br \/>Population: 795,369",
-            "Image": "img\/flag_69.bmp"
+            "Image": "img\/70"
         },
         "Haiti": {
             "Term": "Haiti",
             "Description": "Capital city: Port-au-Prince<br \/>GDP per capita: 1034<br \/>Population: 10,173,775",
-            "Image": "img\/flag_70.bmp"
+            "Image": "img\/71"
         },
         "Honduras": {
             "Term": "Honduras",
             "Description": "Capital city: Tegucigalpa<br \/>GDP per capita: 3566<br \/>Population: 7,935,846",
-            "Image": "img\/flag_71.bmp"
+            "Image": "img\/72"
         },
         "Hungary": {
             "Term": "Hungary",
             "Description": "Capital city: Budapest<br \/>GDP per capita: 17295<br \/>Population: 9,920,362",
-            "Image": "img\/flag_72.bmp"
+            "Image": "img\/73"
         },
         "Iceland": {
             "Term": "Iceland",
             "Description": "Capital city: Reykjav\ufffdk<br \/>GDP per capita: 33618<br \/>Population: 320,716",
-            "Image": "img\/flag_73.bmp"
+            "Image": "img\/74"
         },
         "India": {
             "Term": "India",
             "Description": "Capital city: New Delhi<br \/>GDP per capita: 3203<br \/>Population: 1,236,686,732",
-            "Image": "img\/flag_74.bmp"
+            "Image": "img\/75"
         },
         "Indonesia": {
             "Term": "Indonesia",
             "Description": "Capital city: Jakarta<br \/>GDP per capita: 4094<br \/>Population: 246,864,191",
-            "Image": "img\/flag_75.bmp"
+            "Image": "img\/76"
         },
         "Iran": {
             "Term": "Iran",
             "Description": "Capital city: Tehran<br \/>GDP per capita: 10462<br \/>Population: 76,424,443",
-            "Image": "img\/flag_76.bmp"
+            "Image": "img\/77"
         },
         "Iraq": {
             "Term": "Iraq",
             "Description": "Capital city: Baghdad<br \/>GDP per capita: 3412<br \/>Population: 32,578,209",
-            "Image": "img\/flag_77.bmp"
+            "Image": "img\/78"
         },
         "Ireland": {
             "Term": "Ireland",
             "Description": "Capital city: Dublin<br \/>GDP per capita: 35640<br \/>Population: 4,586,897",
-            "Image": "img\/flag_78.bmp"
+            "Image": "img\/79"
         },
         "Israel": {
             "Term": "Israel",
             "Description": "Capital city: Jerusalem<br \/>GDP per capita: 26720<br \/>Population: 7,910,500",
-            "Image": "img\/flag_79.bmp"
+            "Image": "img\/80"
         },
         "Italy": {
             "Term": "Italy",
             "Description": "Capital city: Rome<br \/>GDP per capita: 27069<br \/>Population: 59,539,717",
-            "Image": "img\/flag_80.bmp"
+            "Image": "img\/81"
         },
         "Jamaica": {
             "Term": "Jamaica",
             "Description": "Capital city: Kingston<br \/>GDP per capita: 7074<br \/>Population: 2,707,805",
-            "Image": "img\/flag_81.bmp"
+            "Image": "img\/82"
         },
         "Japan": {
             "Term": "Japan",
             "Description": "Capital city: Tokyo<br \/>GDP per capita: 30660<br \/>Population: 127,561,489",
-            "Image": "img\/flag_82.bmp"
+            "Image": "img\/83"
         },
         "Jordan": {
             "Term": "Jordan",
             "Description": "Capital city: Amman<br \/>GDP per capita: 5269<br \/>Population: 6,318,000",
-            "Image": "img\/flag_83.bmp"
+            "Image": "img\/84"
         },
         "Kazakhstan": {
             "Term": "Kazakhstan",
             "Description": "Capital city: Astana<br \/>GDP per capita: 11568<br \/>Population: 16,791,425",
-            "Image": "img\/flag_84.bmp"
+            "Image": "img\/85"
         },
         "Kenya": {
             "Term": "Kenya",
             "Description": "Capital city: Nairobi<br \/>GDP per capita: 1507<br \/>Population: 43,178,141",
-            "Image": "img\/flag_85.bmp"
+            "Image": "img\/86"
         },
         "Kiribati": {
             "Term": "Kiribati",
             "Description": "Capital city: South Tarawa<br \/>GDP per capita: 2220<br \/>Population: 100,786",
-            "Image": "img\/flag_86.bmp"
+            "Image": "img\/87"
         },
         "Kosovo": {
             "Term": "Kosovo",
             "Description": "Capital city: Pristina<br \/>GDP per capita: <br \/>Population: 1,807,106",
-            "Image": "img\/flag_87.bmp"
+            "Image": "img\/88"
         },
         "Kuwait": {
             "Term": "Kuwait",
             "Description": "Capital city: Kuwait City<br \/>GDP per capita: 47935<br \/>Population: 3,250,496",
-            "Image": "img\/flag_88.bmp"
+            "Image": "img\/89"
         },
         "Kyrgyzstan": {
             "Term": "Kyrgyzstan",
             "Description": "Capital city: Bishkek<br \/>GDP per capita: 2126<br \/>Population: 5,607,200",
-            "Image": "img\/flag_89.bmp"
+            "Image": "img\/90"
         },
         "Laos": {
             "Term": "Laos",
             "Description": "Capital city: Vientiane<br \/>GDP per capita: 2464<br \/>Population: 6,645,827",
-            "Image": "img\/flag_90.bmp"
+            "Image": "img\/91"
         },
         "Latvia": {
             "Term": "Latvia",
             "Description": "Capital city: Riga<br \/>GDP per capita: 13773<br \/>Population: 2,034,319",
-            "Image": "img\/flag_91.bmp"
+            "Image": "img\/92"
         },
         "Lebanon": {
             "Term": "Lebanon",
             "Description": "Capital city: Beirut<br \/>GDP per capita: 12900<br \/>Population: 4,424,888",
-            "Image": "img\/flag_92.bmp"
+            "Image": "img\/93"
         },
         "Lesotho": {
             "Term": "Lesotho",
             "Description": "Capital city: Maseru<br \/>GDP per capita: 1504<br \/>Population: 2,051,545",
-            "Image": "img\/flag_93.bmp"
+            "Image": "img\/94"
         },
         "Liberia": {
             "Term": "Liberia",
             "Description": "Capital city: Monrovia<br \/>GDP per capita: 506<br \/>Population: 4,190,435",
-            "Image": "img\/flag_94.bmp"
+            "Image": "img\/95"
         },
         "Libya": {
             "Term": "Libya",
             "Description": "Capital city: Tripoli<br \/>GDP per capita: 15361<br \/>Population: 6,154,623",
-            "Image": "img\/flag_95.bmp"
+            "Image": "img\/96"
         },
         "Liechtenstein": {
             "Term": "Liechtenstein",
             "Description": "Capital city: Vaduz<br \/>GDP per capita: ..<br \/>Population: 36,656",
-            "Image": "img\/flag_96.bmp"
+            "Image": "img\/97"
         },
         "Lithuania": {
             "Term": "Lithuania",
             "Description": "Capital city: Vilnius<br \/>GDP per capita: 16877<br \/>Population: 2,987,773",
-            "Image": "img\/flag_97.bmp"
+            "Image": "img\/98"
         },
         "Luxembourg": {
             "Term": "Luxembourg",
             "Description": "Capital city: Luxembourg City<br \/>GDP per capita: 68459<br \/>Population: 530,946",
-            "Image": "img\/flag_98.bmp"
+            "Image": "img\/99"
         },
         "Macedonia": {
             "Term": "Macedonia",
             "Description": "Capital city: Skopje<br \/>GDP per capita: <br \/>Population: 2,105,575",
-            "Image": "img\/flag_99.bmp"
+            "Image": "img\/100"
         },
         "Madagascar": {
             "Term": "Madagascar",
             "Description": "Capital city: Antananarivo<br \/>GDP per capita: 853<br \/>Population: 22,293,914",
-            "Image": "img\/flag_100.bmp"
+            "Image": "img\/101"
         },
         "Malawi": {
             "Term": "Malawi",
             "Description": "Capital city: Lilongwe<br \/>GDP per capita: 805<br \/>Population: 15,906,483",
-            "Image": "img\/flag_101.bmp"
+            "Image": "img\/102"
         },
         "Malaysia": {
             "Term": "Malaysia",
             "Description": "Capital city: Kuala Lumpur<br \/>GDP per capita: 13672<br \/>Population: 29,239,927",
-            "Image": "img\/flag_102.bmp"
+            "Image": "img\/103"
         },
         "Maldives": {
             "Term": "Maldives",
             "Description": "Capital city: Mal\ufffd<br \/>GDP per capita: 7834<br \/>Population: 338,442",
-            "Image": "img\/flag_103.bmp"
+            "Image": "img\/104"
         },
         "Mali": {
             "Term": "Mali",
             "Description": "Capital city: Barnako<br \/>GDP per capita: 964<br \/>Population: 14,853,572",
-            "Image": "img\/flag_104.bmp"
+            "Image": "img\/105"
         },
         "Malta": {
             "Term": "Malta",
             "Description": "Capital city: Valletta<br \/>GDP per capita: 23007<br \/>Population: 419,455",
-            "Image": "img\/flag_105.bmp"
+            "Image": "img\/106"
         },
         "The Marshall Islands": {
             "Term": "The Marshall Islands",
             "Description": "Capital city: Majuro<br \/>GDP per capita: ..<br \/>Population: 52,555",
-            "Image": "img\/flag_106.bmp"
+            "Image": "img\/107"
         },
         "Mauritania": {
             "Term": "Mauritania",
             "Description": "Capital city: Nouakchott<br \/>GDP per capita: 2255<br \/>Population: 3,796,141",
-            "Image": "img\/flag_107.bmp"
+            "Image": "img\/108"
         },
         "Mauritius": {
             "Term": "Mauritius",
             "Description": "Capital city: Port Louis<br \/>GDP per capita: 12737<br \/>Population: 1,291,456",
-            "Image": "img\/flag_108.bmp"
+            "Image": "img\/109"
         },
         "Mexico": {
             "Term": "Mexico",
             "Description": "Capital city: Mexico City<br \/>GDP per capita: 12776<br \/>Population: 120,847,477",
-            "Image": "img\/flag_109.bmp"
+            "Image": "img\/110"
         },
         "Micronesia": {
             "Term": "Micronesia",
             "Description": "Capital city: Palikir<br \/>GDP per capita: 3017<br \/>Population: 103,395",
-            "Image": "img\/flag_110.bmp"
+            "Image": "img\/111"
         },
         "Moldova": {
             "Term": "Moldova",
             "Description": "Capital city: Chi?in?u<br \/>GDP per capita: 2975<br \/>Population: 3,559,519",
-            "Image": "img\/flag_111.bmp"
+            "Image": "img\/112"
         },
         "Monaco": {
             "Term": "Monaco",
             "Description": "Capital city: Monaco<br \/>GDP per capita: ..<br \/>Population: 37,579",
-            "Image": "img\/flag_112.bmp"
+            "Image": "img\/113"
         },
         "Mongolia": {
             "Term": "Mongolia",
             "Description": "Capital city: Ulan Bator<br \/>GDP per capita: 4178<br \/>Population: 2,796,484",
-            "Image": "img\/flag_113.bmp"
+            "Image": "img\/114"
         },
         "Montenegro": {
             "Term": "Montenegro",
             "Description": "Capital city: Podgorica<br \/>GDP per capita: 10402<br \/>Population: 621,081",
-            "Image": "img\/flag_114.bmp"
+            "Image": "img\/115"
         },
         "Morocco": {
             "Term": "Morocco",
             "Description": "Capital city: Rabat<br \/>GDP per capita: 4373<br \/>Population: 32,521,143",
-            "Image": "img\/flag_115.bmp"
+            "Image": "img\/116"
         },
         "Mozambique": {
             "Term": "Mozambique",
             "Description": "Capital city: Maputo<br \/>GDP per capita: 861<br \/>Population: 25,203,395",
-            "Image": "img\/flag_116.bmp"
+            "Image": "img\/117"
         },
         "Myanmar": {
             "Term": "Myanmar",
             "Description": "Capital city: Naypyidaw<br \/>GDP per capita: ..<br \/>Population: 52,797,319",
-            "Image": "img\/flag_117.bmp"
+            "Image": "img\/118"
         },
         "Namibia": {
             "Term": "Namibia",
             "Description": "Capital city: Windhoek<br \/>GDP per capita: 5986<br \/>Population: 2,259,393",
-            "Image": "img\/flag_118.bmp"
+            "Image": "img\/119"
         },
         "Nauru": {
             "Term": "Nauru",
             "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
-            "Image": "img\/flag_119.bmp"
+            "Image": "img\/120"
         },
         "Nepal": {
             "Term": "Nepal",
             "Description": "Capital city: Kathmandu<br \/>GDP per capita: 1102<br \/>Population: 27,474,377",
-            "Image": "img\/flag_120.bmp"
+            "Image": "img\/121"
         },
         "The Netherlands": {
             "Term": "The Netherlands",
             "Description": "Capital city: Amsterdam<br \/>GDP per capita: 37251<br \/>Population: 16,754,962",
-            "Image": "img\/flag_121.bmp"
+            "Image": "img\/122"
         },
         "New Zealand": {
             "Term": "New Zealand",
             "Description": "Capital city: Wellington<br \/>GDP per capita: 24818<br \/>Population: 4,433,100",
-            "Image": "img\/flag_122.bmp"
+            "Image": "img\/123"
         },
         "Nicaragua": {
             "Term": "Nicaragua",
             "Description": "Capital city: Managua<br \/>GDP per capita: 2579<br \/>Population: 5,991,733",
-            "Image": "img\/flag_123.bmp"
+            "Image": "img\/124"
         },
         "Niger": {
             "Term": "Niger",
             "Description": "Capital city: Niamey<br \/>GDP per capita: 642<br \/>Population: 17,157,042",
-            "Image": "img\/flag_124.bmp"
+            "Image": "img\/125"
         },
         "Nigeria": {
             "Term": "Nigeria",
             "Description": "Capital city: Abuja<br \/>GDP per capita: 2221<br \/>Population: 168,833,776",
-            "Image": "img\/flag_125.bmp"
+            "Image": "img\/126"
         },
         "North Korea": {
             "Term": "North Korea",
             "Description": "Capital city: Pyongyang<br \/>GDP per capita: ..<br \/>Population: 24,763,188",
-            "Image": "img\/flag_126.bmp"
+            "Image": "img\/127"
         },
         "Norway": {
             "Term": "Norway",
             "Description": "Capital city: Oslo<br \/>GDP per capita: 46982<br \/>Population: 5,018,573",
-            "Image": "img\/flag_127.bmp"
+            "Image": "img\/128"
         },
         "Oman": {
             "Term": "Oman",
             "Description": "Capital city: Muscat<br \/>GDP per capita: 25330<br \/>Population: 3,314,001",
-            "Image": "img\/flag_128.bmp"
+            "Image": "img\/129"
         },
         "Pakistan": {
             "Term": "Pakistan",
             "Description": "Capital city: Islamabad<br \/>GDP per capita: 2424<br \/>Population: 179,160,111",
-            "Image": "img\/flag_129.bmp"
+            "Image": "img\/130"
         },
         "Palau": {
             "Term": "Palau",
             "Description": "Capital city: Ngerulmud<br \/>GDP per capita: 13176<br \/>Population: 20,754",
-            "Image": "img\/flag_130.bmp"
+            "Image": "img\/131"
         },
         "Panama": {
             "Term": "Panama",
             "Description": "Capital city: Pana City<br \/>GDP per capita: 13766<br \/>Population: 3,802,281",
-            "Image": "img\/flag_131.bmp"
+            "Image": "img\/132"
         },
         "Papua New Guinea": {
             "Term": "Papua New Guinea",
             "Description": "Capital city: Port Moresby<br \/>GDP per capita: 2363<br \/>Population: 7,167,010",
-            "Image": "img\/flag_132.bmp"
+            "Image": "img\/133"
         },
         "Paraguay": {
             "Term": "Paraguay",
             "Description": "Capital city: Asunci\ufffdn<br \/>GDP per capita: 4752<br \/>Population: 6,687,361",
-            "Image": "img\/flag_133.bmp"
+            "Image": "img\/134"
         },
         "The People's Republic of China": {
             "Term": "The People's Republic of China",
             "Description": "Capital city: Beijing<br \/>GDP per capita: 7418<br \/>Population: 1,350,695,000",
-            "Image": "img\/flag_134.bmp"
+            "Image": "img\/135"
         },
         "Peru": {
             "Term": "Peru",
             "Description": "Capital city: Lima<br \/>GDP per capita: 9049<br \/>Population: 29,987,800",
-            "Image": "img\/flag_135.bmp"
+            "Image": "img\/136"
         },
         "The Philippines": {
             "Term": "The Philippines",
             "Description": "Capital city: Manila<br \/>GDP per capita: 3631<br \/>Population: 96,706,764",
-            "Image": "img\/flag_136.bmp"
+            "Image": "img\/137"
         },
         "Poland": {
             "Term": "Poland",
             "Description": "Capital city: Warsaw<br \/>GDP per capita: 18087<br \/>Population: 38,535,873",
-            "Image": "img\/flag_137.bmp"
+            "Image": "img\/138"
         },
         "Portugal": {
             "Term": "Portugal",
             "Description": "Capital city: Lisbon<br \/>GDP per capita: 21317<br \/>Population: 10,514,844",
-            "Image": "img\/flag_138.bmp"
+            "Image": "img\/139"
         },
         "Qatar": {
             "Term": "Qatar",
             "Description": "Capital city: Doha<br \/>GDP per capita: 77987<br \/>Population: 2,050,514",
-            "Image": "img\/flag_139.bmp"
+            "Image": "img\/140"
         },
         "The Republic of China": {
             "Term": "The Republic of China",
             "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
-            "Image": "img\/flag_140.bmp"
+            "Image": "img\/141"
         },
         "The Republic of Congo": {
             "Term": "The Republic of Congo",
             "Description": "Capital city: Brazzaville<br \/>GDP per capita: 329<br \/>Population: 4,337,051",
-            "Image": "img\/flag_141.bmp"
+            "Image": "img\/142"
         },
         "Romania": {
             "Term": "Romania",
             "Description": "Capital city: Bucharest<br \/>GDP per capita: 10905<br \/>Population: 20,076,727",
-            "Image": "img\/flag_142.bmp"
+            "Image": "img\/143"
         },
         "Russia": {
             "Term": "Russia",
             "Description": "Capital city: Moscow<br \/>GDP per capita: 14808<br \/>Population: 143,533,000",
-            "Image": "img\/flag_143.bmp"
+            "Image": "img\/144"
         },
         "Rwanda": {
             "Term": "Rwanda",
             "Description": "Capital city: Kigali<br \/>GDP per capita: 1097<br \/>Population: 11,457,801",
-            "Image": "img\/flag_144.bmp"
+            "Image": "img\/145"
         },
         "Saint Kitts": {
             "Term": "Saint Kitts",
             "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
-            "Image": "img\/flag_145.bmp"
+            "Image": "img\/146"
         },
         "Saint Lucia": {
             "Term": "Saint Lucia",
             "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
-            "Image": "img\/flag_146.bmp"
+            "Image": "img\/147"
         },
         "Saint Vincent": {
             "Term": "Saint Vincent",
             "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
-            "Image": "img\/flag_147.bmp"
+            "Image": "img\/148"
         },
         "Samoa": {
             "Term": "Samoa",
             "Description": "Capital city: Apira<br \/>GDP per capita: 4008<br \/>Population: 188,889",
-            "Image": "img\/flag_148.bmp"
+            "Image": "img\/149"
         },
         "San Marino": {
             "Term": "San Marino",
             "Description": "Capital city: San Marino<br \/>GDP per capita: ..<br \/>Population: 31,247",
-            "Image": "img\/flag_149.bmp"
+            "Image": "img\/150"
         },
         "Sao Tome and Principe": {
             "Term": "Sao Tome and Principe",
             "Description": "Capital city: S\ufffdo Tom\ufffd<br \/>GDP per capita: 1805<br \/>Population: 188,098",
-            "Image": "img\/flag_150.bmp"
+            "Image": "img\/151"
         },
         "Saudi Arabia": {
             "Term": "Saudi Arabia",
             "Description": "Capital city: Riyadh<br \/>GDP per capita: 21430<br \/>Population: 28,287,855",
-            "Image": "img\/flag_151.bmp"
+            "Image": "img\/152"
         },
         "Senegal": {
             "Term": "Senegal",
             "Description": "Capital city: Dakar<br \/>GDP per capita: 1737<br \/>Population: 13,726,021",
-            "Image": "img\/flag_152.bmp"
+            "Image": "img\/153"
         },
         "Serbia": {
             "Term": "Serbia",
             "Description": "Capital city: Belgrade<br \/>GDP per capita: 9809<br \/>Population: 7,223,887",
-            "Image": "img\/flag_153.bmp"
+            "Image": "img\/154"
         },
         "The Seychelles": {
             "Term": "The Seychelles",
             "Description": "Capital city: Victoria<br \/>GDP per capita: 23172<br \/>Population: 88,303",
-            "Image": "img\/flag_154.bmp"
+            "Image": "img\/155"
         },
         "Sierra Leone": {
             "Term": "Sierra Leone",
             "Description": "Capital city: Freetown<br \/>GDP per capita: 769<br \/>Population: 5,978,727",
-            "Image": "img\/flag_155.bmp"
+            "Image": "img\/156"
         },
         "Singapore": {
             "Term": "Singapore",
             "Description": "Capital city: Singapore<br \/>GDP per capita: 53591<br \/>Population: 5,312,400",
-            "Image": "img\/flag_156.bmp"
+            "Image": "img\/157"
         },
         "Slovakia": {
             "Term": "Slovakia",
             "Description": "Capital city: Bratislava<br \/>GDP per capita: 20757<br \/>Population: 5,407,579",
-            "Image": "img\/flag_157.bmp"
+            "Image": "img\/158"
         },
         "Slovenia": {
             "Term": "Slovenia",
             "Description": "Capital city: Ljubljana<br \/>GDP per capita: 24967<br \/>Population: 2,057,159",
-            "Image": "img\/flag_158.bmp"
+            "Image": "img\/159"
         },
         "The Solomon Islands": {
             "Term": "The Solomon Islands",
             "Description": "Capital city: Honiara<br \/>GDP per capita: 2581<br \/>Population: 549,598",
-            "Image": "img\/flag_159.bmp"
+            "Image": "img\/160"
         },
         "Somalia": {
             "Term": "Somalia",
             "Description": "Capital city: Mogadishu<br \/>GDP per capita: ..<br \/>Population: 10,195,134",
-            "Image": "img\/flag_160.bmp"
+            "Image": "img\/161"
         },
         "South Africa": {
             "Term": "South Africa",
             "Description": "Capital city: Pretoria<br \/>GDP per capita: 9678<br \/>Population: 52,274,945",
-            "Image": "img\/flag_161.bmp"
+            "Image": "img\/162"
         },
         "South Korea": {
             "Term": "South Korea",
             "Description": "Capital city: Seoul<br \/>GDP per capita: 27541<br \/>Population: 50,004,441",
-            "Image": "img\/flag_162.bmp"
+            "Image": "img\/163"
         },
         "Spain": {
             "Term": "Spain",
             "Description": "Capital city: Madrid<br \/>GDP per capita: 27063<br \/>Population: 46,761,264",
-            "Image": "img\/flag_163.bmp"
+            "Image": "img\/164"
         },
         "Sri Lanka": {
             "Term": "Sri Lanka",
             "Description": "Capital city: Sri Jayawardenepura Kotte<br \/>GDP per capita: 4929<br \/>Population: 20,328,000",
-            "Image": "img\/flag_164.bmp"
+            "Image": "img\/165"
         },
         "Sudan": {
             "Term": "Sudan",
             "Description": "Capital city: Khartoum<br \/>GDP per capita: 1878<br \/>Population: 37,195,349",
-            "Image": "img\/flag_165.bmp"
+            "Image": "img\/166"
         },
         "Suriname": {
             "Term": "Suriname",
             "Description": "Capital city: Paramaribo<br \/>GDP per capita: 7110<br \/>Population: 534,541",
-            "Image": "img\/flag_166.bmp"
+            "Image": "img\/167"
         },
         "Swaziland": {
             "Term": "Swaziland",
             "Description": "Capital city: Mbabane<br \/>GDP per capita: 5349<br \/>Population: 1,230,985",
-            "Image": "img\/flag_167.bmp"
+            "Image": "img\/168"
         },
         "Sweden": {
             "Term": "Sweden",
             "Description": "Capital city: Stockholm<br \/>GDP per capita: 35048<br \/>Population: 9,519,374",
-            "Image": "img\/flag_168.bmp"
+            "Image": "img\/169"
         },
         "Switzerland": {
             "Term": "Switzerland",
             "Description": "Capital city: Bern<br \/>GDP per capita: 37979<br \/>Population: 7,996,861",
-            "Image": "img\/flag_169.bmp"
+            "Image": "img\/170"
         },
         "Syria": {
             "Term": "Syria",
             "Description": "Capital city: Damascus<br \/>GDP per capita: 4741<br \/>Population: 22,399,254",
-            "Image": "img\/flag_170.bmp"
+            "Image": "img\/171"
         },
         "Tajikistan": {
             "Term": "Tajikistan",
             "Description": "Capital city: Dushanbe<br \/>GDP per capita: 2052<br \/>Population: 8,008,990",
-            "Image": "img\/flag_171.bmp"
+            "Image": "img\/172"
         },
         "Tanzania": {
             "Term": "Tanzania",
             "Description": "Capital city: Dar Es Salaam<br \/>GDP per capita: 1334<br \/>Population: 47,783,107",
-            "Image": "img\/flag_172.bmp"
+            "Image": "img\/173"
         },
         "Thailand": {
             "Term": "Thailand",
             "Description": "Capital city: Bangkok<br \/>GDP per capita: 7633<br \/>Population: 66,785,001",
-            "Image": "img\/flag_173.bmp"
+            "Image": "img\/174"
         },
         "Togo": {
             "Term": "Togo",
             "Description": "Capital city: Lom\ufffd<br \/>GDP per capita: 914<br \/>Population: 6,642,928",
-            "Image": "img\/flag_174.bmp"
+            "Image": "img\/175"
         },
         "Tonga": {
             "Term": "Tonga",
             "Description": "Capital city: Nuku'alofa<br \/>GDP per capita: 4092<br \/>Population: 104,941",
-            "Image": "img\/flag_175.bmp"
+            "Image": "img\/176"
         },
         "Trinidad and Tobago": {
             "Term": "Trinidad and Tobago",
             "Description": "Capital city: Port of Spain<br \/>GDP per capita: 22761<br \/>Population: 1,337,439",
-            "Image": "img\/flag_176.bmp"
+            "Image": "img\/177"
         },
         "Tunisia": {
             "Term": "Tunisia",
             "Description": "Capital city: Tunis<br \/>GDP per capita: 8258<br \/>Population: 10,777,500",
-            "Image": "img\/flag_177.bmp"
+            "Image": "img\/178"
         },
         "Turkey": {
             "Term": "Turkey",
             "Description": "Capital city: Ankara<br \/>GDP per capita: 13466<br \/>Population: 73,997,128",
-            "Image": "img\/flag_178.bmp"
+            "Image": "img\/179"
         },
         "Turkmenistan": {
             "Term": "Turkmenistan",
             "Description": "Capital city: Ashgabat<br \/>GDP per capita: 8055<br \/>Population: 5,172,931",
-            "Image": "img\/flag_179.bmp"
+            "Image": "img\/180"
         },
         "Tuvalu": {
             "Term": "Tuvalu",
             "Description": "Capital city: Funafuti<br \/>GDP per capita: ..<br \/>Population: 9,86",
-            "Image": "img\/flag_180.bmp"
+            "Image": "img\/181"
         },
         "Uganda": {
             "Term": "Uganda",
             "Description": "Capital city: Kampala<br \/>GDP per capita: 1188<br \/>Population: 36,345,860",
-            "Image": "img\/flag_181.bmp"
+            "Image": "img\/182"
         },
         "Ukraine": {
             "Term": "Ukraine",
             "Description": "Capital city: Kiev<br \/>GDP per capita: 6359<br \/>Population: 45,593,300",
-            "Image": "img\/flag_182.bmp"
+            "Image": "img\/183"
         },
         "The United Arab Emirates": {
             "Term": "The United Arab Emirates",
             "Description": "Capital city: Abu Dhabi<br \/>GDP per capita: 42293<br \/>Population: 9,205,651",
-            "Image": "img\/flag_183.bmp"
+            "Image": "img\/184"
         },
         "The United Kingdom": {
             "Term": "The United Kingdom",
             "Description": "Capital city: Capital city: London<br \/> <br \/>GDP per capita: 32474<br \/>Population: 63,612,729",
-            "Image": "img\/flag_184.bmp"
+            "Image": "img\/185"
         },
         "The United States": {
             "Term": "The United States",
             "Description": "Capital city: Washington, D.C.<br \/>GDP per capita: 42486<br \/>Population: 313,914,040",
-            "Image": "img\/flag_185.bmp"
+            "Image": "img\/186"
         },
         "Uruguay": {
             "Term": "Uruguay",
             "Description": "Capital city: Montevideo<br \/>GDP per capita: 13315<br \/>Population: 3,395,253",
-            "Image": "img\/flag_186.bmp"
+            "Image": "img\/187"
         },
         "Uzbekistan": {
             "Term": "Uzbekistan",
             "Description": "Capital city: Tashkent<br \/>GDP per capita: 2903<br \/>Population: 29,774,500",
-            "Image": "img\/flag_187.bmp"
+            "Image": "img\/188"
         },
         "Vanuatu": {
             "Term": "Vanuatu",
             "Description": "Capital city: Port Vila<br \/>GDP per capita: 4062<br \/>Population: 247,262",
-            "Image": "img\/flag_188.bmp"
+            "Image": "img\/189"
         },
         "The Vatican City": {
             "Term": "The Vatican City",
             "Description": "Capital city: Caracas<br \/>GDP per capita: 11258<br \/>Population: 29,954,782",
-            "Image": "img\/flag_189.bmp"
+            "Image": "img\/190"
         },
         "Venezuela": {
             "Term": "Venezuela",
             "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
-            "Image": "img\/flag_190.bmp"
+            "Image": "img\/191"
         },
         "Vietnam": {
             "Term": "Vietnam",
             "Description": "Capital city: Hanoi<br \/>GDP per capita: 3013<br \/>Population: 88,772,900",
-            "Image": "img\/flag_191.bmp"
+            "Image": "img\/192"
         },
         "Western Sahara": {
             "Term": "Western Sahara",
             "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
-            "Image": "img\/flag_192.bmp"
+            "Image": "img\/193"
         },
         "Yemen": {
             "Term": "Yemen",
             "Description": "Capital city: Sana'a<br \/>GDP per capita: 2060<br \/>Population: 23,852,409",
-            "Image": "img\/flag_193.bmp"
+            "Image": "img\/194"
         },
         "Zambia": {
             "Term": "Zambia",
             "Description": "Capital city: Lusaka<br \/>GDP per capita: 1423<br \/>Population: 14,075,099",
-            "Image": "img\/flag_194.bmp"
+            "Image": "img\/195"
         },
         "Zimbabwe": {
             "Term": "Zimbabwe",
             "Description": "Capital city: Harare<br \/>GDP per capita: ..<br \/>Population: 13,724,317",
-            "Image": "img\/flag_195.bmp"
+            "Image": "img\/196"
         }
     };
 
@@ -1378,7 +1896,7 @@ function hover(link)
             {
                 if (concept["Image"].substr(0, 7) !== "http://")
                 {
-                    img.src = "http://s-nordby.com/" + concept["Image"];
+                    img.src = "http://s-nordby.com/" + concept["Image"] + ".bmp";
                 }
                 else
                 {

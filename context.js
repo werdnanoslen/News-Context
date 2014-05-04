@@ -45,7 +45,7 @@ function addLinks()
             {
                 if (dicts[i][keyword])
                 {
-                    var search = "https://www.google.dk/search?q=";
+                    var search = dicts[i]["_config"]["Search"];
                     var href = search + encodeURIComponent(keyword);
                     var link = "<a href=\"" + href + "\""
                         + " class=\"context-link\""
@@ -130,6 +130,9 @@ function getArticleText()
 function getDicts()
 {
     var companies = {
+        "_config": {
+            "Search": "http://www.bloomberg.com/markets/symbolsearch?query="
+        },
         "ARM Holdings": {
             "Term": "ARM Holdings",
             "Description": "ARM.L  Stockprice:\u00a3886,00  0,00         Industry: Semiconductors  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= ARM Holdings",
@@ -638,6 +641,9 @@ function getDicts()
     };
 
     var countries = {
+        "_config": {
+            "Search": "http://data.un.org/CountryProfile.aspx?crName="
+        },
         "Afghanistan": {
             "Term": "Afghanistan",
             "Description": "Capital city: Kabul<br \/>GDP per capita: 1083<br \/>Population: 29,824,536",
@@ -1621,6 +1627,9 @@ function getDicts()
     };
 
     var terms = {
+        "_config": {
+            "Search": "https://en.wikipedia.org/w/index.php?search="
+        },
         "Caspian Sea": {
             "Term": "Caspian Sea",
             "Description": "The Caspian Sea, located in western Asia on the eastern edges of Europe, is the largest lake on the planet.",
@@ -1753,111 +1762,6 @@ function getDicts()
         }
     };
 
-    news = {
-        "response": {
-            "status": "ok",
-            "userTier": "free",
-            "total": 528,
-            "startIndex": 1,
-            "pageSize": 10,
-            "currentPage": 1,
-            "pages": 53,
-            "orderBy": "newest",
-            "results": [
-                {
-                    "id": "guardian-observer-style-guide-s",
-                    "sectionId": "info",
-                    "sectionName": "Info",
-                    "webPublicationDate": "2014-05-02T17:51:00Z",
-                    "webTitle": "Guardian and Observer style guide: S",
-                    "webUrl": "http://www.theguardian.com/guardian-observer-style-guide-s",
-                    "apiUrl": "http://content.guardianapis.com/guardian-observer-style-guide-s"
-                },
-                {
-                    "id": "football/2014/may/01/azerbaijan-sponsorship-atletico-madrid-spectacular-success",
-                    "sectionId": "football",
-                    "sectionName": "Football",
-                    "webPublicationDate": "2014-05-01T13:25:00Z",
-                    "webTitle": "Azerbaijan's sponsorship of Atlético Madrid proves spectacular success | Owen Gibson",
-                    "webUrl": "http://www.theguardian.com/football/2014/may/01/azerbaijan-sponsorship-atletico-madrid-spectacular-success",
-                    "apiUrl": "http://content.guardianapis.com/football/2014/may/01/azerbaijan-sponsorship-atletico-madrid-spectacular-success"
-                },
-                {
-                    "id": "world/2014/apr/25/interview-samereh-alinejad-iranian-mother-spared-sons-killer",
-                    "sectionId": "world",
-                    "sectionName": "World news",
-                    "webPublicationDate": "2014-04-25T18:27:20Z",
-                    "webTitle": "Iranian mother who spared her son's killer: 'Vengeance has left my heart'",
-                    "webUrl": "http://www.theguardian.com/world/2014/apr/25/interview-samereh-alinejad-iranian-mother-spared-sons-killer",
-                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/25/interview-samereh-alinejad-iranian-mother-spared-sons-killer"
-                },
-                {
-                    "id": "world/2014/apr/23/putin-military-exercises-ukraine-border",
-                    "sectionId": "world",
-                    "sectionName": "World news",
-                    "webPublicationDate": "2014-04-23T16:55:31Z",
-                    "webTitle": "Putin's military exercises are more than a game",
-                    "webUrl": "http://www.theguardian.com/world/2014/apr/23/putin-military-exercises-ukraine-border",
-                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/23/putin-military-exercises-ukraine-border"
-                },
-                {
-                    "id": "world/2014/apr/23/us-warns-russia-ukraine-moscow-snap-military-exercises",
-                    "sectionId": "world",
-                    "sectionName": "World news",
-                    "webPublicationDate": "2014-04-23T16:37:00Z",
-                    "webTitle": "Russia warns it will respond if interests attacked in Ukraine",
-                    "webUrl": "http://www.theguardian.com/world/2014/apr/23/us-warns-russia-ukraine-moscow-snap-military-exercises",
-                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/23/us-warns-russia-ukraine-moscow-snap-military-exercises"
-                },
-                {
-                    "id": "business/2014/apr/22/energy-supply-russia-ukraine-gas-rich-countries-human-rights",
-                    "sectionId": "business",
-                    "sectionName": "Business",
-                    "webPublicationDate": "2014-04-22T14:37:00Z",
-                    "webTitle": "UK energy quest highlights human rights concerns in gas-rich countries",
-                    "webUrl": "http://www.theguardian.com/business/2014/apr/22/energy-supply-russia-ukraine-gas-rich-countries-human-rights",
-                    "apiUrl": "http://content.guardianapis.com/business/2014/apr/22/energy-supply-russia-ukraine-gas-rich-countries-human-rights"
-                },
-                {
-                    "id": "world/2014/apr/15/ukraine-military-forces-russia-live-blog",
-                    "sectionId": "world",
-                    "sectionName": "World news",
-                    "webPublicationDate": "2014-04-15T21:49:36Z",
-                    "webTitle": "Ukraine crisis: Kiev launches 'anti-terror operation' in east – live updates",
-                    "webUrl": "http://www.theguardian.com/world/2014/apr/15/ukraine-military-forces-russia-live-blog",
-                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/15/ukraine-military-forces-russia-live-blog"
-                },
-                {
-                    "id": "world/iran-blog/gallery/2014/apr/15/iranian-fashion-between-the-veils",
-                    "sectionId": "world",
-                    "sectionName": "World news",
-                    "webPublicationDate": "2014-04-15T11:47:54Z",
-                    "webTitle": "Iranian fashion: between the veils",
-                    "webUrl": "http://www.theguardian.com/world/iran-blog/gallery/2014/apr/15/iranian-fashion-between-the-veils",
-                    "apiUrl": "http://content.guardianapis.com/world/iran-blog/gallery/2014/apr/15/iranian-fashion-between-the-veils"
-                },
-                {
-                    "id": "world/2014/apr/01/nato-eastern-europe-defences-russia-putin-crimea",
-                    "sectionId": "world",
-                    "sectionName": "World news",
-                    "webPublicationDate": "2014-04-01T17:33:16Z",
-                    "webTitle": "Nato moves to bolster eastern European defences against Russia",
-                    "webUrl": "http://www.theguardian.com/world/2014/apr/01/nato-eastern-europe-defences-russia-putin-crimea",
-                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/01/nato-eastern-europe-defences-russia-putin-crimea"
-                },
-                {
-                    "id": "world/2014/apr/01/nato-plans-stronger-military-ties-armenia-azerbaijan-moldova",
-                    "sectionId": "world",
-                    "sectionName": "World news",
-                    "webPublicationDate": "2014-04-01T11:21:17Z",
-                    "webTitle": "Nato plans stronger military ties to ex-Soviet states south of Russia",
-                    "webUrl": "http://www.theguardian.com/world/2014/apr/01/nato-plans-stronger-military-ties-armenia-azerbaijan-moldova",
-                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/01/nato-plans-stronger-military-ties-armenia-azerbaijan-moldova"
-                }
-            ]
-        }
-    };
-
     dicts = [companies, countries, terms];
     dictsCombined = companies
         + Object.keys(countries)
@@ -1892,12 +1796,12 @@ function hover(link)
                 img.src = concept["Image"];
             }
             img.style.maxWidth = "100%";
+            img.style.maxHeight = "300px";
 
             var guardian = "http://content.guardianapis.com/search?api-key=mediahackdays2014&q=";
             $.ajax({
                 url: guardian + keyword,
                 success: function(data) {
-                    console.log(data);
                     news = data;
                     var newsDesc = document.createElement("p");
                     hoverDiv.appendChild(newsDesc);

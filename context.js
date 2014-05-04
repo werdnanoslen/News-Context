@@ -4,6 +4,7 @@ var articleText;
 var keywords;
 var dicts;
 var dictsCombined;
+var news;
 
 
 function addLinks()
@@ -125,1288 +126,984 @@ function getDicts()
 
     var countries = {
         "Afghanistan": {
-            "Country": "Afghanistan",
-            "Capital": "Kabul",
-            "GDP per Capita (2011 PPP $ (UN))": "1083",
-            "Population": "29,824,536"
+            "Term": "Afghanistan",
+            "Description": "Capital city: Kabul<br \/>GDP per capita: 1083<br \/>Population: 29,824,536",
+            "Image": "img\/flag_0.bmp"
         },
         "Albania": {
-            "Country": "Albania",
-            "Capital": "Tirana",
-            "GDP per Capita (2011 PPP $ (UN))": "7861",
-            "Population": "3,162,083"
+            "Term": "Albania",
+            "Description": "Capital city: Tirana<br \/>GDP per capita: 7861<br \/>Population: 3,162,083",
+            "Image": "img\/flag_1.bmp"
         },
         "Algeria": {
-            "Country": "Algeria",
-            "Capital": "Algiers",
-            "GDP per Capita (2011 PPP $ (UN))": "7643",
-            "Population": "38,481,705"
-        },
-        "American Samoa": {
-            "Country": "American Samoa",
-            "Capital": "Pago Pago",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "55,128"
+            "Term": "Algeria",
+            "Description": "Capital city: Algiers<br \/>GDP per capita: 7643<br \/>Population: 38,481,705",
+            "Image": "img\/flag_2.bmp"
         },
         "Andorra": {
-            "Country": "Andorra",
-            "Capital": "Andorra la Vella",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "78,36"
+            "Term": "Andorra",
+            "Description": "Capital city: Andorra la Vella<br \/>GDP per capita: ..<br \/>Population: 78,36",
+            "Image": "img\/flag_3.bmp"
         },
         "Angola": {
-            "Country": "Angola",
-            "Capital": "Luanda",
-            "GDP per Capita (2011 PPP $ (UN))": "5201",
-            "Population": "20,820,525"
+            "Term": "Angola",
+            "Description": "Capital city: Luanda<br \/>GDP per capita: 5201<br \/>Population: 20,820,525",
+            "Image": "img\/flag_4.bmp"
         },
-        "Antigua and Barbuda": {
-            "Country": "Antigua and Barbuda",
-            "Capital": "St. Johns",
-            "GDP per Capita (2011 PPP $ (UN))": "14139",
-            "Population": "89,069"
+        "Antigua": {
+            "Term": "Antigua",
+            "Description": "Capital city: St. Johns<br \/>GDP per capita: 14139<br \/>Population: 89,069",
+            "Image": "img\/flag_5.bmp"
         },
         "Argentina": {
-            "Country": "Argentina",
-            "Capital": "Buenos Aires",
-            "GDP per Capita (2011 PPP $ (UN))": "15501",
-            "Population": "41,086,927"
+            "Term": "Argentina",
+            "Description": "Capital city: Buenos Aires<br \/>GDP per capita: 15501<br \/>Population: 41,086,927",
+            "Image": "img\/flag_6.bmp"
         },
         "Armenia": {
-            "Country": "Armenia",
-            "Capital": "Yerevan",
-            "GDP per Capita (2011 PPP $ (UN))": "5112",
-            "Population": "2,969,081"
-        },
-        "Aruba": {
-            "Country": "Aruba",
-            "Capital": "",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "102,384"
+            "Term": "Armenia",
+            "Description": "Capital city: Yerevan<br \/>GDP per capita: 5112<br \/>Population: 2,969,081",
+            "Image": "img\/flag_7.bmp"
         },
         "Australia": {
-            "Country": "Australia",
-            "Capital": "Canberra",
-            "GDP per Capita (2011 PPP $ (UN))": "34548",
-            "Population": "22,722,000"
+            "Term": "Australia",
+            "Description": "Capital city: Canberra<br \/>GDP per capita: 34548<br \/>Population: 22,722,000",
+            "Image": "img\/flag_8.bmp"
         },
         "Austria": {
-            "Country": "Austria",
-            "Capital": "Vienna",
-            "GDP per Capita (2011 PPP $ (UN))": "36353",
-            "Population": "8,429,991"
+            "Term": "Austria",
+            "Description": "Capital city: Vienna<br \/>GDP per capita: 36353<br \/>Population: 8,429,991",
+            "Image": "img\/flag_9.bmp"
         },
         "Azerbaijan": {
-            "Country": "Azerbaijan",
-            "Capital": "Baku",
-            "GDP per Capita (2011 PPP $ (UN))": "8890",
-            "Population": "9,295,784"
+            "Term": "Azerbaijan",
+            "Description": "Capital city: Baku<br \/>GDP per capita: 8890<br \/>Population: 9,295,784",
+            "Image": "img\/flag_10.bmp"
         },
-        "Bahamas, The": {
-            "Country": "Bahamas, The",
-            "Capital": "Nassau",
-            "GDP per Capita (2011 PPP $ (UN))": "28239",
-            "Population": "371,96"
+        "The Bahamas": {
+            "Term": "The Bahamas",
+            "Description": "Capital city: Nassau<br \/>GDP per capita: 28239<br \/>Population: 371,96",
+            "Image": "img\/flag_11.bmp"
         },
         "Bahrain": {
-            "Country": "Bahrain",
-            "Capital": "Bahrain",
-            "GDP per Capita (2011 PPP $ (UN))": "21345",
-            "Population": "1,317,827"
+            "Term": "Bahrain",
+            "Description": "Capital city: Bahrain<br \/>GDP per capita: 21345<br \/>Population: 1,317,827",
+            "Image": "img\/flag_12.bmp"
         },
         "Bangladesh": {
-            "Country": "Bangladesh",
-            "Capital": "Dhaka",
-            "GDP per Capita (2011 PPP $ (UN))": "1568",
-            "Population": "154,695,368"
+            "Term": "Bangladesh",
+            "Description": "Capital city: Dhaka<br \/>GDP per capita: 1568<br \/>Population: 154,695,368",
+            "Image": "img\/flag_13.bmp"
         },
         "Barbados": {
-            "Country": "Barbados",
-            "Capital": "Bridgetown",
-            "GDP per Capita (2011 PPP $ (UN))": "17564",
-            "Population": "283,221"
+            "Term": "Barbados",
+            "Description": "Capital city: Bridgetown<br \/>GDP per capita: 17564<br \/>Population: 283,221",
+            "Image": "img\/flag_14.bmp"
         },
         "Belarus": {
-            "Country": "Belarus",
-            "Capital": "Minsk",
-            "GDP per Capita (2011 PPP $ (UN))": "13191",
-            "Population": "9,464,000"
+            "Term": "Belarus",
+            "Description": "Capital city: Minsk<br \/>GDP per capita: 13191<br \/>Population: 9,464,000",
+            "Image": "img\/flag_15.bmp"
         },
         "Belgium": {
-            "Country": "Belgium",
-            "Capital": "Brussels",
-            "GDP per Capita (2011 PPP $ (UN))": "33127",
-            "Population": "11,128,246"
+            "Term": "Belgium",
+            "Description": "Capital city: Brussels<br \/>GDP per capita: 33127<br \/>Population: 11,128,246",
+            "Image": "img\/flag_16.bmp"
         },
         "Belize": {
-            "Country": "Belize",
-            "Capital": "Belmopan",
-            "GDP per Capita (2011 PPP $ (UN))": "5896",
-            "Population": "324,06"
+            "Term": "Belize",
+            "Description": "Capital city: Belmopan<br \/>GDP per capita: 5896<br \/>Population: 324,06",
+            "Image": "img\/flag_17.bmp"
         },
         "Benin": {
-            "Country": "Benin",
-            "Capital": "Benin",
-            "GDP per Capita (2011 PPP $ (UN))": "1428",
-            "Population": "10,050,702"
-        },
-        "Bermuda": {
-            "Country": "Bermuda",
-            "Capital": "Hamilton",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "64,806"
+            "Term": "Benin",
+            "Description": "Capital city: Benin<br \/>GDP per capita: 1428<br \/>Population: 10,050,702",
+            "Image": "img\/flag_18.bmp"
         },
         "Bhutan": {
-            "Country": "Bhutan",
-            "Capital": "Thimphu",
-            "GDP per Capita (2011 PPP $ (UN))": "5096",
-            "Population": "741,822"
+            "Term": "Bhutan",
+            "Description": "Capital city: Thimphu<br \/>GDP per capita: 5096<br \/>Population: 741,822",
+            "Image": "img\/flag_19.bmp"
         },
-        "Bolivia": {
-            "Country": "Bolivia",
-            "Capital": "Sucre",
-            "GDP per Capita (2011 PPP $ (UN))": "4499",
-            "Population": "10,496,285"
+        "Boli": {
+            "Term": "Boli",
+            "Description": "Capital city: Sucre<br \/>GDP per capita: 4499<br \/>Population: 10,496,285",
+            "Image": "img\/flag_20.bmp"
         },
         "Bosnia and Herzegovina": {
-            "Country": "Bosnia and Herzegovina",
-            "Capital": "Sarajevo",
-            "GDP per Capita (2011 PPP $ (UN))": "7607",
-            "Population": "3,833,916"
+            "Term": "Bosnia and Herzegovina",
+            "Description": "Capital city: Sarajevo<br \/>GDP per capita: 7607<br \/>Population: 3,833,916",
+            "Image": "img\/flag_21.bmp"
         },
         "Botswana": {
-            "Country": "Botswana",
-            "Capital": "Gaborone",
-            "GDP per Capita (2011 PPP $ (UN))": "12939",
-            "Population": "2,003,910"
+            "Term": "Botswana",
+            "Description": "Capital city: Gaborone<br \/>GDP per capita: 12939<br \/>Population: 2,003,910",
+            "Image": "img\/flag_22.bmp"
         },
         "Brazil": {
-            "Country": "Brazil",
-            "Capital": "Bras\u00edlia",
-            "GDP per Capita (2011 PPP $ (UN))": "10278",
-            "Population": "198,656,019"
+            "Term": "Brazil",
+            "Description": "Capital city: Bras\ufffdlia<br \/>GDP per capita: 10278<br \/>Population: 198,656,019",
+            "Image": "img\/flag_23.bmp"
         },
-        "Brunei Darussalam": {
-            "Country": "Brunei Darussalam",
-            "Capital": "Bandar Seri Begawan",
-            "GDP per Capita (2011 PPP $ (UN))": "45507",
-            "Population": "412,238"
+        "Brunei": {
+            "Term": "Brunei",
+            "Description": "Capital city: Bandar Seri Begawan<br \/>GDP per capita: 45507<br \/>Population: 412,238",
+            "Image": "img\/flag_24.bmp"
         },
         "Bulgaria": {
-            "Country": "Bulgaria",
-            "Capital": "Sofia",
-            "GDP per Capita (2011 PPP $ (UN))": "11799",
-            "Population": "7,305,888"
+            "Term": "Bulgaria",
+            "Description": "Capital city: Sofia<br \/>GDP per capita: 11799<br \/>Population: 7,305,888",
+            "Image": "img\/flag_25.bmp"
         },
-        "Burkina Faso": {
-            "Country": "Burkina Faso",
-            "Capital": "Ouagadougou",
-            "GDP per Capita (2011 PPP $ (UN))": "1149",
-            "Population": "16,460,141"
+        "Burkina": {
+            "Term": "Burkina",
+            "Description": "Capital city: Ouagadougou<br \/>GDP per capita: 1149<br \/>Population: 16,460,141",
+            "Image": "img\/flag_26.bmp"
         },
         "Burundi": {
-            "Country": "Burundi",
-            "Capital": "Bujumbura",
-            "GDP per Capita (2011 PPP $ (UN))": "533",
-            "Population": "9,849,569"
+            "Term": "Burundi",
+            "Description": "Capital city: Bujumbura<br \/>GDP per capita: 533<br \/>Population: 9,849,569",
+            "Image": "img\/flag_27.bmp"
         },
         "Cambodia": {
-            "Country": "Cambodia",
-            "Capital": "Phnom Penh",
-            "GDP per Capita (2011 PPP $ (UN))": "2080",
-            "Population": "14,864,646"
+            "Term": "Cambodia",
+            "Description": "Capital city: Phnom Penh<br \/>GDP per capita: 2080<br \/>Population: 14,864,646",
+            "Image": "img\/flag_28.bmp"
         },
         "Cameroon": {
-            "Country": "Cameroon",
-            "Capital": "Yaound\u00e9",
-            "GDP per Capita (2011 PPP $ (UN))": "2090",
-            "Population": "21,699,631"
+            "Term": "Cameroon",
+            "Description": "Capital city: Yaound\ufffd<br \/>GDP per capita: 2090<br \/>Population: 21,699,631",
+            "Image": "img\/flag_29.bmp"
         },
         "Canada": {
-            "Country": "Canada",
-            "Capital": "Ottawa",
-            "GDP per Capita (2011 PPP $ (UN))": "35716",
-            "Population": "34,754,312"
+            "Term": "Canada",
+            "Description": "Capital city: Ottawa<br \/>GDP per capita: 35716<br \/>Population: 34,754,312",
+            "Image": "img\/flag_30.bmp"
         },
-        "Cabo Verde": {
-            "Country": "Cabo Verde",
-            "Capital": "Praia",
-            "GDP per Capita (2011 PPP $ (UN))": "3616",
-            "Population": "494,401"
+        "Cape Verde": {
+            "Term": "Cape Verde",
+            "Description": "Capital city: Praia<br \/>GDP per capita: 3616<br \/>Population: 494,401",
+            "Image": "img\/flag_31.bmp"
         },
-        "Cayman Islands": {
-            "Country": "Cayman Islands",
-            "Capital": "George Town",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "57,57"
-        },
-        "Central African Republic": {
-            "Country": "Central African Republic",
-            "Capital": "Bangui",
-            "GDP per Capita (2011 PPP $ (UN))": "716",
-            "Population": "4,525,209"
+        "The Central African Republic": {
+            "Term": "The Central African Republic",
+            "Description": "Capital city: Bangui<br \/>GDP per capita: 716<br \/>Population: 4,525,209",
+            "Image": "img\/flag_32.bmp"
         },
         "Chad": {
-            "Country": "Chad",
-            "Capital": "N'Djamena",
-            "GDP per Capita (2011 PPP $ (UN))": "1343",
-            "Population": "12,448,175"
-        },
-        "Channel Islands": {
-            "Country": "Channel Islands",
-            "Capital": "",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "161,235"
+            "Term": "Chad",
+            "Description": "Capital city: N'Djamena<br \/>GDP per capita: 1343<br \/>Population: 12,448,175",
+            "Image": "img\/flag_33.bmp"
         },
         "Chile": {
-            "Country": "Chile",
-            "Capital": "Santiago",
-            "GDP per Capita (2011 PPP $ (UN))": "15272",
-            "Population": "17,464,814"
-        },
-        "China": {
-            "Country": "China",
-            "Capital": "Beijing",
-            "GDP per Capita (2011 PPP $ (UN))": "7418",
-            "Population": "1,350,695,000"
+            "Term": "Chile",
+            "Description": "Capital city: Santiago<br \/>GDP per capita: 15272<br \/>Population: 17,464,814",
+            "Image": "img\/flag_34.bmp"
         },
         "Colombia": {
-            "Country": "Colombia",
-            "Capital": "Bogot\u00e1",
-            "GDP per Capita (2011 PPP $ (UN))": "8861",
-            "Population": "47,704,427"
+            "Term": "Colombia",
+            "Description": "Capital city: Bogot\ufffd<br \/>GDP per capita: 8861<br \/>Population: 47,704,427",
+            "Image": "img\/flag_35.bmp"
         },
-        "Comoros": {
-            "Country": "Comoros",
-            "Capital": "Moroni",
-            "GDP per Capita (2011 PPP $ (UN))": "980",
-            "Population": "717,503"
-        },
-        "Congo, Dem. Rep.": {
-            "Country": "Congo, Dem. Rep.",
-            "Capital": "Kinshasa",
-            "GDP per Capita (2011 PPP $ (UN))": "3885",
-            "Population": "65,705,093"
-        },
-        "Congo, Rep.": {
-            "Country": "Congo, Rep.",
-            "Capital": "Brazzaville",
-            "GDP per Capita (2011 PPP $ (UN))": "329",
-            "Population": "4,337,051"
+        "The Comoros": {
+            "Term": "The Comoros",
+            "Description": "Capital city: Moroni<br \/>GDP per capita: 980<br \/>Population: 717,503",
+            "Image": "img\/flag_36.bmp"
         },
         "Costa Rica": {
-            "Country": "Costa Rica",
-            "Capital": "San Jos\u00e9",
-            "GDP per Capita (2011 PPP $ (UN))": "10732",
-            "Population": "4,805,295"
+            "Term": "Costa Rica",
+            "Description": "Capital city: San Jos\ufffd<br \/>GDP per capita: 10732<br \/>Population: 4,805,295",
+            "Image": "img\/flag_37.bmp"
         },
-        "_empty_": {
-            "Country": "",
-            "Capital": "",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "556,783"
+        "Cote d'Ivoire": {
+            "Term": "Cote d'Ivoire",
+            "Description": "Capital city: Yamoussoukro<br \/>GDP per capita: 1581<br \/>Population: 19,839,750",
+            "Image": "img\/flag_38.bmp"
         },
         "Croatia": {
-            "Country": "Croatia",
-            "Capital": "Zagreb",
-            "GDP per Capita (2011 PPP $ (UN))": "16162",
-            "Population": "4,267,600"
+            "Term": "Croatia",
+            "Description": "Capital city: Zagreb<br \/>GDP per capita: 16162<br \/>Population: 4,267,600",
+            "Image": "img\/flag_39.bmp"
         },
         "Cuba": {
-            "Country": "Cuba",
-            "Capital": "Havana",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "11,270,957"
-        },
-        "Cura\u00e7ao": {
-            "Country": "Cura\u00e7ao",
-            "Capital": "",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "152,056"
+            "Term": "Cuba",
+            "Description": "Capital city: Havana<br \/>GDP per capita: ..<br \/>Population: 11,270,957",
+            "Image": "img\/flag_40.bmp"
         },
         "Cyprus": {
-            "Country": "Cyprus",
-            "Capital": "Nicosia",
-            "GDP per Capita (2011 PPP $ (UN))": "26045",
-            "Population": "1,128,994"
+            "Term": "Cyprus",
+            "Description": "Capital city: Nicosia<br \/>GDP per capita: 26045<br \/>Population: 1,128,994",
+            "Image": "img\/flag_41.bmp"
         },
-        "Czech Republic": {
-            "Country": "Czech Republic",
-            "Capital": "Prague",
-            "GDP per Capita (2011 PPP $ (UN))": "23967",
-            "Population": "10,510,785"
+        "The Czech Republic": {
+            "Term": "The Czech Republic",
+            "Description": "Capital city: Prague<br \/>GDP per capita: 23967<br \/>Population: 10,510,785",
+            "Image": "img\/flag_42.bmp"
+        },
+        "The Democratic Republic of the Congo": {
+            "Term": "The Democratic Republic of the Congo",
+            "Description": "Capital city: Kinshasa<br \/>GDP per capita: 3885<br \/>Population: 65,705,093",
+            "Image": "img\/flag_43.bmp"
         },
         "Denmark": {
-            "Country": "Denmark",
-            "Capital": "Copenhagen",
-            "GDP per Capita (2011 PPP $ (UN))": "32399",
-            "Population": "5,591,572"
+            "Term": "Denmark",
+            "Description": "Capital city: Copenhagen<br \/>GDP per capita: 32399<br \/>Population: 5,591,572",
+            "Image": "img\/flag_44.bmp"
         },
         "Djibouti": {
-            "Country": "Djibouti",
-            "Capital": "Djibouti",
-            "GDP per Capita (2011 PPP $ (UN))": "2087",
-            "Population": "859,652"
+            "Term": "Djibouti",
+            "Description": "Capital city: Djibouti<br \/>GDP per capita: 2087<br \/>Population: 859,652",
+            "Image": "img\/flag_45.bmp"
         },
         "Dominica": {
-            "Country": "Dominica",
-            "Capital": "Roseau",
-            "GDP per Capita (2011 PPP $ (UN))": "11120",
-            "Population": "71,684"
+            "Term": "Dominica",
+            "Description": "Capital city: Roseau<br \/>GDP per capita: 11120<br \/>Population: 71,684",
+            "Image": "img\/flag_46.bmp"
         },
-        "Dominican Republic": {
-            "Country": "Dominican Republic",
-            "Capital": "Santo Domingo",
-            "GDP per Capita (2011 PPP $ (UN))": "8651",
-            "Population": "10,276,621"
+        "The Dominican Republic": {
+            "Term": "The Dominican Republic",
+            "Description": "Capital city: Santo Domingo<br \/>GDP per capita: 8651<br \/>Population: 10,276,621",
+            "Image": "img\/flag_47.bmp"
+        },
+        "East Timor": {
+            "Term": "East Timor",
+            "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
+            "Image": "img\/flag_48.bmp"
         },
         "Ecuador": {
-            "Country": "Ecuador",
-            "Capital": "Quito",
-            "GDP per Capita (2011 PPP $ (UN))": "7443",
-            "Population": "15,492,264"
+            "Term": "Ecuador",
+            "Description": "Capital city: Quito<br \/>GDP per capita: 7443<br \/>Population: 15,492,264",
+            "Image": "img\/flag_49.bmp"
         },
-        "Egypt, Arab Rep.": {
-            "Country": "Egypt, Arab Rep.",
-            "Capital": "Cairo",
-            "GDP per Capita (2011 PPP $ (UN))": "5547",
-            "Population": "80,721,874"
+        "Egypt": {
+            "Term": "Egypt",
+            "Description": "Capital city: Cairo<br \/>GDP per capita: 5547<br \/>Population: 80,721,874",
+            "Image": "img\/flag_50.bmp"
         },
         "El Salvador": {
-            "Country": "El Salvador",
-            "Capital": "San Salvador",
-            "GDP per Capita (2011 PPP $ (UN))": "6032",
-            "Population": "6,297,394"
+            "Term": "El Salvador",
+            "Description": "Capital city: San Salvador<br \/>GDP per capita: 6032<br \/>Population: 6,297,394",
+            "Image": "img\/flag_51.bmp"
         },
         "Equatorial Guinea": {
-            "Country": "Equatorial Guinea",
-            "Capital": "Malabo",
-            "GDP per Capita (2011 PPP $ (UN))": "32026",
-            "Population": "736,296"
+            "Term": "Equatorial Guinea",
+            "Description": "Capital city: Malabo<br \/>GDP per capita: 32026<br \/>Population: 736,296",
+            "Image": "img\/flag_52.bmp"
         },
         "Eritrea": {
-            "Country": "Eritrea",
-            "Capital": "Asmara",
-            "GDP per Capita (2011 PPP $ (UN))": "516",
-            "Population": "6,130,922"
+            "Term": "Eritrea",
+            "Description": "Capital city: Asmara<br \/>GDP per capita: 516<br \/>Population: 6,130,922",
+            "Image": "img\/flag_53.bmp"
         },
         "Estonia": {
-            "Country": "Estonia",
-            "Capital": "Tallinn",
-            "GDP per Capita (2011 PPP $ (UN))": "17885",
-            "Population": "1,329,301"
+            "Term": "Estonia",
+            "Description": "Capital city: Tallinn<br \/>GDP per capita: 17885<br \/>Population: 1,329,301",
+            "Image": "img\/flag_54.bmp"
         },
         "Ethiopia": {
-            "Country": "Ethiopia",
-            "Capital": "Addis Ababa",
-            "GDP per Capita (2011 PPP $ (UN))": "979",
-            "Population": "91,728,849"
-        },
-        "Faeroe Islands": {
-            "Country": "Faeroe Islands",
-            "Capital": "T\u00f3rshavn",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "49,506"
+            "Term": "Ethiopia",
+            "Description": "Capital city: Addis Ababa<br \/>GDP per capita: 979<br \/>Population: 91,728,849",
+            "Image": "img\/flag_55.bmp"
         },
         "Fiji": {
-            "Country": "Fiji",
-            "Capital": "Suva",
-            "GDP per Capita (2011 PPP $ (UN))": "4199",
-            "Population": "874,742"
+            "Term": "Fiji",
+            "Description": "Capital city: Suva<br \/>GDP per capita: 4199<br \/>Population: 874,742",
+            "Image": "img\/flag_56.bmp"
         },
         "Finland": {
-            "Country": "Finland",
-            "Capital": "Helsinki",
-            "GDP per Capita (2011 PPP $ (UN))": "32254",
-            "Population": "5,413,971"
+            "Term": "Finland",
+            "Description": "Capital city: Helsinki<br \/>GDP per capita: 32254<br \/>Population: 5,413,971",
+            "Image": "img\/flag_57.bmp"
         },
         "France": {
-            "Country": "France",
-            "Capital": "Paris",
-            "GDP per Capita (2011 PPP $ (UN))": "29819",
-            "Population": "65,696,689"
-        },
-        "French Polynesia": {
-            "Country": "French Polynesia",
-            "Capital": "Papeete",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "273,814"
+            "Term": "France",
+            "Description": "Capital city: Paris<br \/>GDP per capita: 29819<br \/>Population: 65,696,689",
+            "Image": "img\/flag_58.bmp"
         },
         "Gabon": {
-            "Country": "Gabon",
-            "Capital": "Libreville",
-            "GDP per Capita (2011 PPP $ (UN))": "13998",
-            "Population": "1,632,572"
+            "Term": "Gabon",
+            "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
+            "Image": "img\/flag_59.bmp"
         },
-        "Gambia, The": {
-            "Country": "Gambia, The",
-            "Capital": "Banjul ",
-            "GDP per Capita (2011 PPP $ (UN))": "1873",
-            "Population": "1,791,225"
+        "The Gambia": {
+            "Term": "The Gambia",
+            "Description": "Capital city: Banjul <br \/>GDP per capita: 1873<br \/>Population: 1,791,225",
+            "Image": "img\/flag_60.bmp"
         },
         "Georgia": {
-            "Country": "Georgia",
-            "Capital": "Tbilisi",
-            "GDP per Capita (2011 PPP $ (UN))": "4826",
-            "Population": "4,490,700"
+            "Term": "Georgia",
+            "Description": "Capital city: Tbilisi<br \/>GDP per capita: 4826<br \/>Population: 4,490,700",
+            "Image": "img\/flag_61.bmp"
         },
         "Germany": {
-            "Country": "Germany",
-            "Capital": "Berlin",
-            "GDP per Capita (2011 PPP $ (UN))": "34437",
-            "Population": "80,425,823"
+            "Term": "Germany",
+            "Description": "Capital city: Berlin<br \/>GDP per capita: 34437<br \/>Population: 80,425,823",
+            "Image": "img\/flag_62.bmp"
         },
         "Ghana": {
-            "Country": "Ghana",
-            "Capital": "Accra",
-            "GDP per Capita (2011 PPP $ (UN))": "1652",
-            "Population": "25,366,462"
+            "Term": "Ghana",
+            "Description": "Capital city: Accra<br \/>GDP per capita: 1652<br \/>Population: 25,366,462",
+            "Image": "img\/flag_63.bmp"
         },
         "Greece": {
-            "Country": "Greece",
-            "Capital": "Athens",
-            "GDP per Capita (2011 PPP $ (UN))": "22558",
-            "Population": "11,092,771"
-        },
-        "Greenland": {
-            "Country": "Greenland",
-            "Capital": "Nuuk",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "56,81"
+            "Term": "Greece",
+            "Description": "Capital city: Athens<br \/>GDP per capita: 22558<br \/>Population: 11,092,771",
+            "Image": "img\/flag_64.bmp"
         },
         "Grenada": {
-            "Country": "Grenada",
-            "Capital": "St. George's",
-            "GDP per Capita (2011 PPP $ (UN))": "9806",
-            "Population": "105,483"
-        },
-        "Guam": {
-            "Country": "Guam",
-            "Capital": "Hag\u00e5t\u00f1a",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "162,81"
+            "Term": "Grenada",
+            "Description": "Capital city: St. George's<br \/>GDP per capita: 9806<br \/>Population: 105,483",
+            "Image": "img\/flag_65.bmp"
         },
         "Guatemala": {
-            "Country": "Guatemala",
-            "Capital": "Guatemala City",
-            "GDP per Capita (2011 PPP $ (UN))": "4351",
-            "Population": "15,082,831"
+            "Term": "Guatemala",
+            "Description": "Capital city: Guatemala City<br \/>GDP per capita: 4351<br \/>Population: 15,082,831",
+            "Image": "img\/flag_66.bmp"
         },
         "Guinea": {
-            "Country": "Guinea",
-            "Capital": "Conakry",
-            "GDP per Capita (2011 PPP $ (UN))": "990",
-            "Population": "11,451,273"
+            "Term": "Guinea",
+            "Description": "Capital city: Conakry<br \/>GDP per capita: 990<br \/>Population: 11,451,273",
+            "Image": "img\/flag_67.bmp"
         },
         "Guinea-Bissau": {
-            "Country": "Guinea-Bissau",
-            "Capital": "Bissau",
-            "GDP per Capita (2011 PPP $ (UN))": "1097",
-            "Population": "1,663,558"
+            "Term": "Guinea-Bissau",
+            "Description": "Capital city: Bissau<br \/>GDP per capita: 1097<br \/>Population: 1,663,558",
+            "Image": "img\/flag_68.bmp"
         },
         "Guyana": {
-            "Country": "Guyana",
-            "Capital": "Georgetown",
-            "GDP per Capita (2011 PPP $ (UN))": "3104",
-            "Population": "795,369"
+            "Term": "Guyana",
+            "Description": "Capital city: Georgetown<br \/>GDP per capita: 3104<br \/>Population: 795,369",
+            "Image": "img\/flag_69.bmp"
         },
         "Haiti": {
-            "Country": "Haiti",
-            "Capital": "Port-au-Prince",
-            "GDP per Capita (2011 PPP $ (UN))": "1034",
-            "Population": "10,173,775"
+            "Term": "Haiti",
+            "Description": "Capital city: Port-au-Prince<br \/>GDP per capita: 1034<br \/>Population: 10,173,775",
+            "Image": "img\/flag_70.bmp"
         },
         "Honduras": {
-            "Country": "Honduras",
-            "Capital": "Tegucigalpa",
-            "GDP per Capita (2011 PPP $ (UN))": "3566",
-            "Population": "7,935,846"
-        },
-        "Hong Kong SAR, China": {
-            "Country": "Hong Kong SAR, China",
-            "Capital": "",
-            "GDP per Capita (2011 PPP $ (UN))": "43844",
-            "Population": "7,154,600"
+            "Term": "Honduras",
+            "Description": "Capital city: Tegucigalpa<br \/>GDP per capita: 3566<br \/>Population: 7,935,846",
+            "Image": "img\/flag_71.bmp"
         },
         "Hungary": {
-            "Country": "Hungary",
-            "Capital": "Budapest",
-            "GDP per Capita (2011 PPP $ (UN))": "17295",
-            "Population": "9,920,362"
+            "Term": "Hungary",
+            "Description": "Capital city: Budapest<br \/>GDP per capita: 17295<br \/>Population: 9,920,362",
+            "Image": "img\/flag_72.bmp"
         },
         "Iceland": {
-            "Country": "Iceland",
-            "Capital": "Reykjav\u00edk",
-            "GDP per Capita (2011 PPP $ (UN))": "33618",
-            "Population": "320,716"
+            "Term": "Iceland",
+            "Description": "Capital city: Reykjav\ufffdk<br \/>GDP per capita: 33618<br \/>Population: 320,716",
+            "Image": "img\/flag_73.bmp"
         },
         "India": {
-            "Country": "India",
-            "Capital": "New Delhi",
-            "GDP per Capita (2011 PPP $ (UN))": "3203",
-            "Population": "1,236,686,732"
+            "Term": "India",
+            "Description": "Capital city: New Delhi<br \/>GDP per capita: 3203<br \/>Population: 1,236,686,732",
+            "Image": "img\/flag_74.bmp"
         },
         "Indonesia": {
-            "Country": "Indonesia",
-            "Capital": "Jakarta",
-            "GDP per Capita (2011 PPP $ (UN))": "4094",
-            "Population": "246,864,191"
+            "Term": "Indonesia",
+            "Description": "Capital city: Jakarta<br \/>GDP per capita: 4094<br \/>Population: 246,864,191",
+            "Image": "img\/flag_75.bmp"
         },
-        "Iran, Islamic Rep.": {
-            "Country": "Iran, Islamic Rep.",
-            "Capital": "Tehran",
-            "GDP per Capita (2011 PPP $ (UN))": "10462",
-            "Population": "76,424,443"
+        "Iran": {
+            "Term": "Iran",
+            "Description": "Capital city: Tehran<br \/>GDP per capita: 10462<br \/>Population: 76,424,443",
+            "Image": "img\/flag_76.bmp"
         },
         "Iraq": {
-            "Country": "Iraq",
-            "Capital": "Baghdad",
-            "GDP per Capita (2011 PPP $ (UN))": "3412",
-            "Population": "32,578,209"
+            "Term": "Iraq",
+            "Description": "Capital city: Baghdad<br \/>GDP per capita: 3412<br \/>Population: 32,578,209",
+            "Image": "img\/flag_77.bmp"
         },
         "Ireland": {
-            "Country": "Ireland",
-            "Capital": "Dublin",
-            "GDP per Capita (2011 PPP $ (UN))": "35640",
-            "Population": "4,586,897"
-        },
-        "Isle of Man": {
-            "Country": "Isle of Man",
-            "Capital": "Douglas",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "85,284"
+            "Term": "Ireland",
+            "Description": "Capital city: Dublin<br \/>GDP per capita: 35640<br \/>Population: 4,586,897",
+            "Image": "img\/flag_78.bmp"
         },
         "Israel": {
-            "Country": "Israel",
-            "Capital": "Jerusalem",
-            "GDP per Capita (2011 PPP $ (UN))": "26720",
-            "Population": "7,910,500"
+            "Term": "Israel",
+            "Description": "Capital city: Jerusalem<br \/>GDP per capita: 26720<br \/>Population: 7,910,500",
+            "Image": "img\/flag_79.bmp"
         },
         "Italy": {
-            "Country": "Italy",
-            "Capital": "Rome",
-            "GDP per Capita (2011 PPP $ (UN))": "27069",
-            "Population": "59,539,717"
-        },
-        "Ivory Coast": {
-            "Country": "Ivory Coast",
-            "Capital": "Yamoussoukro",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": ""
+            "Term": "Italy",
+            "Description": "Capital city: Rome<br \/>GDP per capita: 27069<br \/>Population: 59,539,717",
+            "Image": "img\/flag_80.bmp"
         },
         "Jamaica": {
-            "Country": "Jamaica",
-            "Capital": "Kingston",
-            "GDP per Capita (2011 PPP $ (UN))": "7074",
-            "Population": "2,707,805"
+            "Term": "Jamaica",
+            "Description": "Capital city: Kingston<br \/>GDP per capita: 7074<br \/>Population: 2,707,805",
+            "Image": "img\/flag_81.bmp"
         },
         "Japan": {
-            "Country": "Japan",
-            "Capital": "Tokyo",
-            "GDP per Capita (2011 PPP $ (UN))": "30660",
-            "Population": "127,561,489"
+            "Term": "Japan",
+            "Description": "Capital city: Tokyo<br \/>GDP per capita: 30660<br \/>Population: 127,561,489",
+            "Image": "img\/flag_82.bmp"
         },
         "Jordan": {
-            "Country": "Jordan",
-            "Capital": "Amman",
-            "GDP per Capita (2011 PPP $ (UN))": "5269",
-            "Population": "6,318,000"
+            "Term": "Jordan",
+            "Description": "Capital city: Amman<br \/>GDP per capita: 5269<br \/>Population: 6,318,000",
+            "Image": "img\/flag_83.bmp"
         },
         "Kazakhstan": {
-            "Country": "Kazakhstan",
-            "Capital": "Astana",
-            "GDP per Capita (2011 PPP $ (UN))": "11568",
-            "Population": "16,791,425"
+            "Term": "Kazakhstan",
+            "Description": "Capital city: Astana<br \/>GDP per capita: 11568<br \/>Population: 16,791,425",
+            "Image": "img\/flag_84.bmp"
         },
         "Kenya": {
-            "Country": "Kenya",
-            "Capital": "Nairobi",
-            "GDP per Capita (2011 PPP $ (UN))": "1507",
-            "Population": "43,178,141"
+            "Term": "Kenya",
+            "Description": "Capital city: Nairobi<br \/>GDP per capita: 1507<br \/>Population: 43,178,141",
+            "Image": "img\/flag_85.bmp"
         },
         "Kiribati": {
-            "Country": "Kiribati",
-            "Capital": "South Tarawa",
-            "GDP per Capita (2011 PPP $ (UN))": "2220",
-            "Population": "100,786"
-        },
-        "Korea, Dem. Rep.": {
-            "Country": "Korea, Dem. Rep.",
-            "Capital": "Pyongyang",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "24,763,188"
-        },
-        "Korea, Rep.": {
-            "Country": "Korea, Rep.",
-            "Capital": "Seoul",
-            "GDP per Capita (2011 PPP $ (UN))": "27541",
-            "Population": "50,004,441"
+            "Term": "Kiribati",
+            "Description": "Capital city: South Tarawa<br \/>GDP per capita: 2220<br \/>Population: 100,786",
+            "Image": "img\/flag_86.bmp"
         },
         "Kosovo": {
-            "Country": "Kosovo",
-            "Capital": "Pristina",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "1,807,106"
+            "Term": "Kosovo",
+            "Description": "Capital city: Pristina<br \/>GDP per capita: <br \/>Population: 1,807,106",
+            "Image": "img\/flag_87.bmp"
         },
         "Kuwait": {
-            "Country": "Kuwait",
-            "Capital": "Kuwait City",
-            "GDP per Capita (2011 PPP $ (UN))": "47935",
-            "Population": "3,250,496"
+            "Term": "Kuwait",
+            "Description": "Capital city: Kuwait City<br \/>GDP per capita: 47935<br \/>Population: 3,250,496",
+            "Image": "img\/flag_88.bmp"
         },
-        "Kyrgyzstan, Republic of": {
-            "Country": "Kyrgyzstan, Republic of",
-            "Capital": "Bishkek",
-            "GDP per Capita (2011 PPP $ (UN))": "2126",
-            "Population": "5,607,200"
+        "Kyrgyzstan": {
+            "Term": "Kyrgyzstan",
+            "Description": "Capital city: Bishkek<br \/>GDP per capita: 2126<br \/>Population: 5,607,200",
+            "Image": "img\/flag_89.bmp"
         },
         "Laos": {
-            "Country": "Laos",
-            "Capital": "Vientiane",
-            "GDP per Capita (2011 PPP $ (UN))": "2464",
-            "Population": "6,645,827"
+            "Term": "Laos",
+            "Description": "Capital city: Vientiane<br \/>GDP per capita: 2464<br \/>Population: 6,645,827",
+            "Image": "img\/flag_90.bmp"
         },
         "Latvia": {
-            "Country": "Latvia",
-            "Capital": "Riga",
-            "GDP per Capita (2011 PPP $ (UN))": "13773",
-            "Population": "2,034,319"
+            "Term": "Latvia",
+            "Description": "Capital city: Riga<br \/>GDP per capita: 13773<br \/>Population: 2,034,319",
+            "Image": "img\/flag_91.bmp"
         },
         "Lebanon": {
-            "Country": "Lebanon",
-            "Capital": "Beirut",
-            "GDP per Capita (2011 PPP $ (UN))": "12900",
-            "Population": "4,424,888"
+            "Term": "Lebanon",
+            "Description": "Capital city: Beirut<br \/>GDP per capita: 12900<br \/>Population: 4,424,888",
+            "Image": "img\/flag_92.bmp"
         },
         "Lesotho": {
-            "Country": "Lesotho",
-            "Capital": "Maseru",
-            "GDP per Capita (2011 PPP $ (UN))": "1504",
-            "Population": "2,051,545"
+            "Term": "Lesotho",
+            "Description": "Capital city: Maseru<br \/>GDP per capita: 1504<br \/>Population: 2,051,545",
+            "Image": "img\/flag_93.bmp"
         },
         "Liberia": {
-            "Country": "Liberia",
-            "Capital": "Monrovia",
-            "GDP per Capita (2011 PPP $ (UN))": "506",
-            "Population": "4,190,435"
+            "Term": "Liberia",
+            "Description": "Capital city: Monrovia<br \/>GDP per capita: 506<br \/>Population: 4,190,435",
+            "Image": "img\/flag_94.bmp"
         },
         "Libya": {
-            "Country": "Libya",
-            "Capital": "Tripoli",
-            "GDP per Capita (2011 PPP $ (UN))": "15361",
-            "Population": "6,154,623"
+            "Term": "Libya",
+            "Description": "Capital city: Tripoli<br \/>GDP per capita: 15361<br \/>Population: 6,154,623",
+            "Image": "img\/flag_95.bmp"
         },
         "Liechtenstein": {
-            "Country": "Liechtenstein",
-            "Capital": "Vaduz",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "36,656"
+            "Term": "Liechtenstein",
+            "Description": "Capital city: Vaduz<br \/>GDP per capita: ..<br \/>Population: 36,656",
+            "Image": "img\/flag_96.bmp"
         },
         "Lithuania": {
-            "Country": "Lithuania",
-            "Capital": "Vilnius",
-            "GDP per Capita (2011 PPP $ (UN))": "16877",
-            "Population": "2,987,773"
+            "Term": "Lithuania",
+            "Description": "Capital city: Vilnius<br \/>GDP per capita: 16877<br \/>Population: 2,987,773",
+            "Image": "img\/flag_97.bmp"
         },
         "Luxembourg": {
-            "Country": "Luxembourg",
-            "Capital": "Luxembourg City",
-            "GDP per Capita (2011 PPP $ (UN))": "68459",
-            "Population": "530,946"
+            "Term": "Luxembourg",
+            "Description": "Capital city: Luxembourg City<br \/>GDP per capita: 68459<br \/>Population: 530,946",
+            "Image": "img\/flag_98.bmp"
         },
-        "Macedonia, Republic of": {
-            "Country": "Macedonia, Republic of",
-            "Capital": "Skopje",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "2,105,575"
+        "Macedonia": {
+            "Term": "Macedonia",
+            "Description": "Capital city: Skopje<br \/>GDP per capita: <br \/>Population: 2,105,575",
+            "Image": "img\/flag_99.bmp"
         },
         "Madagascar": {
-            "Country": "Madagascar",
-            "Capital": "Antananarivo",
-            "GDP per Capita (2011 PPP $ (UN))": "853",
-            "Population": "22,293,914"
+            "Term": "Madagascar",
+            "Description": "Capital city: Antananarivo<br \/>GDP per capita: 853<br \/>Population: 22,293,914",
+            "Image": "img\/flag_100.bmp"
         },
         "Malawi": {
-            "Country": "Malawi",
-            "Capital": "Lilongwe",
-            "GDP per Capita (2011 PPP $ (UN))": "805",
-            "Population": "15,906,483"
+            "Term": "Malawi",
+            "Description": "Capital city: Lilongwe<br \/>GDP per capita: 805<br \/>Population: 15,906,483",
+            "Image": "img\/flag_101.bmp"
         },
         "Malaysia": {
-            "Country": "Malaysia",
-            "Capital": "Kuala Lumpur",
-            "GDP per Capita (2011 PPP $ (UN))": "13672",
-            "Population": "29,239,927"
+            "Term": "Malaysia",
+            "Description": "Capital city: Kuala Lumpur<br \/>GDP per capita: 13672<br \/>Population: 29,239,927",
+            "Image": "img\/flag_102.bmp"
         },
         "Maldives": {
-            "Country": "Maldives",
-            "Capital": "Mal\u00e9",
-            "GDP per Capita (2011 PPP $ (UN))": "7834",
-            "Population": "338,442"
+            "Term": "Maldives",
+            "Description": "Capital city: Mal\ufffd<br \/>GDP per capita: 7834<br \/>Population: 338,442",
+            "Image": "img\/flag_103.bmp"
         },
         "Mali": {
-            "Country": "Mali",
-            "Capital": "Barnako",
-            "GDP per Capita (2011 PPP $ (UN))": "964",
-            "Population": "14,853,572"
+            "Term": "Mali",
+            "Description": "Capital city: Barnako<br \/>GDP per capita: 964<br \/>Population: 14,853,572",
+            "Image": "img\/flag_104.bmp"
         },
         "Malta": {
-            "Country": "Malta",
-            "Capital": "Valletta",
-            "GDP per Capita (2011 PPP $ (UN))": "23007",
-            "Population": "419,455"
+            "Term": "Malta",
+            "Description": "Capital city: Valletta<br \/>GDP per capita: 23007<br \/>Population: 419,455",
+            "Image": "img\/flag_105.bmp"
         },
-        "Marshall Islands": {
-            "Country": "Marshall Islands",
-            "Capital": "Majuro",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "52,555"
+        "The Marshall Islands": {
+            "Term": "The Marshall Islands",
+            "Description": "Capital city: Majuro<br \/>GDP per capita: ..<br \/>Population: 52,555",
+            "Image": "img\/flag_106.bmp"
         },
         "Mauritania": {
-            "Country": "Mauritania",
-            "Capital": "Nouakchott",
-            "GDP per Capita (2011 PPP $ (UN))": "2255",
-            "Population": "3,796,141"
+            "Term": "Mauritania",
+            "Description": "Capital city: Nouakchott<br \/>GDP per capita: 2255<br \/>Population: 3,796,141",
+            "Image": "img\/flag_107.bmp"
         },
         "Mauritius": {
-            "Country": "Mauritius",
-            "Capital": "Port Louis",
-            "GDP per Capita (2011 PPP $ (UN))": "12737",
-            "Population": "1,291,456"
+            "Term": "Mauritius",
+            "Description": "Capital city: Port Louis<br \/>GDP per capita: 12737<br \/>Population: 1,291,456",
+            "Image": "img\/flag_108.bmp"
         },
         "Mexico": {
-            "Country": "Mexico",
-            "Capital": "Mexico City",
-            "GDP per Capita (2011 PPP $ (UN))": "12776",
-            "Population": "120,847,477"
+            "Term": "Mexico",
+            "Description": "Capital city: Mexico City<br \/>GDP per capita: 12776<br \/>Population: 120,847,477",
+            "Image": "img\/flag_109.bmp"
         },
-        "Micronesia, Fed. Sts.": {
-            "Country": "Micronesia, Fed. Sts.",
-            "Capital": "Palikir",
-            "GDP per Capita (2011 PPP $ (UN))": "3017",
-            "Population": "103,395"
+        "Micronesia": {
+            "Term": "Micronesia",
+            "Description": "Capital city: Palikir<br \/>GDP per capita: 3017<br \/>Population: 103,395",
+            "Image": "img\/flag_110.bmp"
         },
         "Moldova": {
-            "Country": "Moldova",
-            "Capital": "Chi\u0219in\u0103u",
-            "GDP per Capita (2011 PPP $ (UN))": "2975",
-            "Population": "3,559,519"
+            "Term": "Moldova",
+            "Description": "Capital city: Chi?in?u<br \/>GDP per capita: 2975<br \/>Population: 3,559,519",
+            "Image": "img\/flag_111.bmp"
         },
         "Monaco": {
-            "Country": "Monaco",
-            "Capital": "Monaco",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "37,579"
+            "Term": "Monaco",
+            "Description": "Capital city: Monaco<br \/>GDP per capita: ..<br \/>Population: 37,579",
+            "Image": "img\/flag_112.bmp"
         },
         "Mongolia": {
-            "Country": "Mongolia",
-            "Capital": "Ulan Bator",
-            "GDP per Capita (2011 PPP $ (UN))": "4178",
-            "Population": "2,796,484"
+            "Term": "Mongolia",
+            "Description": "Capital city: Ulan Bator<br \/>GDP per capita: 4178<br \/>Population: 2,796,484",
+            "Image": "img\/flag_113.bmp"
         },
         "Montenegro": {
-            "Country": "Montenegro",
-            "Capital": "Podgorica",
-            "GDP per Capita (2011 PPP $ (UN))": "10402",
-            "Population": "621,081"
+            "Term": "Montenegro",
+            "Description": "Capital city: Podgorica<br \/>GDP per capita: 10402<br \/>Population: 621,081",
+            "Image": "img\/flag_114.bmp"
         },
         "Morocco": {
-            "Country": "Morocco",
-            "Capital": "Rabat",
-            "GDP per Capita (2011 PPP $ (UN))": "4373",
-            "Population": "32,521,143"
+            "Term": "Morocco",
+            "Description": "Capital city: Rabat<br \/>GDP per capita: 4373<br \/>Population: 32,521,143",
+            "Image": "img\/flag_115.bmp"
         },
         "Mozambique": {
-            "Country": "Mozambique",
-            "Capital": "Maputo",
-            "GDP per Capita (2011 PPP $ (UN))": "861",
-            "Population": "25,203,395"
+            "Term": "Mozambique",
+            "Description": "Capital city: Maputo<br \/>GDP per capita: 861<br \/>Population: 25,203,395",
+            "Image": "img\/flag_116.bmp"
         },
-        "Myanmar (Burma)": {
-            "Country": "Myanmar (Burma)",
-            "Capital": "Naypyidaw",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "52,797,319"
+        "Myanmar": {
+            "Term": "Myanmar",
+            "Description": "Capital city: Naypyidaw<br \/>GDP per capita: ..<br \/>Population: 52,797,319",
+            "Image": "img\/flag_117.bmp"
         },
         "Namibia": {
-            "Country": "Namibia",
-            "Capital": "Windhoek",
-            "GDP per Capita (2011 PPP $ (UN))": "5986",
-            "Population": "2,259,393"
+            "Term": "Namibia",
+            "Description": "Capital city: Windhoek<br \/>GDP per capita: 5986<br \/>Population: 2,259,393",
+            "Image": "img\/flag_118.bmp"
+        },
+        "Nauru": {
+            "Term": "Nauru",
+            "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
+            "Image": "img\/flag_119.bmp"
         },
         "Nepal": {
-            "Country": "Nepal",
-            "Capital": "Kathmandu",
-            "GDP per Capita (2011 PPP $ (UN))": "1102",
-            "Population": "27,474,377"
+            "Term": "Nepal",
+            "Description": "Capital city: Kathmandu<br \/>GDP per capita: 1102<br \/>Population: 27,474,377",
+            "Image": "img\/flag_120.bmp"
         },
-        "Netherlands": {
-            "Country": "Netherlands",
-            "Capital": "Amsterdam",
-            "GDP per Capita (2011 PPP $ (UN))": "37251",
-            "Population": "16,754,962"
-        },
-        "New Caledonia": {
-            "Country": "New Caledonia",
-            "Capital": "Nourn\u00e9a",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "258,121"
+        "The Netherlands": {
+            "Term": "The Netherlands",
+            "Description": "Capital city: Amsterdam<br \/>GDP per capita: 37251<br \/>Population: 16,754,962",
+            "Image": "img\/flag_121.bmp"
         },
         "New Zealand": {
-            "Country": "New Zealand",
-            "Capital": "Wellington",
-            "GDP per Capita (2011 PPP $ (UN))": "24818",
-            "Population": "4,433,100"
+            "Term": "New Zealand",
+            "Description": "Capital city: Wellington<br \/>GDP per capita: 24818<br \/>Population: 4,433,100",
+            "Image": "img\/flag_122.bmp"
         },
         "Nicaragua": {
-            "Country": "Nicaragua",
-            "Capital": "Managua",
-            "GDP per Capita (2011 PPP $ (UN))": "2579",
-            "Population": "5,991,733"
+            "Term": "Nicaragua",
+            "Description": "Capital city: Managua<br \/>GDP per capita: 2579<br \/>Population: 5,991,733",
+            "Image": "img\/flag_123.bmp"
         },
         "Niger": {
-            "Country": "Niger",
-            "Capital": "Niamey",
-            "GDP per Capita (2011 PPP $ (UN))": "642",
-            "Population": "17,157,042"
+            "Term": "Niger",
+            "Description": "Capital city: Niamey<br \/>GDP per capita: 642<br \/>Population: 17,157,042",
+            "Image": "img\/flag_124.bmp"
         },
         "Nigeria": {
-            "Country": "Nigeria",
-            "Capital": "Abuja",
-            "GDP per Capita (2011 PPP $ (UN))": "2221",
-            "Population": "168,833,776"
+            "Term": "Nigeria",
+            "Description": "Capital city: Abuja<br \/>GDP per capita: 2221<br \/>Population: 168,833,776",
+            "Image": "img\/flag_125.bmp"
         },
-        "Northern Mariana Islands": {
-            "Country": "Northern Mariana Islands",
-            "Capital": "Saipan",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "53,305"
+        "North Korea": {
+            "Term": "North Korea",
+            "Description": "Capital city: Pyongyang<br \/>GDP per capita: ..<br \/>Population: 24,763,188",
+            "Image": "img\/flag_126.bmp"
         },
         "Norway": {
-            "Country": "Norway",
-            "Capital": "Oslo",
-            "GDP per Capita (2011 PPP $ (UN))": "46982",
-            "Population": "5,018,573"
+            "Term": "Norway",
+            "Description": "Capital city: Oslo<br \/>GDP per capita: 46982<br \/>Population: 5,018,573",
+            "Image": "img\/flag_127.bmp"
         },
         "Oman": {
-            "Country": "Oman",
-            "Capital": "Muscat",
-            "GDP per Capita (2011 PPP $ (UN))": "25330",
-            "Population": "3,314,001"
+            "Term": "Oman",
+            "Description": "Capital city: Muscat<br \/>GDP per capita: 25330<br \/>Population: 3,314,001",
+            "Image": "img\/flag_128.bmp"
         },
         "Pakistan": {
-            "Country": "Pakistan",
-            "Capital": "Islamabad",
-            "GDP per Capita (2011 PPP $ (UN))": "2424",
-            "Population": "179,160,111"
+            "Term": "Pakistan",
+            "Description": "Capital city: Islamabad<br \/>GDP per capita: 2424<br \/>Population: 179,160,111",
+            "Image": "img\/flag_129.bmp"
         },
         "Palau": {
-            "Country": "Palau",
-            "Capital": "Ngerulmud",
-            "GDP per Capita (2011 PPP $ (UN))": "13176",
-            "Population": "20,754"
+            "Term": "Palau",
+            "Description": "Capital city: Ngerulmud<br \/>GDP per capita: 13176<br \/>Population: 20,754",
+            "Image": "img\/flag_130.bmp"
         },
         "Panama": {
-            "Country": "Panama",
-            "Capital": "Pana City",
-            "GDP per Capita (2011 PPP $ (UN))": "13766",
-            "Population": "3,802,281"
+            "Term": "Panama",
+            "Description": "Capital city: Pana City<br \/>GDP per capita: 13766<br \/>Population: 3,802,281",
+            "Image": "img\/flag_131.bmp"
         },
         "Papua New Guinea": {
-            "Country": "Papua New Guinea",
-            "Capital": "Port Moresby",
-            "GDP per Capita (2011 PPP $ (UN))": "2363",
-            "Population": "7,167,010"
+            "Term": "Papua New Guinea",
+            "Description": "Capital city: Port Moresby<br \/>GDP per capita: 2363<br \/>Population: 7,167,010",
+            "Image": "img\/flag_132.bmp"
         },
         "Paraguay": {
-            "Country": "Paraguay",
-            "Capital": "Asunci\u00f3n",
-            "GDP per Capita (2011 PPP $ (UN))": "4752",
-            "Population": "6,687,361"
+            "Term": "Paraguay",
+            "Description": "Capital city: Asunci\ufffdn<br \/>GDP per capita: 4752<br \/>Population: 6,687,361",
+            "Image": "img\/flag_133.bmp"
+        },
+        "The People's Republic of China": {
+            "Term": "The People's Republic of China",
+            "Description": "Capital city: Beijing<br \/>GDP per capita: 7418<br \/>Population: 1,350,695,000",
+            "Image": "img\/flag_134.bmp"
         },
         "Peru": {
-            "Country": "Peru",
-            "Capital": "Lima",
-            "GDP per Capita (2011 PPP $ (UN))": "9049",
-            "Population": "29,987,800"
+            "Term": "Peru",
+            "Description": "Capital city: Lima<br \/>GDP per capita: 9049<br \/>Population: 29,987,800",
+            "Image": "img\/flag_135.bmp"
         },
-        "Philippines": {
-            "Country": "Philippines",
-            "Capital": "Manila",
-            "GDP per Capita (2011 PPP $ (UN))": "3631",
-            "Population": "96,706,764"
+        "The Philippines": {
+            "Term": "The Philippines",
+            "Description": "Capital city: Manila<br \/>GDP per capita: 3631<br \/>Population: 96,706,764",
+            "Image": "img\/flag_136.bmp"
         },
         "Poland": {
-            "Country": "Poland",
-            "Capital": "Warsaw",
-            "GDP per Capita (2011 PPP $ (UN))": "18087",
-            "Population": "38,535,873"
+            "Term": "Poland",
+            "Description": "Capital city: Warsaw<br \/>GDP per capita: 18087<br \/>Population: 38,535,873",
+            "Image": "img\/flag_137.bmp"
         },
         "Portugal": {
-            "Country": "Portugal",
-            "Capital": "Lisbon",
-            "GDP per Capita (2011 PPP $ (UN))": "21317",
-            "Population": "10,514,844"
-        },
-        "Puerto Rico": {
-            "Country": "Puerto Rico",
-            "Capital": "San Juan",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "3,667,084"
+            "Term": "Portugal",
+            "Description": "Capital city: Lisbon<br \/>GDP per capita: 21317<br \/>Population: 10,514,844",
+            "Image": "img\/flag_138.bmp"
         },
         "Qatar": {
-            "Country": "Qatar",
-            "Capital": "Doha",
-            "GDP per Capita (2011 PPP $ (UN))": "77987",
-            "Population": "2,050,514"
+            "Term": "Qatar",
+            "Description": "Capital city: Doha<br \/>GDP per capita: 77987<br \/>Population: 2,050,514",
+            "Image": "img\/flag_139.bmp"
+        },
+        "The Republic of China": {
+            "Term": "The Republic of China",
+            "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
+            "Image": "img\/flag_140.bmp"
+        },
+        "The Republic of Congo": {
+            "Term": "The Republic of Congo",
+            "Description": "Capital city: Brazzaville<br \/>GDP per capita: 329<br \/>Population: 4,337,051",
+            "Image": "img\/flag_141.bmp"
         },
         "Romania": {
-            "Country": "Romania",
-            "Capital": "Bucharest",
-            "GDP per Capita (2011 PPP $ (UN))": "10905",
-            "Population": "20,076,727"
+            "Term": "Romania",
+            "Description": "Capital city: Bucharest<br \/>GDP per capita: 10905<br \/>Population: 20,076,727",
+            "Image": "img\/flag_142.bmp"
         },
-        "Russian Federation": {
-            "Country": "Russian Federation",
-            "Capital": "Moscow",
-            "GDP per Capita (2011 PPP $ (UN))": "14808",
-            "Population": "143,533,000"
+        "Russia": {
+            "Term": "Russia",
+            "Description": "Capital city: Moscow<br \/>GDP per capita: 14808<br \/>Population: 143,533,000",
+            "Image": "img\/flag_143.bmp"
         },
         "Rwanda": {
-            "Country": "Rwanda",
-            "Capital": "Kigali",
-            "GDP per Capita (2011 PPP $ (UN))": "1097",
-            "Population": "11,457,801"
+            "Term": "Rwanda",
+            "Description": "Capital city: Kigali<br \/>GDP per capita: 1097<br \/>Population: 11,457,801",
+            "Image": "img\/flag_144.bmp"
+        },
+        "Saint Kitts": {
+            "Term": "Saint Kitts",
+            "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
+            "Image": "img\/flag_145.bmp"
+        },
+        "Saint Lucia": {
+            "Term": "Saint Lucia",
+            "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
+            "Image": "img\/flag_146.bmp"
+        },
+        "Saint Vincent": {
+            "Term": "Saint Vincent",
+            "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
+            "Image": "img\/flag_147.bmp"
         },
         "Samoa": {
-            "Country": "Samoa",
-            "Capital": "Apira",
-            "GDP per Capita (2011 PPP $ (UN))": "4008",
-            "Population": "188,889"
+            "Term": "Samoa",
+            "Description": "Capital city: Apira<br \/>GDP per capita: 4008<br \/>Population: 188,889",
+            "Image": "img\/flag_148.bmp"
         },
         "San Marino": {
-            "Country": "San Marino",
-            "Capital": "San Marino",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "31,247"
+            "Term": "San Marino",
+            "Description": "Capital city: San Marino<br \/>GDP per capita: ..<br \/>Population: 31,247",
+            "Image": "img\/flag_149.bmp"
         },
-        "S\u00e3o Tom\u00e9 and Principe": {
-            "Country": "S\u00e3o Tom\u00e9 and Principe",
-            "Capital": "S\u00e3o Tom\u00e9",
-            "GDP per Capita (2011 PPP $ (UN))": "1805",
-            "Population": "188,098"
+        "Sao Tome and Principe": {
+            "Term": "Sao Tome and Principe",
+            "Description": "Capital city: S\ufffdo Tom\ufffd<br \/>GDP per capita: 1805<br \/>Population: 188,098",
+            "Image": "img\/flag_150.bmp"
         },
         "Saudi Arabia": {
-            "Country": "Saudi Arabia",
-            "Capital": "Riyadh",
-            "GDP per Capita (2011 PPP $ (UN))": "21430",
-            "Population": "28,287,855"
+            "Term": "Saudi Arabia",
+            "Description": "Capital city: Riyadh<br \/>GDP per capita: 21430<br \/>Population: 28,287,855",
+            "Image": "img\/flag_151.bmp"
         },
         "Senegal": {
-            "Country": "Senegal",
-            "Capital": "Dakar",
-            "GDP per Capita (2011 PPP $ (UN))": "1737",
-            "Population": "13,726,021"
+            "Term": "Senegal",
+            "Description": "Capital city: Dakar<br \/>GDP per capita: 1737<br \/>Population: 13,726,021",
+            "Image": "img\/flag_152.bmp"
         },
         "Serbia": {
-            "Country": "Serbia",
-            "Capital": "Belgrade",
-            "GDP per Capita (2011 PPP $ (UN))": "9809",
-            "Population": "7,223,887"
+            "Term": "Serbia",
+            "Description": "Capital city: Belgrade<br \/>GDP per capita: 9809<br \/>Population: 7,223,887",
+            "Image": "img\/flag_153.bmp"
         },
-        "Seychelles": {
-            "Country": "Seychelles",
-            "Capital": "Victoria",
-            "GDP per Capita (2011 PPP $ (UN))": "23172",
-            "Population": "88,303"
+        "The Seychelles": {
+            "Term": "The Seychelles",
+            "Description": "Capital city: Victoria<br \/>GDP per capita: 23172<br \/>Population: 88,303",
+            "Image": "img\/flag_154.bmp"
         },
         "Sierra Leone": {
-            "Country": "Sierra Leone",
-            "Capital": "Freetown",
-            "GDP per Capita (2011 PPP $ (UN))": "769",
-            "Population": "5,978,727"
+            "Term": "Sierra Leone",
+            "Description": "Capital city: Freetown<br \/>GDP per capita: 769<br \/>Population: 5,978,727",
+            "Image": "img\/flag_155.bmp"
         },
         "Singapore": {
-            "Country": "Singapore",
-            "Capital": "Singapore",
-            "GDP per Capita (2011 PPP $ (UN))": "53591",
-            "Population": "5,312,400"
+            "Term": "Singapore",
+            "Description": "Capital city: Singapore<br \/>GDP per capita: 53591<br \/>Population: 5,312,400",
+            "Image": "img\/flag_156.bmp"
         },
-        "Sint Maarten (Dutch part)": {
-            "Country": "Sint Maarten (Dutch part)",
-            "Capital": "",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "39,088"
-        },
-        "Slovakia, Republic of": {
-            "Country": "Slovakia, Republic of",
-            "Capital": "Bratislava",
-            "GDP per Capita (2011 PPP $ (UN))": "20757",
-            "Population": "5,407,579"
+        "Slovakia": {
+            "Term": "Slovakia",
+            "Description": "Capital city: Bratislava<br \/>GDP per capita: 20757<br \/>Population: 5,407,579",
+            "Image": "img\/flag_157.bmp"
         },
         "Slovenia": {
-            "Country": "Slovenia",
-            "Capital": "Ljubljana",
-            "GDP per Capita (2011 PPP $ (UN))": "24967",
-            "Population": "2,057,159"
+            "Term": "Slovenia",
+            "Description": "Capital city: Ljubljana<br \/>GDP per capita: 24967<br \/>Population: 2,057,159",
+            "Image": "img\/flag_158.bmp"
         },
-        "Solomon Islands": {
-            "Country": "Solomon Islands",
-            "Capital": "Honiara",
-            "GDP per Capita (2011 PPP $ (UN))": "2581",
-            "Population": "549,598"
+        "The Solomon Islands": {
+            "Term": "The Solomon Islands",
+            "Description": "Capital city: Honiara<br \/>GDP per capita: 2581<br \/>Population: 549,598",
+            "Image": "img\/flag_159.bmp"
         },
         "Somalia": {
-            "Country": "Somalia",
-            "Capital": "Mogadishu",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "10,195,134"
+            "Term": "Somalia",
+            "Description": "Capital city: Mogadishu<br \/>GDP per capita: ..<br \/>Population: 10,195,134",
+            "Image": "img\/flag_160.bmp"
         },
         "South Africa": {
-            "Country": "South Africa",
-            "Capital": "Pretoria",
-            "GDP per Capita (2011 PPP $ (UN))": "9678",
-            "Population": "52,274,945"
+            "Term": "South Africa",
+            "Description": "Capital city: Pretoria<br \/>GDP per capita: 9678<br \/>Population: 52,274,945",
+            "Image": "img\/flag_161.bmp"
         },
-        "South Sudan": {
-            "Country": "South Sudan",
-            "Capital": "South Sudan",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "10,837,527"
+        "South Korea": {
+            "Term": "South Korea",
+            "Description": "Capital city: Seoul<br \/>GDP per capita: 27541<br \/>Population: 50,004,441",
+            "Image": "img\/flag_162.bmp"
         },
         "Spain": {
-            "Country": "Spain",
-            "Capital": "Madrid",
-            "GDP per Capita (2011 PPP $ (UN))": "27063",
-            "Population": "46,761,264"
+            "Term": "Spain",
+            "Description": "Capital city: Madrid<br \/>GDP per capita: 27063<br \/>Population: 46,761,264",
+            "Image": "img\/flag_163.bmp"
         },
         "Sri Lanka": {
-            "Country": "Sri Lanka",
-            "Capital": "Sri Jayawardenepura Kotte",
-            "GDP per Capita (2011 PPP $ (UN))": "4929",
-            "Population": "20,328,000"
-        },
-        "St. Kitts and Nevis": {
-            "Country": "St. Kitts and Nevis",
-            "Capital": "Basseterre",
-            "GDP per Capita (2011 PPP $ (UN))": "13291",
-            "Population": "53,584"
-        },
-        "St. Lucia": {
-            "Country": "St. Lucia",
-            "Capital": "Castries",
-            "GDP per Capita (2011 PPP $ (UN))": "8231",
-            "Population": "180,87"
-        },
-        "St. Martin (French part)": {
-            "Country": "St. Martin (French part)",
-            "Capital": "",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "30,959"
-        },
-        "St. Vincent and the Grenadines": {
-            "Country": "St. Vincent and the Grenadines",
-            "Capital": "Kingstown",
-            "GDP per Capita (2011 PPP $ (UN))": "9482",
-            "Population": "109,373"
+            "Term": "Sri Lanka",
+            "Description": "Capital city: Sri Jayawardenepura Kotte<br \/>GDP per capita: 4929<br \/>Population: 20,328,000",
+            "Image": "img\/flag_164.bmp"
         },
         "Sudan": {
-            "Country": "Sudan",
-            "Capital": "Khartoum",
-            "GDP per Capita (2011 PPP $ (UN))": "1878",
-            "Population": "37,195,349"
+            "Term": "Sudan",
+            "Description": "Capital city: Khartoum<br \/>GDP per capita: 1878<br \/>Population: 37,195,349",
+            "Image": "img\/flag_165.bmp"
         },
         "Suriname": {
-            "Country": "Suriname",
-            "Capital": "Paramaribo",
-            "GDP per Capita (2011 PPP $ (UN))": "7110",
-            "Population": "534,541"
+            "Term": "Suriname",
+            "Description": "Capital city: Paramaribo<br \/>GDP per capita: 7110<br \/>Population: 534,541",
+            "Image": "img\/flag_166.bmp"
         },
         "Swaziland": {
-            "Country": "Swaziland",
-            "Capital": "Mbabane",
-            "GDP per Capita (2011 PPP $ (UN))": "5349",
-            "Population": "1,230,985"
+            "Term": "Swaziland",
+            "Description": "Capital city: Mbabane<br \/>GDP per capita: 5349<br \/>Population: 1,230,985",
+            "Image": "img\/flag_167.bmp"
         },
         "Sweden": {
-            "Country": "Sweden",
-            "Capital": "Stockholm",
-            "GDP per Capita (2011 PPP $ (UN))": "35048",
-            "Population": "9,519,374"
+            "Term": "Sweden",
+            "Description": "Capital city: Stockholm<br \/>GDP per capita: 35048<br \/>Population: 9,519,374",
+            "Image": "img\/flag_168.bmp"
         },
         "Switzerland": {
-            "Country": "Switzerland",
-            "Capital": "Bern",
-            "GDP per Capita (2011 PPP $ (UN))": "37979",
-            "Population": "7,996,861"
+            "Term": "Switzerland",
+            "Description": "Capital city: Bern<br \/>GDP per capita: 37979<br \/>Population: 7,996,861",
+            "Image": "img\/flag_169.bmp"
         },
-        "Syria, Arabic Republic of": {
-            "Country": "Syria, Arabic Republic of",
-            "Capital": "Damascus",
-            "GDP per Capita (2011 PPP $ (UN))": "4741",
-            "Population": "22,399,254"
+        "Syria": {
+            "Term": "Syria",
+            "Description": "Capital city: Damascus<br \/>GDP per capita: 4741<br \/>Population: 22,399,254",
+            "Image": "img\/flag_170.bmp"
         },
         "Tajikistan": {
-            "Country": "Tajikistan",
-            "Capital": "Dushanbe",
-            "GDP per Capita (2011 PPP $ (UN))": "2052",
-            "Population": "8,008,990"
+            "Term": "Tajikistan",
+            "Description": "Capital city: Dushanbe<br \/>GDP per capita: 2052<br \/>Population: 8,008,990",
+            "Image": "img\/flag_171.bmp"
         },
         "Tanzania": {
-            "Country": "Tanzania",
-            "Capital": "Dar Es Salaam",
-            "GDP per Capita (2011 PPP $ (UN))": "1334",
-            "Population": "47,783,107"
+            "Term": "Tanzania",
+            "Description": "Capital city: Dar Es Salaam<br \/>GDP per capita: 1334<br \/>Population: 47,783,107",
+            "Image": "img\/flag_172.bmp"
         },
         "Thailand": {
-            "Country": "Thailand",
-            "Capital": "Bangkok",
-            "GDP per Capita (2011 PPP $ (UN))": "7633",
-            "Population": "66,785,001"
-        },
-        "Timor-Leste": {
-            "Country": "Timor-Leste",
-            "Capital": "Dili",
-            "GDP per Capita (2011 PPP $ (UN))": "1393",
-            "Population": "1,210,233"
+            "Term": "Thailand",
+            "Description": "Capital city: Bangkok<br \/>GDP per capita: 7633<br \/>Population: 66,785,001",
+            "Image": "img\/flag_173.bmp"
         },
         "Togo": {
-            "Country": "Togo",
-            "Capital": "Lom\u00e9",
-            "GDP per Capita (2011 PPP $ (UN))": "914",
-            "Population": "6,642,928"
+            "Term": "Togo",
+            "Description": "Capital city: Lom\ufffd<br \/>GDP per capita: 914<br \/>Population: 6,642,928",
+            "Image": "img\/flag_174.bmp"
         },
         "Tonga": {
-            "Country": "Tonga",
-            "Capital": "Nuku'alofa",
-            "GDP per Capita (2011 PPP $ (UN))": "4092",
-            "Population": "104,941"
+            "Term": "Tonga",
+            "Description": "Capital city: Nuku'alofa<br \/>GDP per capita: 4092<br \/>Population: 104,941",
+            "Image": "img\/flag_175.bmp"
         },
         "Trinidad and Tobago": {
-            "Country": "Trinidad and Tobago",
-            "Capital": "Port of Spain",
-            "GDP per Capita (2011 PPP $ (UN))": "22761",
-            "Population": "1,337,439"
+            "Term": "Trinidad and Tobago",
+            "Description": "Capital city: Port of Spain<br \/>GDP per capita: 22761<br \/>Population: 1,337,439",
+            "Image": "img\/flag_176.bmp"
         },
         "Tunisia": {
-            "Country": "Tunisia",
-            "Capital": "Tunis",
-            "GDP per Capita (2011 PPP $ (UN))": "8258",
-            "Population": "10,777,500"
+            "Term": "Tunisia",
+            "Description": "Capital city: Tunis<br \/>GDP per capita: 8258<br \/>Population: 10,777,500",
+            "Image": "img\/flag_177.bmp"
         },
         "Turkey": {
-            "Country": "Turkey",
-            "Capital": "Ankara",
-            "GDP per Capita (2011 PPP $ (UN))": "13466",
-            "Population": "73,997,128"
+            "Term": "Turkey",
+            "Description": "Capital city: Ankara<br \/>GDP per capita: 13466<br \/>Population: 73,997,128",
+            "Image": "img\/flag_178.bmp"
         },
         "Turkmenistan": {
-            "Country": "Turkmenistan",
-            "Capital": "Ashgabat",
-            "GDP per Capita (2011 PPP $ (UN))": "8055",
-            "Population": "5,172,931"
-        },
-        "Turks and Caicos Islands": {
-            "Country": "Turks and Caicos Islands",
-            "Capital": "Cockburn Town",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "32,427"
+            "Term": "Turkmenistan",
+            "Description": "Capital city: Ashgabat<br \/>GDP per capita: 8055<br \/>Population: 5,172,931",
+            "Image": "img\/flag_179.bmp"
         },
         "Tuvalu": {
-            "Country": "Tuvalu",
-            "Capital": "Funafuti",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "9,86"
+            "Term": "Tuvalu",
+            "Description": "Capital city: Funafuti<br \/>GDP per capita: ..<br \/>Population: 9,86",
+            "Image": "img\/flag_180.bmp"
         },
         "Uganda": {
-            "Country": "Uganda",
-            "Capital": "Kampala",
-            "GDP per Capita (2011 PPP $ (UN))": "1188",
-            "Population": "36,345,860"
+            "Term": "Uganda",
+            "Description": "Capital city: Kampala<br \/>GDP per capita: 1188<br \/>Population: 36,345,860",
+            "Image": "img\/flag_181.bmp"
         },
         "Ukraine": {
-            "Country": "Ukraine",
-            "Capital": "Kiev",
-            "GDP per Capita (2011 PPP $ (UN))": "6359",
-            "Population": "45,593,300"
+            "Term": "Ukraine",
+            "Description": "Capital city: Kiev<br \/>GDP per capita: 6359<br \/>Population: 45,593,300",
+            "Image": "img\/flag_182.bmp"
         },
-        "United Arab Emirates": {
-            "Country": "United Arab Emirates",
-            "Capital": "Abu Dhabi",
-            "GDP per Capita (2011 PPP $ (UN))": "42293",
-            "Population": "9,205,651"
+        "The United Arab Emirates": {
+            "Term": "The United Arab Emirates",
+            "Description": "Capital city: Abu Dhabi<br \/>GDP per capita: 42293<br \/>Population: 9,205,651",
+            "Image": "img\/flag_183.bmp"
         },
-        "United Kingdom": {
-            "Country": "United Kingdom",
-            "Capital": "Londun",
-            "GDP per Capita (2011 PPP $ (UN))": "32474",
-            "Population": "63,612,729"
+        "The United Kingdom": {
+            "Term": "The United Kingdom",
+            "Description": "Capital city: Capital city: London<br \/> <br \/>GDP per capita: 32474<br \/>Population: 63,612,729",
+            "Image": "img\/flag_184.bmp"
         },
-        "United States": {
-            "Country": "United States",
-            "Capital": "Washington, D.C.",
-            "GDP per Capita (2011 PPP $ (UN))": "42486",
-            "Population": "313,914,040"
+        "The United States": {
+            "Term": "The United States",
+            "Description": "Capital city: Washington, D.C.<br \/>GDP per capita: 42486<br \/>Population: 313,914,040",
+            "Image": "img\/flag_185.bmp"
         },
         "Uruguay": {
-            "Country": "Uruguay",
-            "Capital": "Montevideo",
-            "GDP per Capita (2011 PPP $ (UN))": "13315",
-            "Population": "3,395,253"
+            "Term": "Uruguay",
+            "Description": "Capital city: Montevideo<br \/>GDP per capita: 13315<br \/>Population: 3,395,253",
+            "Image": "img\/flag_186.bmp"
         },
         "Uzbekistan": {
-            "Country": "Uzbekistan",
-            "Capital": "Tashkent",
-            "GDP per Capita (2011 PPP $ (UN))": "2903",
-            "Population": "29,774,500"
+            "Term": "Uzbekistan",
+            "Description": "Capital city: Tashkent<br \/>GDP per capita: 2903<br \/>Population: 29,774,500",
+            "Image": "img\/flag_187.bmp"
         },
         "Vanuatu": {
-            "Country": "Vanuatu",
-            "Capital": "Port Vila",
-            "GDP per Capita (2011 PPP $ (UN))": "4062",
-            "Population": "247,262"
+            "Term": "Vanuatu",
+            "Description": "Capital city: Port Vila<br \/>GDP per capita: 4062<br \/>Population: 247,262",
+            "Image": "img\/flag_188.bmp"
+        },
+        "The Vatican City": {
+            "Term": "The Vatican City",
+            "Description": "Capital city: Caracas<br \/>GDP per capita: 11258<br \/>Population: 29,954,782",
+            "Image": "img\/flag_189.bmp"
         },
         "Venezuela": {
-            "Country": "Venezuela",
-            "Capital": "Caracas",
-            "GDP per Capita (2011 PPP $ (UN))": "11258",
-            "Population": "29,954,782"
+            "Term": "Venezuela",
+            "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
+            "Image": "img\/flag_190.bmp"
         },
         "Vietnam": {
-            "Country": "Vietnam",
-            "Capital": "Hanoi",
-            "GDP per Capita (2011 PPP $ (UN))": "3013",
-            "Population": "88,772,900"
+            "Term": "Vietnam",
+            "Description": "Capital city: Hanoi<br \/>GDP per capita: 3013<br \/>Population: 88,772,900",
+            "Image": "img\/flag_191.bmp"
         },
-        "Virgin Islands (U.S.)": {
-            "Country": "Virgin Islands (U.S.)",
-            "Capital": "Charlotte Amalie",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "105,275"
+        "Western Sahara": {
+            "Term": "Western Sahara",
+            "Description": "Capital city: <br \/>GDP per capita: <br \/>Population: ",
+            "Image": "img\/flag_192.bmp"
         },
-        "West Bank and Gaza": {
-            "Country": "West Bank and Gaza",
-            "Capital": "Gaza",
-            "GDP per Capita (2011 PPP $ (UN))": "",
-            "Population": "4,046,901"
-        },
-        "Yemen, Rep.": {
-            "Country": "Yemen, Rep.",
-            "Capital": "Sana'a",
-            "GDP per Capita (2011 PPP $ (UN))": "2060",
-            "Population": "23,852,409"
+        "Yemen": {
+            "Term": "Yemen",
+            "Description": "Capital city: Sana'a<br \/>GDP per capita: 2060<br \/>Population: 23,852,409",
+            "Image": "img\/flag_193.bmp"
         },
         "Zambia": {
-            "Country": "Zambia",
-            "Capital": "Lusaka",
-            "GDP per Capita (2011 PPP $ (UN))": "1423",
-            "Population": "14,075,099"
+            "Term": "Zambia",
+            "Description": "Capital city: Lusaka<br \/>GDP per capita: 1423<br \/>Population: 14,075,099",
+            "Image": "img\/flag_194.bmp"
         },
         "Zimbabwe": {
-            "Country": "Zimbabwe",
-            "Capital": "Harare",
-            "GDP per Capita (2011 PPP $ (UN))": "..",
-            "Population": "13,724,317"
+            "Term": "Zimbabwe",
+            "Description": "Capital city: Harare<br \/>GDP per capita: ..<br \/>Population: 13,724,317",
+            "Image": "img\/flag_195.bmp"
         }
     };
 
@@ -1543,6 +1240,111 @@ function getDicts()
         }
     };
 
+    news = {
+        "response": {
+            "status": "ok",
+            "userTier": "free",
+            "total": 528,
+            "startIndex": 1,
+            "pageSize": 10,
+            "currentPage": 1,
+            "pages": 53,
+            "orderBy": "newest",
+            "results": [
+                {
+                    "id": "guardian-observer-style-guide-s",
+                    "sectionId": "info",
+                    "sectionName": "Info",
+                    "webPublicationDate": "2014-05-02T17:51:00Z",
+                    "webTitle": "Guardian and Observer style guide: S",
+                    "webUrl": "http://www.theguardian.com/guardian-observer-style-guide-s",
+                    "apiUrl": "http://content.guardianapis.com/guardian-observer-style-guide-s"
+                },
+                {
+                    "id": "football/2014/may/01/azerbaijan-sponsorship-atletico-madrid-spectacular-success",
+                    "sectionId": "football",
+                    "sectionName": "Football",
+                    "webPublicationDate": "2014-05-01T13:25:00Z",
+                    "webTitle": "Azerbaijan's sponsorship of Atlético Madrid proves spectacular success | Owen Gibson",
+                    "webUrl": "http://www.theguardian.com/football/2014/may/01/azerbaijan-sponsorship-atletico-madrid-spectacular-success",
+                    "apiUrl": "http://content.guardianapis.com/football/2014/may/01/azerbaijan-sponsorship-atletico-madrid-spectacular-success"
+                },
+                {
+                    "id": "world/2014/apr/25/interview-samereh-alinejad-iranian-mother-spared-sons-killer",
+                    "sectionId": "world",
+                    "sectionName": "World news",
+                    "webPublicationDate": "2014-04-25T18:27:20Z",
+                    "webTitle": "Iranian mother who spared her son's killer: 'Vengeance has left my heart'",
+                    "webUrl": "http://www.theguardian.com/world/2014/apr/25/interview-samereh-alinejad-iranian-mother-spared-sons-killer",
+                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/25/interview-samereh-alinejad-iranian-mother-spared-sons-killer"
+                },
+                {
+                    "id": "world/2014/apr/23/putin-military-exercises-ukraine-border",
+                    "sectionId": "world",
+                    "sectionName": "World news",
+                    "webPublicationDate": "2014-04-23T16:55:31Z",
+                    "webTitle": "Putin's military exercises are more than a game",
+                    "webUrl": "http://www.theguardian.com/world/2014/apr/23/putin-military-exercises-ukraine-border",
+                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/23/putin-military-exercises-ukraine-border"
+                },
+                {
+                    "id": "world/2014/apr/23/us-warns-russia-ukraine-moscow-snap-military-exercises",
+                    "sectionId": "world",
+                    "sectionName": "World news",
+                    "webPublicationDate": "2014-04-23T16:37:00Z",
+                    "webTitle": "Russia warns it will respond if interests attacked in Ukraine",
+                    "webUrl": "http://www.theguardian.com/world/2014/apr/23/us-warns-russia-ukraine-moscow-snap-military-exercises",
+                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/23/us-warns-russia-ukraine-moscow-snap-military-exercises"
+                },
+                {
+                    "id": "business/2014/apr/22/energy-supply-russia-ukraine-gas-rich-countries-human-rights",
+                    "sectionId": "business",
+                    "sectionName": "Business",
+                    "webPublicationDate": "2014-04-22T14:37:00Z",
+                    "webTitle": "UK energy quest highlights human rights concerns in gas-rich countries",
+                    "webUrl": "http://www.theguardian.com/business/2014/apr/22/energy-supply-russia-ukraine-gas-rich-countries-human-rights",
+                    "apiUrl": "http://content.guardianapis.com/business/2014/apr/22/energy-supply-russia-ukraine-gas-rich-countries-human-rights"
+                },
+                {
+                    "id": "world/2014/apr/15/ukraine-military-forces-russia-live-blog",
+                    "sectionId": "world",
+                    "sectionName": "World news",
+                    "webPublicationDate": "2014-04-15T21:49:36Z",
+                    "webTitle": "Ukraine crisis: Kiev launches 'anti-terror operation' in east – live updates",
+                    "webUrl": "http://www.theguardian.com/world/2014/apr/15/ukraine-military-forces-russia-live-blog",
+                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/15/ukraine-military-forces-russia-live-blog"
+                },
+                {
+                    "id": "world/iran-blog/gallery/2014/apr/15/iranian-fashion-between-the-veils",
+                    "sectionId": "world",
+                    "sectionName": "World news",
+                    "webPublicationDate": "2014-04-15T11:47:54Z",
+                    "webTitle": "Iranian fashion: between the veils",
+                    "webUrl": "http://www.theguardian.com/world/iran-blog/gallery/2014/apr/15/iranian-fashion-between-the-veils",
+                    "apiUrl": "http://content.guardianapis.com/world/iran-blog/gallery/2014/apr/15/iranian-fashion-between-the-veils"
+                },
+                {
+                    "id": "world/2014/apr/01/nato-eastern-europe-defences-russia-putin-crimea",
+                    "sectionId": "world",
+                    "sectionName": "World news",
+                    "webPublicationDate": "2014-04-01T17:33:16Z",
+                    "webTitle": "Nato moves to bolster eastern European defences against Russia",
+                    "webUrl": "http://www.theguardian.com/world/2014/apr/01/nato-eastern-europe-defences-russia-putin-crimea",
+                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/01/nato-eastern-europe-defences-russia-putin-crimea"
+                },
+                {
+                    "id": "world/2014/apr/01/nato-plans-stronger-military-ties-armenia-azerbaijan-moldova",
+                    "sectionId": "world",
+                    "sectionName": "World news",
+                    "webPublicationDate": "2014-04-01T11:21:17Z",
+                    "webTitle": "Nato plans stronger military ties to ex-Soviet states south of Russia",
+                    "webUrl": "http://www.theguardian.com/world/2014/apr/01/nato-plans-stronger-military-ties-armenia-azerbaijan-moldova",
+                    "apiUrl": "http://content.guardianapis.com/world/2014/apr/01/nato-plans-stronger-military-ties-armenia-azerbaijan-moldova"
+                }
+            ]
+        }
+    };
+
     dicts = [companies, countries, terms];
     dictsCombined = companies
         + Object.keys(countries)
@@ -1574,10 +1376,36 @@ function hover(link)
             desc.innerHTML = concept["Description"];
             if (concept["Image"].length > 0)
             {
-                img.src = concept["Image"];
+                if (concept["Image"].substr(0, 7) !== "http://")
+                {
+                    img.src = "http://s-nordby.com/" + concept["Image"];
+                }
+                else
+                {
+                    img.src = concept["Image"];
+                }
             }
-            img.style.width = "100%";
+            img.style.maxWidth = "100%";
 
+            if ("Caspian Sea" === keyword) //demo only
+            {
+                var newsDesc = document.createElement("p");
+                hoverDiv.appendChild(newsDesc);
+                newsDesc.innerHTML = "Related news:";
+                newsDesc.margin = "0";
+                newsDesc.padding = "0";
+                var numNews = 3;
+                for (var i=0; i<numNews; ++i)
+                {
+                    var newsLink = document.createElement("a");
+                    hoverDiv.appendChild(newsLink);
+                    var newsResults = news["response"]["results"];
+                    newsLink.innerHTML = newsResults[i]["webTitle"];
+                    newsLink.href = newsResults[i]["webUrl"];
+                    newsLink.style.display = "block";
+                    newsLink.style.padding = "5px 0";
+                }
+            }
             break;
         }
     }
@@ -1590,8 +1418,6 @@ function unhover(link)
     hoverDiv.style.display = "none";
     hoverDiv.innerHTML = "";
 }
-
-
 
 console.log("Contextualizing...");
 

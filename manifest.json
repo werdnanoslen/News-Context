@@ -5,7 +5,7 @@
   "homepage_url": "http://andyhub.com",
   "permissions": [
     "activeTab",
-    "http://explorer.content.guardianapis.com/*"
+    "http://*/*"
   ],
   "background": {
     "scripts": ["jquery.min.js", "launcher.js", "context.js"],

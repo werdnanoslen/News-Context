@@ -1896,9 +1896,8 @@ function hover(link)
             var guardian = "http://content.guardianapis.com/search?api-key=mediahackdays2014&q=";
             $.ajax({
                 url: guardian + keyword,
-                dataType: 'jsonp',
                 success: function(data) {
-                    console.log(data);/*
+                    console.log(data);
                     news = data;
                     var newsDesc = document.createElement("p");
                     hoverDiv.appendChild(newsDesc);
@@ -1915,7 +1914,7 @@ function hover(link)
                         newsLink.href = newsResults[i]["webUrl"];
                         newsLink.style.display = "block";
                         newsLink.style.padding = "5px 0";
-                    }*/
+                    }
                 }
             });
             break;

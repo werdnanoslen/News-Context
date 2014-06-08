@@ -11,8 +11,13 @@
     "scripts": ["jquery.min.js", "launcher.js", "context.js"],
     "persistent": false
   },
+  "icons": {
+    "16": "icon48.png",
+    "48": "icon48.png"
+  },
   "browser_action": {
-    "default_title": "Contextualize this!"
+    "default_title": "Contextualize this!",
+    "default_icon": "icon48.png"
   },
   "manifest_version": 2
 }

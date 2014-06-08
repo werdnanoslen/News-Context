@@ -1,23 +1,26 @@
 {
-  "name": "Context",
-  "description": "Adds context to your news",
-  "version": "1.0",
-  "homepage_url": "http://andyhub.com",
-  "permissions": [
-    "activeTab",
-    "http://*/*"
-  ],
-  "background": {
-    "scripts": ["jquery.min.js", "launcher.js", "context.js"],
-    "persistent": false
-  },
-  "icons": {
-    "16": "icon48.png",
-    "48": "icon48.png"
-  },
-  "browser_action": {
-    "default_title": "Contextualize this!",
-    "default_icon": "icon48.png"
-  },
-  "manifest_version": 2
+    "name": "Context",
+    "description": "Adds context to your news",
+    "version": "1.0",
+    "homepage_url": "http://andyhub.com",
+    "permissions": [
+        "activeTab",
+        "http://*/*"
+    ],
+    "background": {
+        "scripts": ["jquery.min.js", "launcher.js", "context.js"],
+        "persistent": false
+    },
+    "web_accessible_resources": [
+        "dictionaries/*"
+    ],
+    "icons": {
+        "16": "icon48.png",
+        "48": "icon48.png"
+    },
+    "browser_action": {
+        "default_title": "Contextualize this!",
+        "default_icon": "icon48.png"
+    },
+    "manifest_version": 2
 }

@@ -1,0 +1,511 @@
+{
+    "_config": {
+        "Name": "Companies",
+        "Search": "http://www.bloomberg.com/markets/symbolsearch?query="
+    },
+    "ARM Holdings": {
+        "Term": "ARM Holdings",
+        "Description": "ARM.L  Stockprice:\u00a3886,00  0,00         Industry: Semiconductors  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= ARM Holdings",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/6\/60\/ARM_logo.svg"
+    },
+    "Aberdeen Asset Management": {
+        "Term": "Aberdeen Asset Management",
+        "Description": "ADN.L  Stockprice:\u00a3445,90  + 2,50         Industry: Investment Management  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Aberdeen Asset Management",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/2\/20\/Aberdeen_Asset_Management_new_logo.png"
+    },
+    "Admiral Group": {
+        "Term": "Admiral Group",
+        "Description": "ADM.L  Stockprice:\u00a31.391,00  -12,00         Industry: Insurance  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Admiral Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/e\/ee\/Admiral_Group.svg"
+    },
+    "Aggreko": {
+        "Term": "Aggreko",
+        "Description": "AGK.L  Stockprice:\u00a31.651,72  + 6,72         Industry: Generator hire  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Aggreko",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/2\/27\/Aggreko_logo.png"
+    },
+    "Anglo American": {
+        "Term": "Anglo American",
+        "Description": "AAL.L  Stockprice:\u00a31.570,11  + 5,61         Industry: Metals and Mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Anglo American plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/71\/AngloAmerican_logo.jpg"
+    },
+    "Antofagasta": {
+        "Term": "Antofagasta",
+        "Description": "ANTO.L  Stockprice:\u00a3790,50  + 14,50         Industry: Mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Antofagasta PLC",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/78\/Antofagasta.svg"
+    },
+    "Ashtead Group": {
+        "Term": "Ashtead Group",
+        "Description": "ASHM.L  Stockprice:\u00a3350,27  + 0,37         Industry: Plant hire  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Ashtead Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/eb\/AshteadLogo.PNG"
+    },
+    "Associated British Foods": {
+        "Term": "Associated British Foods",
+        "Description": "ABF.L  Stockprice:\u00a32.900,00  -97,00         Industry: Food processing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Associated British Foods",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/16\/Associated_British_Foods_Logo.svg"
+    },
+    "AstraZeneca": {
+        "Term": "AstraZeneca",
+        "Description": "AZN.L  Stockprice:\u00a34.808,00  -7,00         Industry: Pharmaceutical and biotechnology  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= AstraZeneca",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/4f\/AstraZeneca.svg"
+    },
+    "Aviva": {
+        "Term": "Aviva",
+        "Description": "AV.L  Stockprice:\u00a3522,89  -2,11           Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Aviva",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/07\/Aviva.svg"
+    },
+    "BAE Systems": {
+        "Term": "BAE Systems",
+        "Description": "BA.L          Stockprice:\u00a3401,10  -0,10         Industry: Aerospace, Defence and Information security  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= BAE Systems",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/2\/20\/BAE_SYSTEMS.svg"
+    },
+    "BG Group": {
+        "Term": "BG Group",
+        "Description": "BG.L  Stockprice:\u00a31.246,05  + 8,55         Industry: Oil and gas  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= BG Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/6\/6a\/BG_Group.svg"
+    },
+    "BHP Billiton": {
+        "Term": "BHP Billiton",
+        "Description": "BLT.L  Stockprice:\u00a31.931,19  + 35,19         Industry: Metals and Mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= BHP Billiton",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/c\/cb\/BHP_Billiton.svg"
+    },
+    "BP": {
+        "Term": "BP",
+        "Description": "BP.L  Stockprice:\u00a3501,88  + 3,83         Industry: Oil and gas  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= BP",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/e\/e7\/BP_Logo.svg"
+    },
+    "BT Group": {
+        "Term": "BT Group",
+        "Description": "BT-A.L  Stockprice:\u00a3377,50  + 0,40         Industry: Telecommunications  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= BT Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/d6\/BT_logo.svg"
+    },
+    "Babcock International Group": {
+        "Term": "Babcock International Group",
+        "Description": "   Industry: Support services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Babcock International Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/3\/36\/Babcockintlogo.png"
+    },
+    "Barclays": {
+        "Term": "Barclays",
+        "Description": "BARC.L  Stockprice:\u00a3258,50  + 2,35               Industry: Banking and Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Barclays",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/7e\/Barclays_logo.svg"
+    },
+    "Barratt Developments": {
+        "Term": "Barratt Developments",
+        "Description": "   Industry: Housebuilding  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Barratt Developments",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/4e\/Barrattlogo.png"
+    },
+    "British American Tobacco": {
+        "Term": "British American Tobacco",
+        "Description": "BATS.L  Stockprice:\u00a33.396,50  -52,50         Industry: Tobacco  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= British American Tobacco",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/05\/British_American_Tobacco_logo.svg"
+    },
+    "British Land Co": {
+        "Term": "British Land Co",
+        "Description": "BLND.L  Stockprice:\u00a3686,50  -3,50         Industry: Real estate  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= British Land Co",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f4\/British_Land.svg"
+    },
+    "British Sky Broadcasting Group": {
+        "Term": "British Sky Broadcasting Group",
+        "Description": "BSY.L  Stockprice:\u00a3889,00  -11,50         Industry: Mass media  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= British Sky Broadcasting Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/c\/cf\/Sky_logo.svg"
+    },
+    "Bunzl": {
+        "Term": "Bunzl",
+        "Description": "BNZL.L  Stockprice:\u00a31.652,00  -13,00         Industry: Distribution and outsourcing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Bunzl",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/33\/Bunzl-Logo.svg"
+    },
+    "Burberry Group": {
+        "Term": "Burberry Group",
+        "Description": "BRBY.L  Stockprice:\u00a31.492,00  -3,00         Industry: Fashion  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Burberry Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/03\/Burberry_logo.png"
+    },
+    "CRH": {
+        "Term": "CRH",
+        "Description": "CRH.L  Stockprice:\u00a31.726,00  -3,00         Industry: Building materials  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= CRH PLC",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f0\/Crh_logo.png"
+    },
+    "Capita": {
+        "Term": "Capita",
+        "Description": "CPI.L  Stockprice:\u00a31.094,00  + 8,00         Industry: Business process outsourcing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Capita",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/4\/4f\/Capita_logo.svg"
+    },
+    "Carnival": {
+        "Term": "Carnival",
+        "Description": "CCL.L  Stockprice:\u00a32.377,24  + 20,24         Industry: Hospitality and tourism  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Carnival PLC",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/58\/Carnival.svg"
+    },
+    "Centrica": {
+        "Term": "Centrica",
+        "Description": "CNA.L  Stockprice:\u00a3328,80  -1,20         Industry: Utilities  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Centrica",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/c\/c1\/Centrica_logo_2008.svg"
+    },
+    "Coca-Cola HBC AG": {
+        "Term": "Coca-Cola HBC AG",
+        "Description": "   Industry: Beverages  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Coca-Cola HBC AG",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/07\/Coca-Cola_HBC_AG_Official_Logo.jpg"
+    },
+    "Compass Group": {
+        "Term": "Compass Group",
+        "Description": "CPG.L  Stockprice:\u00a3945,50  + 4,00         Industry: Support services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Compass Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/49\/Compass_Group.svg"
+    },
+    "Diageo": {
+        "Term": "Diageo",
+        "Description": "DGE.L  Stockprice:\u00a31.825,68  + 0,68         Industry: Beverages  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Diageo",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/7d\/Diageo.svg"
+    },
+    "Easyjet": {
+        "Term": "Easyjet",
+        "Description": "   Industry: Airline  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Easyjet",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/1\/1b\/EasyJet_logo.svg"
+    },
+    "Experian": {
+        "Term": "Experian",
+        "Description": "EXPN.L  Stockprice:\u00a31.124,00  -11,00         Industry: Business services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Experian",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f8\/Experian.svg"
+    },
+    "Fresnillo": {
+        "Term": "Fresnillo",
+        "Description": "FRES.L  Stockprice:\u00a3832,00  + 2,00         Industry: Mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Fresnillo PLC",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/3\/37\/Fresnillo.svg"
+    },
+    "G4S": {
+        "Term": "G4S",
+        "Description": "GFS.L  Stockprice:\u00a3238,00  + 0,90         Industry: Security  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= G4S",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/b1\/G4S.svg"
+    },
+    "GKN": {
+        "Term": "GKN",
+        "Description": "GKN.L  Stockprice:\u00a3382,90  -4,10 Industry: Automotive and aerospace  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= GKN",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/0\/0e\/GKN.svg"
+    },
+    "GlaxoSmithKline": {
+        "Term": "GlaxoSmithKline",
+        "Description": "GSK.L  Stockprice:\u00a31.627,50  -10,00         Industry: Pharmaceutical and biotechnology  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= GlaxoSmithKline",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/5c\/GlaxoSmithKline_logo.svg"
+    },
+    "Glencore Xstrata": {
+        "Term": "Glencore Xstrata",
+        "Description": "GLEN.L  Stockprice:\u00a3317,37  + 1,32         Industry: Commodities, metals and mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Glencore Xstrata",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/5d\/Glencore_Xstrata_logo.png"
+    },
+    "HSBC Hldgs": {
+        "Term": "HSBC Hldgs",
+        "Description": "HSBA.L  Stockprice:\u00a3605,70  -1,70         Industry: Banking and financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= HSBC Hldgs",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/5\/54\/HSBC.svg"
+    },
+    "Hammerson": {
+        "Term": "Hammerson",
+        "Description": "HMSO.L  Stockprice:\u00a3572,00  -5,00         Industry: Property  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Hammerson",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/a4\/Hammerson.svg"
+    },
+    "Hargreaves Lansdown": {
+        "Term": "Hargreaves Lansdown",
+        "Description": "HL.L  Stockprice:\u00a31.193,00  -22,00         Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Hargreaves Lansdown",
+        "Image": "http:\/\/en.wikipedia.org\/wiki\/Hargreaves_Lansdown"
+    },
+    "IMI": {
+        "Term": "IMI",
+        "Description": "IMI.L  Stockprice:\u00a31.507,00  -1,00         Industry: Engineering  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= IMI PLC",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/41\/Imiplclogo.PNG"
+    },
+    "ITV": {
+        "Term": "ITV",
+        "Description": "ITV.L  Stockprice:\u00a3184,50  -2,10         Industry: Media  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= ITV PLC",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/9\/92\/ITV_logo_2013.svg"
+    },
+    "Imperial Tobacco Group": {
+        "Term": "Imperial Tobacco Group",
+        "Description": "   Industry: Tobacco  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Imperial Tobacco Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/bb\/Imperialtobaccologo.svg"
+    },
+    "InterContinental Hotels Group": {
+        "Term": "InterContinental Hotels Group",
+        "Description": "IAG.L  Stockprice:\u00a32.193,54  + 169,54         Industry: Hotels  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= InterContinental Hotels Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/4\/4c\/InterContinental_Hotels_Group.svg"
+    },
+    "International Consolidated Airlines Group": {
+        "Term": "International Consolidated Airlines Group",
+        "Description": "   Industry: Passenger air transport and air freight services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= International Consolidated Airlines Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/8a\/International_Airlines_Group_logo.png"
+    },
+    "Intertek Group": {
+        "Term": "Intertek Group",
+        "Description": "ITRK.L  Stockprice:\u00a32.928,00  -17,00         Industry: Testing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Intertek Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f1\/Interteklogo.PNG"
+    },
+    "Johnson Matthey": {
+        "Term": "Johnson Matthey",
+        "Description": "JMAT.L  Stockprice:\u00a33.308,00  -51,00         Industry: Chemicals and precious metals  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Johnson Matthey",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/2\/2c\/Johnson_Matthey.svg"
+    },
+    "Kingfisher": {
+        "Term": "Kingfisher",
+        "Description": "KGF.L  Stockprice:\u00a3426,40  + 8,40         Industry: Retail  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Kingfisher plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/81\/Kingfisher_plc.png"
+    },
+    "Land Securities Group": {
+        "Term": "Land Securities Group",
+        "Description": "LAND.L  Stockprice:\u00a31.059,00  -1,00         Industry: Property  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Land Securities Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/be\/Land_Securities.svg"
+    },
+    "Legal & General Group": {
+        "Term": "Legal & General Group",
+        "Description": "LGEN.L  Stockprice:\u00a3214,30  + 2,50 Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Legal & General Group plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/1c\/LegalAndGeneral_Logo.png"
+    },
+    "Lloyds Banking Group": {
+        "Term": "Lloyds Banking Group",
+        "Description": "LLOY.L  Stockprice:\u00a379,63  + 0,13         Industry: Banking and financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Lloyds Banking Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/2\/2e\/Lloyds_banking_group.svg"
+    },
+    "London Stock Exchange Group": {
+        "Term": "London Stock Exchange Group",
+        "Description": "   Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= London Stock Exchange Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/ee\/London_Stock_Exchange_Group.svg"
+    },
+    "Marks & Spencer Group": {
+        "Term": "Marks & Spencer Group",
+        "Description": "MKS.L  Stockprice:\u00a3440,80  -3,20         Industry: Retail  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Marks & Spencer plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/37\/MARKS_%26_Spencer_logo.svg"
+    },
+    "Meggitt": {
+        "Term": "Meggitt",
+        "Description": "MGGT.L  Stockprice:\u00a3476,90  + 0,20         Industry: Aerospace and defence  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Meggitt",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/57\/Meggittlogo.PNG"
+    },
+    "Melrose Industries": {
+        "Term": "Melrose Industries",
+        "Description": "   Industry: Finance  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Melrose PLC",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/be\/Melrose_plc_logo.png"
+    },
+    "Mondi": {
+        "Term": "Mondi",
+        "Description": "   Industry: Packaging and paper  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Mondi",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/e8\/Mondi.svg"
+    },
+    "Morrison (Wm) Supermarkets": {
+        "Term": "Morrison (Wm) Supermarkets",
+        "Description": "MRW.L  Stockprice:\u00a3196,20   -1,30         Industry: Retailing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Morrison (Wm) Supermarkets",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/1b\/Morrisons_Logo.svg"
+    },
+    "National Grid": {
+        "Term": "National Grid",
+        "Description": "NG.L  Stockprice:\u00a3838,58  + 2,08         Industry: Utilities  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= National Grid PLC",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/a\/aa\/National_Grid.svg"
+    },
+    "Next": {
+        "Term": "Next",
+        "Description": "NXT.L  Stockprice:\u00a36.610,00  -40,00         Industry: Retail  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Next plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/54\/Next_2007-_logo.svg"
+    },
+    "Old Mutual": {
+        "Term": "Old Mutual",
+        "Description": "OML.L  Stockprice:\u00a3202,60  + 2,10         Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Old Mutual",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/5c\/Old_Mutual.svg"
+    },
+    "Pearson": {
+        "Term": "Pearson",
+        "Description": "PSON.L  Stockprice:\u00a31.094,00  -8,00         Industry: Media  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Pearson plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/d\/d2\/Pearson_Without_Strapline_Blue_RGB_HiRes.png"
+    },
+    "Persimmon": {
+        "Term": "Persimmon",
+        "Description": "   Industry: Housebuilding  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Persimmon plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/3\/30\/Persimmon.svg"
+    },
+    "Petrofac": {
+        "Term": "Petrofac",
+        "Description": "PFC.L  Stockprice:\u00a31.463,00  + 9,00         Industry: Engineering, procurement & construction and oil & gas  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Petrofac",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/8f\/Petrofac.svg"
+    },
+    "Prudential": {
+        "Term": "Prudential",
+        "Description": "PRU.L  Stockprice:\u00a31.368,50  -4,50         Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Prudential",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/9\/97\/Prudential_plc_logo.svg"
+    },
+    "RSA Insurance Group": {
+        "Term": "RSA Insurance Group",
+        "Description": "RSA.L  Stockprice:\u00a397,69  + 0,19         Industry: Insurance  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= RSA Insurance Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/8c\/RSA_Insurance_Group_%28emblem%29.svg"
+    },
+    "Randgold Resources": {
+        "Term": "Randgold Resources",
+        "Description": "RRS.L  Stockprice:\u00a34.739,00  + 61,00         Industry: Mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Randgold Resources",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/c\/c5\/Randgoldlogo.PNG"
+    },
+    "Reckitt Benckiser Group": {
+        "Term": "Reckitt Benckiser Group",
+        "Description": "RB.L  Stockprice:\u00a34.840,00  -43,00         Industry: Consumer goods  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Reckitt Benckiser Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/fb\/Reckitt_Benckiser_logo.png"
+    },
+    "Reed Elsevier": {
+        "Term": "Reed Elsevier",
+        "Description": "REL.L  Stockprice:\u00a3876,50  -7,50         Industry: Media  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Reed Elsevier",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/fb\/Reed_Elsevier.svg"
+    },
+    "Resolution": {
+        "Term": "Resolution",
+        "Description": "RSL.L  Stockprice:\u00a3301,00  + 3,40               Industry: Insurance, pensions and life assurance  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Resolution",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/8c\/Resolution_plc.jpg"
+    },
+    "Rexam": {
+        "Term": "Rexam",
+        "Description": "REX.L  Stockprice:\u00a3504,00  -6,00         Industry: Packaging  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Rexam",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/d5\/Rexam.svg"
+    },
+    "Rio Tinto": {
+        "Term": "Rio Tinto",
+        "Description": "RIO.L  Stockprice:\u00a33.247,00  + 47,00   Industry: Metals and mining  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Rio Tinto",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/78\/Rio_Tinto.svg"
+    },
+    "Rolls-Royce Holdings": {
+        "Term": "Rolls-Royce Holdings",
+        "Description": "RR.L  Stockprice:\u00a31.026,00  -14,00         Industry: Aerospace and defence  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Rolls-Royce Holdings",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/ae\/Rolls-Royce_logo.svg"
+    },
+    "Royal Bank Of Scotland Group": {
+        "Term": "Royal Bank Of Scotland Group",
+        "Description": "RBS.L  Stockprice:\u00a3335,84  + 29,24         Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Royal Bank Of Scotland Group",
+        "Image": "http:\/\/en.wikipedia.org\/wiki\/Royal_Bank_Of_Scotland_Group"
+    },
+    "Royal Dutch Shell A": {
+        "Term": "Royal Dutch Shell A",
+        "Description": "   Industry: Oil and gas  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Royal Dutch Shell A",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/5\/5a\/Shell-logo.svg"
+    },
+    "Royal Dutch Shell B": {
+        "Term": "Royal Dutch Shell B",
+        "Description": "RDSB.L  Stockprice:\u00a32.533,00  + 28,50         Industry: Oil and gas  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Royal Dutch Shell B",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/5\/5a\/Shell-logo.svg"
+    },
+    "Royal Mail": {
+        "Term": "Royal Mail",
+        "Description": "   Industry: Postal services and courier  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Royal Mail",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/ee\/Royal_Mail.svg"
+    },
+    "SABMiller": {
+        "Term": "SABMiller",
+        "Description": "SAB.L  Stockprice:\u00a33.252,33  + 42,83         Industry: Brewing and beverage  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= SABMiller",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/a3\/SABMiller.svg"
+    },
+    "SSE": {
+        "Term": "SSE",
+        "Description": "SSE.L  Stockprice:\u00a31.530,24  + 1,24         Industry: Electric utility  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= SSE plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/6\/6e\/Scottish_and_Southern_Energy.svg"
+    },
+    "Sage Group": {
+        "Term": "Sage Group",
+        "Description": "SGE.L  Stockprice:\u00a3421,47  + 0,67         Industry: Software  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Sage Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/6\/62\/Sage.svg"
+    },
+    "Sainsbury (J)": {
+        "Term": "Sainsbury (J)",
+        "Description": "SBRY.L  Stockprice:\u00a3323,91  -1,19         Industry: Retailing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Sainsbury (J)",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/d\/d2\/JSainsburys_Logo.svg"
+    },
+    "Schroders": {
+        "Term": "Schroders",
+        "Description": "SDRC.L  Stockprice:\u00a32.613,00  + 4,00 Industry: Investment management  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Schroders",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/d5\/Schroders.svg"
+    },
+    "Severn Trent": {
+        "Term": "Severn Trent",
+        "Description": "SVT.L  Stockprice:\u00a31.833,00   -15,00         Industry: Water industry  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Severn Trent",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/54\/Severn_Trent_PLC_Logo.png"
+    },
+    "Shire": {
+        "Term": "Shire",
+        "Description": "SHP.L  Stockprice:\u00a33.467,00  + 17,00         Industry: Pharmaceuticals  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Shire plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/1d\/Shire_blue_logo.gif"
+    },
+    "Smith & Nephew": {
+        "Term": "Smith & Nephew",
+        "Description": "SN.L  Stockprice:\u00a3914,48  + 9,48         Industry: Medical equipment  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Smith & Nephew plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/d1\/Smith_%26_Nephew.svg"
+    },
+    "Smiths Group": {
+        "Term": "Smiths Group",
+        "Description": "SMIN.L  Stockprice:\u00a31.321,00  -20,00         Industry: Engineering  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Smiths Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/ed\/Smiths_Group.svg"
+    },
+    "Sports Direct International": {
+        "Term": "Sports Direct International",
+        "Description": "   Industry: Retailing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Sports Direct International",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/a5\/Sports_Direct.svg"
+    },
+    "St.James Place": {
+        "Term": "St.James Place",
+        "Description": "   Industry: Finance  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= St.James Place plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/1\/1e\/SJP_Wealth_Managemen_logo.jpg"
+    },
+    "Standard Chartered": {
+        "Term": "Standard Chartered",
+        "Description": "STAN.L  Stockprice:\u00a31.287,50  -1,50         Industry: Banking and financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Standard Chartered",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/a\/ae\/Standard_Chartered.svg"
+    },
+    "Standard Life": {
+        "Term": "Standard Life",
+        "Description": "SL.L  Stockprice:\u00a3384,50  -0,80 Industry: Financial services  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Standard Life",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/6\/62\/Standard_Life_logo.gif"
+    },
+    "TUI Travel": {
+        "Term": "TUI Travel",
+        "Description": "   Industry: Transport  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= TUI Travel",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f8\/TUI_Travel.svg"
+    },
+    "Tesco": {
+        "Term": "Tesco",
+        "Description": "TSCO.L  Stockprice:\u00a3285,50  -1,05 Industry: Retailing  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Tesco",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/b0\/Tesco_Logo.svg"
+    },
+    "Travis Perkins": {
+        "Term": "Travis Perkins",
+        "Description": "   Industry: Business-to-business and retail  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Travis Perkins",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/d\/df\/Travis_Perkins.svg"
+    },
+    "Tullow Oil": {
+        "Term": "Tullow Oil",
+        "Description": "TLW.L  Stockprice:\u00a3883,50        + 3,00         Industry: Oil and gas exploration  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Tullow Oil",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/bc\/Tullow_Oil.svg"
+    },
+    "Unilever": {
+        "Term": "Unilever",
+        "Description": "ULVR.L  Stockprice:\u00a32.606,00        -15,00 Industry: Consumer goods  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Unilever",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/e\/e4\/Unilever.svg"
+    },
+    "United Utilities Group": {
+        "Term": "United Utilities Group",
+        "Description": "UU.L  Stockprice:\u00a3794,00        0,00         Industry: Utility \u2013 water, wastewater  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= United Utilities Group plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/b\/bd\/UnitedUtilities.png"
+    },
+    "Vodafone Group": {
+        "Term": "Vodafone Group",
+        "Description": "VOD.L  Stockprice:\u00a3222,90       + 2,25         Industry: Telecommunications  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Vodafone Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/5\/57\/Vodafone_logo.svg"
+    },
+    "WPP": {
+        "Term": "WPP",
+        "Description": "WPP.L  Stockprice:\u00a31.286,00        0,00         Industry: Advertising and public relations  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= WPP plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/2\/2d\/WPP_Group.svg"
+    },
+    "Weir Group": {
+        "Term": "Weir Group",
+        "Description": "WEIR.L  Stockprice:\u00a32.654,00  + 20,00         Industry: Engineering  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Weir Group",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/9\/91\/WeirGroupLogo.png"
+    },
+    "Whitbread": {
+        "Term": "Whitbread",
+        "Description": "WTB.L  Stockprice:\u00a34.070,00  + 1,00         Industry: Leisure and hospitality  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Whitbread",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/f\/f0\/Whitbread_logo.png"
+    },
+    "William Hill": {
+        "Term": "William Hill",
+        "Description": "   Industry: Gambling  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= William Hill plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/c\/cf\/William_Hill.svg"
+    },
+    "Wolseley": {
+        "Term": "Wolseley",
+        "Description": "WOS.L  Stockprice:\u00a33.475,00  + 24,00         Industry: Building materials  Read more here: http:\/\/en.wikipedia.org\/w\/index.php?search= Wolseley plc",
+        "Image": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/7a\/Wolseley.svg"
+    }
+}

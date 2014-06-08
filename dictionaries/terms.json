@@ -1,0 +1,136 @@
+{
+    "_config": {
+        "Name": "Adhoc",
+        "Search": "https://en.wikipedia.org/w/index.php?search="
+    },
+    "Caspian Sea": {
+        "Term": "Caspian Sea",
+        "Description": "The Caspian Sea, located in western Asia on the eastern edges of Europe, is the largest lake on the planet.",
+        "Image": ""
+    },
+    "Shah Deniz": {
+        "Term": "Shah Deniz",
+        "Description": "Shah Deniz gas field is the largest natural gas field in Azerbaijan. It is situated in the South Caspian Sea, off the coast of Azerbaijan.",
+        "Image": "http:\/\/www.offshoreenergytoday.com\/wp-content\/uploads\/2013\/09\/Shah-Deniz-Consortium-Signs-Major-Gas-Sales-Deal-with-European-Buyers.jpg"
+    },
+    "European": {
+        "Term": "European",
+        "Description": "Anything relating to or characteristic of Europe or its inhabitants",
+        "Image": ""
+    },
+    "E.ON": {
+        "Term": "E.ON",
+        "Description": "A major investor-owned energy supplier who  facilities across Europe, Russia, and North America.",
+        "Image": ""
+    },
+    "Adriatic Sea": {
+        "Term": "Adriatic Sea",
+        "Description": "A part of the Mediterranean Sea. It is positioned between the eastern coastline of Italy and the coastline of countries of the Balkan Peninsula (Slovenia, Croatia, Bosnia and Herzegovina, Montenegro and Albania).",
+        "Image": ""
+    },
+    "Britain": {
+        "Term": "Britain",
+        "Description": "Great Britain, also known as Britain, is an island in the Atlantic Ocean off the north-western coast of continental Europe.",
+        "Image": ""
+    },
+    "Statoil": {
+        "Term": "Statoil",
+        "Description": "A Norwegian multinational oil and gas company.",
+        "Image": ""
+    },
+    "Ilham Aliyev": {
+        "Term": "Ilham Aliyev",
+        "Description": "President of Azerbaijan, since 2003.",
+        "Image": "http:\/\/www.trend.az\/article_photo\/2009\/10\/30\/Ilham_Aliyev_301009_9.jpg"
+    },
+    "Amnesty International": {
+        "Term": "Amnesty International",
+        "Description": "A non-governmental organisation focused on human rights.",
+        "Image": ""
+    },
+    "Al Cook": {
+        "Term": "Al Cook",
+        "Description": "",
+        "Image": "http:\/\/www.azerbaijantoday.az\/ARCHIVE\/29\/photos\/18bp.jpg"
+    },
+    "BOTAS": {
+        "Term": "BOTAS",
+        "Description": "The Petroleum Pipeline Corporation is the state-owned crude oil and natural gas pipelines and trading company in Turkey.",
+        "Image": ""
+    },
+    "European Union": {
+        "Term": "European Union",
+        "Description": "An economic and political union of 28 member states located in Europe.",
+        "Image": ""
+    },
+    "Trans Adriatic Pipeline": {
+        "Term": "Trans Adriatic Pipeline",
+        "Description": "A natural gas pipeline project. The pipeline will start in Greece, cross Albania and the Adriatic Sea and come ashore in southern Italy, allowing gas to flow directly from the Caspian region to European markets.",
+        "Image": ""
+    },
+    "SOCAR": {
+        "Term": "SOCAR",
+        "Description": "A state-owned oil and natural gas corporation of Azerbaijan.",
+        "Image": ""
+    },
+    "Deepwater Horizon": {
+        "Term": "Deepwater Horizon",
+        "Description": "A drillingrig that exploded in april 2010 and leaked oil in the sea.",
+        "Image": "http:\/\/static.guim.co.uk\/sys-images\/Business\/Pix\/pictures\/2010\/10\/19\/1287476298203\/Deepwater-Horizon-006.jpg"
+    },
+    "South Caucusus": {
+        "Term": "South Caucusus",
+        "Description": "The South Caucasus is a geopolitical region located on the border of Eastern Europe and Southwest Asia. It consists of the countries Armenia and the majority of Georgia and Azerbaijan.",
+        "Image": ""
+    },
+    "Trans-Anatolian Pipeline": {
+        "Term": "Trans-Anatolian Pipeline",
+        "Description": "The Trans-Anatolia Gas Pipeline is a gas pipeline project that will carry Azerbaijani natural gas to Europe through Turkey.",
+        "Image": ""
+    },
+    "Baku Tsibilisi Ceyhan": {
+        "Term": "Baku Tsibilisi Ceyhan",
+        "Description": "The 1,768km Baku-Tbilisi-Ceyhan pipeline transports oil across Azerbaijan, Georgia and Turkey from the ACG field which is a large complex of oil fields in the Caspian Sea.",
+        "Image": ""
+    },
+    "Corner House": {
+        "Term": "Corner House",
+        "Description": "A grassroot organization that supports democratic and community movements for environmental and social justice.",
+        "Image": ""
+    },
+    "Marriott": {
+        "Term": "Marriott",
+        "Description": "A large chain of hotels all over the world.",
+        "Image": ""
+    },
+    "Platform": {
+        "Term": "Platform",
+        "Description": "Platform London is an interdisciplinary London-based art and campaigning collective founded in 1983 that creates projects with social justice and environmental justice themes.",
+        "Image": ""
+    },
+    "The Oil Road": {
+        "Term": "The Oil Road",
+        "Description": "A book about oil imported from the Caspian.",
+        "Image": ""
+    },
+    "Euro-Caspian": {
+        "Term": "Euro-Caspian",
+        "Description": "The Trans-Caspian (also called Euro-Caspian) Gas Pipeline is a project which if built would transport natural gas from Kazakhstan and Turkmenistan to central Europe, circumventing both Russia and Iran.",
+        "Image": ""
+    },
+    "EU": {
+        "Term": "EU",
+        "Description": "The European Union is a supra-national governing body in Europe. 28 nations are part of the EU.",
+        "Image": ""
+    },
+    "Azeri": {
+        "Term": "Azeri",
+        "Description": "The people of the Republic of Azerbaijan. Their official language is Azerbaijani.",
+        "Image": ""
+    },
+    "UK": {
+        "Term": "UK",
+        "Description": "The United Kingdom is an island-nation located north-west of Europe's mainland. It is the world's sixth-largest economy.",
+        "Image": ""
+    }
+}
